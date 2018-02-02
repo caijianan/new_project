@@ -37,7 +37,9 @@ class AdministratorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        echo '管理员添加';
+
     }
 
     /**
@@ -48,7 +50,10 @@ class AdministratorController extends Controller
      */
     public function show($id)
     {
-        //
+
+
+        // 
+
     }
 
     /**
@@ -59,7 +64,8 @@ class AdministratorController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        echo '管理员修改页面';
     }
 
     /**
@@ -71,7 +77,8 @@ class AdministratorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
     }
 
     /**
@@ -82,6 +89,12 @@ class AdministratorController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        echo '管理员删除';
     }
+
+    public function info($id)
+    {
+        echo '管理员详情';
+            }
 }

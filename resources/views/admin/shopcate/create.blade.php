@@ -3,7 +3,7 @@
 <section id="content">
                 <div class="container">
                     <div class="block-header">
-                        <h2>错误显示区域</h2>
+                        <h2>Form Components</h2>
                     
                         <ul class="actions">
                             <li>
@@ -41,101 +41,29 @@
                         
                         
                         <div class="card-body card-padding">
-                            <p class="c-black f-500 m-b-5"><h4>添加管理员</h4></p>
+                            <p class="c-black f-500 m-b-5"><h4>添加分类</h4></p>
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
-
-                            <form action="{{ url('admin/administrator') }}" method="post">
-                                {{ csrf_field() }}
-
+                            <form action="/admin/user/add" method="post">
                             <div class="row">
                                 <div class="col-sm-8">                       
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
-                                                <input type="text" class="form-control" placeholder="请填写管理员">
-                                        </div>
-                                    </div><br>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
-                                        <div class="fg-line">
-                                                <input type="password" class="form-control" placeholder="请填写密码">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
-                                        <div class="fg-line">
-                                                <input type="password" class="form-control" placeholder="确认密码">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-local-phone"></i></span>
-                                        <div class="fg-line">
-                                            <input type="text" class="form-control" placeholder="请填写联系方式">
-                                        </div>
-                                    </div>
-                                    
-                                    <br>
-                                    
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
-                                        <div class="fg-line">
-                                            <input type="text" class="form-control" placeholder="请填写电子邮箱">
-                                        </div>
-                                    </div>
-                                    
-                                    <br>
-                                    
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span>
-                                        <div class="fg-line">    
-                                            <input type="text" class="form-control" placeholder="请填写地址">
+                                                <input type="text" class="form-control" placeholder="请填写分类名称">
                                         </div>
                                     </div><br>
                                     <div class="input-group">
                                         <span class="input-group-addon"></span>
                                         <div class="fg-line">
                                           <!-- <button class="btn bgm-lightblue waves-effect form-control" >提交</button> -->
-                                          <input type="submit" value=" 注 册 用 户 " class="btn bgm-lightblue waves-effect form-control">
+                                          <input type="submit" value=" 添 加 分 类 " class="btn bgm-lightblue waves-effect form-control">
                                         </div>
                                     </div><br>
                                     
                                 </div>
                                 
-                                <div class="col-sm-4">                       
-                            
-                            <p class="f-500 c-black m-b-20">上传头像:</p>
-                            
-                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
-                                <br><br>
-                                <div>
-                                    <span class="btn btn-info btn-file waves-effect">
-                                        <span class="fileinput-new"> 上 传 头 像 </span>
-                                        <span class="fileinput-exists"> 修 改 头 像 </span>
-                                        <input type="file" name="...">
-                                    </span>
-                                    <a href="#" class="btn btn-danger fileinput-exists waves-effect" data-dismiss="fileinput"> 删 除 头 像 </a>
-                                </div>
-                            </div>
-                            
-                            <br>
-                            <br>
-                            <p>如过不上传头像则使用默认头像.</p>
-                        </div>
-
-                            </div>
-                            
-                            <br><br>
-                            
-                            <br>
-                            <br>
-                            <br>
-                        
                         <br>
                     </div>
 

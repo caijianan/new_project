@@ -151,33 +151,37 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.1.0",
+
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
+                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/doctrine/inflector/90b2128806bfde671b6952ab8bea493942c1fdae.zip",
-                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
+                "url": "https://files.phpcomposer.com/files/doctrine/inflector/e11d84c6e018beedd929cff5220969a3c6d1d462.zip",
+                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*"
+                "phpunit/phpunit": "^6.2"
+
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Inflector\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
+
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -214,7 +218,9 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06T14:35:42+00:00"
+
+            "time": "2017-07-22T12:18:28+00:00"
+
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1023,16 +1029,17 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.7.40",
+
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "26fa9a4d5944c0080991414d64cdd7fc75058878"
+                "reference": "a39062a5a1e98a1f1e392e4253a6b3b0ebdece18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/console/26fa9a4d5944c0080991414d64cdd7fc75058878.zip",
-                "reference": "26fa9a4d5944c0080991414d64cdd7fc75058878",
+                "url": "https://files.phpcomposer.com/files/symfony/console/a39062a5a1e98a1f1e392e4253a6b3b0ebdece18.zip",
+                "reference": "a39062a5a1e98a1f1e392e4253a6b3b0ebdece18",
                 "shasum": ""
             },
             "require": {
@@ -1079,11 +1086,12 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:23:28+00:00"
+
+            "time": "2018-01-26T15:25:25+00:00"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.8.33",
+            "version": "v2.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -1136,16 +1144,17 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v2.7.40",
+
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "ff9e8cb4012a1e9095553b35ca3c6d3b54782486"
+                "reference": "bc9e38887a540abd287ff43c1a334f8e3f7aebea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/debug/ff9e8cb4012a1e9095553b35ca3c6d3b54782486.zip",
-                "reference": "ff9e8cb4012a1e9095553b35ca3c6d3b54782486",
+                "url": "https://files.phpcomposer.com/files/symfony/debug/bc9e38887a540abd287ff43c1a334f8e3f7aebea.zip",
+                "reference": "bc9e38887a540abd287ff43c1a334f8e3f7aebea",
                 "shasum": ""
             },
             "require": {
@@ -1189,11 +1198,12 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T17:10:39+00:00"
+
+            "time": "2018-01-18T22:01:50+00:00"
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.7.40",
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -1248,7 +1258,6 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -1308,16 +1317,17 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v2.7.40",
+<
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "b9a4e37aeb5a367df8f6a898ead1de39cf59356c"
+                "reference": "75f766f4a1c60407ec371cd2a7ef0a09d0e8e745"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/finder/b9a4e37aeb5a367df8f6a898ead1de39cf59356c.zip",
-                "reference": "b9a4e37aeb5a367df8f6a898ead1de39cf59356c",
+                "url": "https://files.phpcomposer.com/files/symfony/finder/75f766f4a1c60407ec371cd2a7ef0a09d0e8e745.zip",
+                "reference": "75f766f4a1c60407ec371cd2a7ef0a09d0e8e745",
                 "shasum": ""
             },
             "require": {
@@ -1353,20 +1363,20 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:23:28+00:00"
+            "time": "2018-01-24T17:56:32+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.7.40",
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "52b883bba7266b2442b9707b6915f01d09fdae3c"
+                "reference": "38383ce661cc260dfcd0e4b0b588f3dfa5572fb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/http-foundation/52b883bba7266b2442b9707b6915f01d09fdae3c.zip",
-                "reference": "52b883bba7266b2442b9707b6915f01d09fdae3c",
+                "url": "https://files.phpcomposer.com/files/symfony/http-foundation/38383ce661cc260dfcd0e4b0b588f3dfa5572fb0.zip",
+                "reference": "38383ce661cc260dfcd0e4b0b588f3dfa5572fb0",
                 "shasum": ""
             },
             "require": {
@@ -1409,20 +1419,21 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T17:10:39+00:00"
+
+            "time": "2018-01-29T09:18:42+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v2.7.40",
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "6b20a555b574fc8ed978e318d8a9d4573a1fc18d"
+                "reference": "6b1759b40031e7f82cf3231c0be43785699e6706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/http-kernel/6b20a555b574fc8ed978e318d8a9d4573a1fc18d.zip",
-                "reference": "6b20a555b574fc8ed978e318d8a9d4573a1fc18d",
+                "url": "https://files.phpcomposer.com/files/symfony/http-kernel/6b1759b40031e7f82cf3231c0be43785699e6706.zip",
+                "reference": "6b1759b40031e7f82cf3231c0be43785699e6706",
                 "shasum": ""
             },
             "require": {
@@ -1492,7 +1503,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-05T05:16:01+00:00"
+c8728543eca1ee0714a30b6cbea97d74228
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1663,16 +1674,17 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.7.40",
+
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "f4f4f13db15849e79443c0ada67082040e783d37"
+                "reference": "9f3ba7d13b39d3808ce46715da5350b98368b9de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/process/f4f4f13db15849e79443c0ada67082040e783d37.zip",
-                "reference": "f4f4f13db15849e79443c0ada67082040e783d37",
+                "url": "https://files.phpcomposer.com/files/symfony/process/9f3ba7d13b39d3808ce46715da5350b98368b9de.zip",
+                "reference": "9f3ba7d13b39d3808ce46715da5350b98368b9de",
                 "shasum": ""
             },
             "require": {
@@ -1708,20 +1720,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:23:28+00:00"
+        "time": "2018-01-21T19:40:00+00:00"
         },
         {
             "name": "symfony/routing",
-            "version": "v2.7.40",
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "21d76302177151ed8463166663da4d45e63a5612"
+                "reference": "f9e62983a64343f9845ab4a15656cf1e1719809a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/routing/21d76302177151ed8463166663da4d45e63a5612.zip",
-                "reference": "21d76302177151ed8463166663da4d45e63a5612",
+                "url": "https://files.phpcomposer.com/files/symfony/routing/f9e62983a64343f9845ab4a15656cf1e1719809a.zip",
+                "reference": "f9e62983a64343f9845ab4a15656cf1e1719809a",
                 "shasum": ""
             },
             "require": {
@@ -1782,20 +1794,21 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-01-03T18:00:19+00:00"
+
+            "time": "2018-01-16T16:51:05+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v2.7.40",
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "a3c14161a92c275aeabff7c8553dcbc293e64d96"
+                "reference": "bf521bfd1ba3f532810a1b3e2a81e8bfa15dce47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/translation/a3c14161a92c275aeabff7c8553dcbc293e64d96.zip",
-                "reference": "a3c14161a92c275aeabff7c8553dcbc293e64d96",
+                "url": "https://files.phpcomposer.com/files/symfony/translation/bf521bfd1ba3f532810a1b3e2a81e8bfa15dce47.zip",
+                "reference": "bf521bfd1ba3f532810a1b3e2a81e8bfa15dce47",
                 "shasum": ""
             },
             "require": {
@@ -1845,20 +1858,21 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:23:28+00:00"
+
+            "time": "2018-01-17T08:38:26+00:00"
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v2.7.40",
+            "version": "v2.7.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "76a48679d701983628c47b7a94e6d0a7db23cc74"
+                "reference": "06d81d8e70ed74e8c04a3055b0471353dc813737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/var-dumper/76a48679d701983628c47b7a94e6d0a7db23cc74.zip",
-                "reference": "76a48679d701983628c47b7a94e6d0a7db23cc74",
+                "url": "https://files.phpcomposer.com/files/symfony/var-dumper/06d81d8e70ed74e8c04a3055b0471353dc813737.zip",
+                "reference": "06d81d8e70ed74e8c04a3055b0471353dc813737",
                 "shasum": ""
             },
             "require": {
@@ -1907,7 +1921,6 @@
                 "debug",
                 "dump"
             ],
-            "time": "2018-01-03T10:33:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2227,29 +2240,37 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.3.2",
+
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "bf329f6c1aadea3299f08ee804682b7c45b326a2"
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/phpDocumentor/ReflectionDocBlock/bf329f6c1aadea3299f08ee804682b7c45b326a2.zip",
-                "reference": "bf329f6c1aadea3299f08ee804682b7c45b326a2",
+                "url": "https://files.phpcomposer.com/files/phpDocumentor/ReflectionDocBlock/94fd0001232e47129dd3504189fa1c7225010d08.zip",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0",
+                "php": "^7.0",
                 "phpdocumentor/reflection-common": "^1.0.0",
                 "phpdocumentor/type-resolver": "^0.4.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.4"
+
+                "doctrine/instantiator": "~1.0.5",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "phpDocumentor\\Reflection\\": [
@@ -2268,7 +2289,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-10T14:09:06+00:00"
+
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -3241,16 +3262,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.3.15",
+
+            "version": "v3.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "7c80d81b5805589be151b85b0df785f0dc3269cf"
+                "reference": "af615970e265543a26ee712c958404eb9b7ac93d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/yaml/7c80d81b5805589be151b85b0df785f0dc3269cf.zip",
-                "reference": "7c80d81b5805589be151b85b0df785f0dc3269cf",
+                "url": "https://files.phpcomposer.com/files/symfony/yaml/af615970e265543a26ee712c958404eb9b7ac93d.zip",
+                "reference": "af615970e265543a26ee712c958404eb9b7ac93d",
                 "shasum": ""
             },
             "require": {
@@ -3292,20 +3314,21 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:11+00:00"
+
+            "time": "2018-01-20T15:04:53+00:00"
         },
         {
             "name": "webmozart/assert",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f"
+                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/webmozart/assert/2db61e59ff05fe5126d152bd0655c9ea113e550f.zip",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
+                "url": "https://files.phpcomposer.com/files/webmozart/assert/0df1908962e7a3071564e857d86874dad1ef204a.zip",
+                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
                 "shasum": ""
             },
             "require": {
@@ -3342,7 +3365,8 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23T20:04:58+00:00"
+
+            "time": "2018-01-29T19:49:41+00:00"
         }
     ],
     "aliases": [],

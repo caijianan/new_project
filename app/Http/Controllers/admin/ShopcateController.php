@@ -26,7 +26,8 @@ class ShopcateController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admin.shopcate.create');
     }
 
     /**
@@ -59,7 +60,7 @@ class ShopcateController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo '商品分类修改页面';
     }
 
     /**
@@ -82,6 +83,6 @@ class ShopcateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo '商品分类删除';
     }
 }

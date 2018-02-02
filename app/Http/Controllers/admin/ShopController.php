@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        return view('admin.shop.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        return view('admin.shop.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.user.edit');
+        echo  '商铺修改';
     }
 
     /**
@@ -82,15 +82,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        echo '用户删除';
-
-    }
-    /**
-     * 用户详情
-     * @return [type] [用户详情模版]
-     */
-    public function info()
-    {
-        return view('admin.user.info');
+        echo '商铺删除';
     }
 }

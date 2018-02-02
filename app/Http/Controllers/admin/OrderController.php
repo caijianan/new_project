@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        return view('admin.order.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        echo '添加订单页面';
     }
 
     /**
@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.user.edit');
+        echo '订单修改页面';
     }
 
     /**
@@ -82,15 +82,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        echo '用户删除';
-
+        echo '删除订单';
     }
-    /**
-     * 用户详情
-     * @return [type] [用户详情模版]
-     */
-    public function info()
+    public function info($id)
     {
-        return view('admin.user.info');
+        echo '订单详情';
     }
 }
