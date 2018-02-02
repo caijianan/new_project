@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ShopController extends Controller
+class AuditController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        return view('admin.shop.index');
+        echo '审核列表';
     }
 
     /**
@@ -26,7 +26,7 @@ class ShopController extends Controller
      */
     public function create()
     {
-        return view('admin.shop.create');
+        echo '审核添加';
     }
 
     /**
@@ -59,7 +59,7 @@ class ShopController extends Controller
      */
     public function edit($id)
     {
-        echo  '商铺修改';
+        //
     }
 
     /**
@@ -82,6 +82,6 @@ class ShopController extends Controller
      */
     public function destroy($id)
     {
-        echo '商铺删除';
+        //
     }
 }

@@ -1,5 +1,9 @@
 @extends('admin.layout.index')
 @section('content')
+<form action="" method="post" name="myform">
+    {{ csrf_field() }}
+    {{ method_field('delete') }}
+</form>
 <section id="content">
 
                 <div class="container">
@@ -29,7 +33,7 @@
                     </div>
                     
                     <!-- Add button -->
-                    <button class="btn btn-float btn-danger m-btn waves-effect waves-circle waves-float"><i class="zmdi zmdi-plus"></i></button>
+                    <button class="btn btn-float btn-danger m-btn waves-effect waves-circle waves-float" onclick="refresh()"><i class="zmdi zmdi-plus"></i></button>
                 
                     
                     <div class="card">
@@ -111,7 +115,7 @@
                                         </div>
                 
                                         <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
+                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="{{ url('admin/shop/1/edit') }}" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="doDel(1)" class="btn btn-danger waves-effect">删除</a></font></font></button>
                                         </div>
                                     </div>
                                 </div>
@@ -327,13 +331,22 @@
                             </div>
 
                 
-                            <div class="load-more">
-                                <a href=""><i class="zmdi zmdi-refresh-alt"></i> Load More...</a>
-                            </div>
                         </div>
                     </div>
                 </div>  
 
             </section>
+            <script type="text/javascript">
+                function doDel(id)
+                {
+                    var form = document.myform;
+                    form.action = '{{ url("/admin/shop") }}/'+id;
+                    form.submit();
+                }
+                function refresh()
+                {
+                    window.location.href="{{ url('admin/shop/create') }}";
+                }
+            </script>
 
 @endsection
