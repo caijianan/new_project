@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\model\h_order;
 
 class OrderController extends Controller
 {
@@ -16,6 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $res = h_order::where('id','1')->first()->order_info->value('oid');
         return view('admin.order.index');
     }
 

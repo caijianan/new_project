@@ -9,27 +9,9 @@
                 <div class="container">
 
                     <div class="block-header">
-                        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系人</font></font><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">管理您的联系信息</font></font></small></h2>
+                        
                 
-                        <ul class="actions m-t-20 hidden-xs">
-                            <li class="dropdown">
-                                <a href="" data-toggle="dropdown">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-                
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐私设置</font></font></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">帐号设定</font></font></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他设置</font></font></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        
                     </div>
                     
                     <!-- Add button -->
@@ -101,236 +83,27 @@
                         
                         
                         <div class="card-body card-padding">
-                            
                             <div class="contacts clearfix row">
+                                @foreach($data as $k => $v)
                                 <div class="col-md-2 col-sm-4 col-xs-6">
                                     <div class="c-item">
                                         <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
+                                            <img src="/shop_pic/sm_{{ $v->s_page }}" alt="">
                                         </a>
                 
                                         <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
+                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->s_name }}</font></font></strong>
+                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->s_title }}</font></font></small>
                                         </div>
                 
                                         <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="{{ url('admin/shop/1/edit') }}" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="doDel(1)" class="btn btn-danger waves-effect">删除</a></font></font></button>
+                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href='{{ url("admin/shop/$v->id/edit") }}' class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger waves-effect">删除</a></font></font></button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <div class="c-item">
-                                        <a href="" class="ci-avatar">
-                                            <img src="/d/img/contacts/1.jpg" alt="">
-                                        </a>
-                
-                                        <div class="c-info">
-                                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">凯茜谢尔顿</font></font></strong>
-                                            <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cathy.shelton31@example.com</font></font></small>
-                                        </div>
-                
-                                        <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href="#" class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="#" class="btn btn-danger waves-effect">删除</a></font></font></button>
-                                        </div>
-                                    </div>
-                                </div>
-                
+                                @endforeach
                             </div>
 
-                
                         </div>
                     </div>
                 </div>  

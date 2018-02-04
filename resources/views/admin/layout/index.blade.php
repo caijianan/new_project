@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if IE 9 ]><html class="ie9"><![endif]-->
     <head>
@@ -28,7 +29,7 @@
         }
         </style>
     </head>
-    
+        
     <body>
         <header id="header" class="clearfix" data-current-skin="blue">
             <ul class="header-inner">
@@ -41,9 +42,9 @@
                 </li>
 
                 <li class="logo hidden-xs">
-                    <a href="index.html">Material Admin</a>
+                    <a href="index.html">XXXXXXX</a>
                 </li>
-
+                
                 <li class="pull-right">
                     <ul class="top-menu">
                         <li id="toggle-width">
@@ -551,8 +552,30 @@
                     </a>
                 </div>
             </aside>
-            
+            <section id="content">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger" >
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}    
+                </div>
+                @endif
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}    
+                </div>
+                @endif
+
+            </section>
             @section('content')
+                    
 
             @show
         </section>
