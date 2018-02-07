@@ -3,16 +3,13 @@
 <section id="content">
                 <div class="container">
                     <div class="block-header">
-                        <h2></h2>
-                        @if (count($errors) > 0)
-                            
-                                <h2>
-                                    @foreach ($errors->all() as $error)
-                                        <span style="color: red">{{ $error }}</span>
-                                    @endforeach
-                                </h2>
+                        <h2>修改管理员</h2>
+                        @if (session('error')) 
+                        <div class="alert alert-success"> 
+                            {{ session('error') }} 
+                        </div> 
                         @endif
-                    
+
                         <ul class="actions">
                             <li>
                                 <a href="">
@@ -49,34 +46,39 @@
                         
                         
                         <div class="card-body card-padding">
-                            <p class="c-black f-500 m-b-5"><h4>添加管理员</h4></p>
+                            <p class="c-black f-500 m-b-5"><h4>修改管理员</h4></p>
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
 
-                            <form action="{{ url('admin/administrator') }}" method="post" enctype="multipart/form-data">
+                            <form action='{{ url("admin/administrator/$info->id")}}' method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                <input type="hidden" name="_method" value="put">
 
                             <div class="row">
                                 <div class="col-sm-8">                       
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
-                                                <input type="text" class="form-control" placeholder="请填写管理员名称" name="auname">
+                                                <input type="text" class="form-control" value="{{$info->auname}}" name="auname">
                                         </div>
                                     </div><br>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
                                         <div class="fg-line">
-                                                <input type="password" class="form-control" placeholder="请设置密码" name="aupass">
+                                                <input type="text" class="form-control" value="{{$info->aupass}}" name="aupass">
                                         </div>
                                     </div>
                                     <br>    
                                     <div class="input-group">
                                         
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-                                        男<input type ="radio" name="ausex" value="1">&nbsp;&nbsp;&nbsp;&nbsp;
-                                        女<input type ="radio" name="ausex" value="2"> 
+                                        男<input type ="radio" name="ausex" value="1"
+                                         {{$info->ausex=1?'checked':''}}
+                                        >&nbsp;&nbsp;&nbsp;&nbsp;
+                                        女<input type ="radio" name="ausex" value="2"
+                                         {{$info->ausex=2?'checked':''}}
+                                        > 
                                         
                                         
                                     </div>

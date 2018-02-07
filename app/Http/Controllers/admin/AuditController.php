@@ -1,5 +1,5 @@
 <?php
-
+//
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class AuditController extends Controller
      */
     public function index()
     {
-        echo '审核列表';
+        return view('');
     }
 
     /**

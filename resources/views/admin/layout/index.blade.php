@@ -553,7 +553,8 @@
                     </a>
                 </div>
             </aside>
-            
+            <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="/layer/layer.js"></script>
             @section('content')
 
             @show
@@ -626,7 +627,7 @@
         <![endif]-->
         
         <!-- Javascript Libraries -->
-        <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        
         <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         
         <script src="/d/vendors/bower_components/flot/jquery.flot.js"></script>
