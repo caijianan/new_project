@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ShopcateController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ShopcateController extends Controller
      */
     public function index()
     {
-        return view('admin.shopcate.index');
+        return view('admin.order.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class ShopcateController extends Controller
      */
     public function create()
     {
-        return view('admin.shopcate.create');
+        echo '添加订单页面';
     }
 
     /**
@@ -59,7 +59,7 @@ class ShopcateController extends Controller
      */
     public function edit($id)
     {
-        echo '商品分类修改页面';
+        echo '订单修改页面';
     }
 
     /**
@@ -82,6 +82,10 @@ class ShopcateController extends Controller
      */
     public function destroy($id)
     {
-        echo '商品分类删除';
+        echo '删除订单';
+    }
+    public function info($id)
+    {
+        echo '订单详情';
     }
 }

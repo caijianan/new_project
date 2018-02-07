@@ -1,5 +1,9 @@
 @extends('admin.layout.index')
 @section('content')
+<form action="" method="post" name="myform">
+    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+</form>
 <section id="content">
 <div class="container">
     <div class="block-header">
@@ -52,7 +56,7 @@
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>注册IP</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>修改 &nbsp; / &nbsp; 详情 &nbsp; / &nbsp;删除</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>&nbsp;修改 &nbsp;&nbsp;/ &nbsp;&nbsp;删除</h4></font></font>
                         </th>
                     </tr>
                 </thead>
@@ -77,293 +81,9 @@
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
                         </td>
                         <td>
-                            <font style="vertical-align: inherit;"><a href="{{ url('admin/user/1/edit') }}" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
+                            <font style="vertical-align: inherit;"><a href="{{ url('admin/shopcate/1/edit') }}" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
                         </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="/admin/user/1/info" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-
-
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
-                                        <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="#" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href="#" class="btn btn-danger">
+                        <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel(1)" class="btn btn-danger">
                             <font style="vertical-align: inherit;">删除</font></a></font>
                         </td>
                     </tr>
@@ -395,6 +115,17 @@
 
 
         <script type="text/javascript">
+
+
+        function doDel(id)
+        {
+            var form  = document.myform;
+            form.action = '{{ url("admin/shopcate") }}/'+id;
+            // alert(form.action);
+            form.submit();
+        }
+
+
             /*
              * Notifications
              */

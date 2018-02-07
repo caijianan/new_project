@@ -24,6 +24,20 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::get('user/{id}/info','admin\UserController@info');
 	// 后台管理员模块
 	Route::resource('administrator','admin\AdministratorController');
-	// 后台店铺模块
+	Route::get('administrator/{id}/info','admin\AdministratorController@info');
+	// 后台店铺分类模块
 	Route::resource('shopcate','admin\ShopcateController');
+	// 后台商铺模块
+	Route::resource('shop','admin\ShopController');
+	// 后台订单模块
+	Route::resource('order','admin\OrderController');
+	Route::get('order/{id}/info','admin\OrderController@info');
+	// 后台活动模块
+	Route::resource('activity','admin\ActivityController');
+	// 后台投诉模块
+	Route::resource('complain','admin\ComplainController');
+	// 后台审核模块
+	Route::resource('audit','admin\AuditController');
+	// 后台广告管理
+	Route::resource('advert','admin\AdvertController');
 });

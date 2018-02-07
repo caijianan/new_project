@@ -82,7 +82,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo '用户删除';
     }
     /**
      * 用户详情
