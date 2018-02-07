@@ -34,7 +34,8 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::resource('order','admin\OrderController');
 	Route::get('order/{id}/info','admin\OrderController@info');
 	// 后台活动模块
-	Route::resource('activity','admin\activityController');
+
+	Route::resource('activity','admin\ActivityController');
 	// 后台投诉模块
 	Route::resource('complain','admin\ComplainController');
 	// 后台审核模块

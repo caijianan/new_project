@@ -1,7 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
 
-
 <section id="content">
 <div class="container">
     <div class="block-header">
@@ -77,6 +76,7 @@
                     @foreach (  $list as $v)
                     <tr>
                         <td>
+
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->id}}</font></font>
                         </td>
                         <td>
@@ -105,6 +105,7 @@
                             <font style="vertical-align: inherit;">删除</font></a>
                         </font>
                         </td>
+
                     </tr>
                     @endforeach
                 </tbody>
@@ -123,6 +124,7 @@
         <script type="text/javascript">
 
         // 用户删除
+
         function doDel(id,_this)
         {
 
@@ -149,6 +151,7 @@
                 btn: ['明白了', '知道了']
                 });
             });
+
         }
 
 

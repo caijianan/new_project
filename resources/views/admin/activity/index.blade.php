@@ -2,24 +2,22 @@
 @section('content')
 <form action="" method="post" name="myform">
     {{ csrf_field() }}
-    {{ method_field('DELETE') }}
+    {{ method_field('delete') }}
 </form>
 <section id="content">
 <div class="container">
     <div class="block-header">
-        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表</font></font></h2>
+        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">投诉列表</font></font></h2>
     </div>
     <div class="card">
         <div class="card-header">
-            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">悬停行在</font></font><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tbody中的表行上启用悬停状态</font></font></small></h2>
-            <br>
             <div class="row">
                 <div class="col-sm-2">
                 <div class="input-group fg-float">
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                     <div class="fg-line">
                         <input type="text" class="form-control">
-                        <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获用户</font></font></label> 
+                        <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜索投诉内容 </font></font></label> 
                     </div>
 
                 </div>
@@ -38,26 +36,22 @@
                 <thead>
                     <tr>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>#</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>ID</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户名</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>商户</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>年 龄</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>投诉人</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>性别</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>投诉时间</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>注册时间</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>状态</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>注册IP</h4></font></font>
-                        </th>
-                        <th>
-
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>&nbsp;修改 &nbsp;&nbsp;/ &nbsp;&nbsp;删除</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>修改 &nbsp; / &nbsp; 详情 &nbsp; / &nbsp;删除</h4></font></font>
                         </th>
                     </tr>
                 </thead>
@@ -79,14 +73,16 @@
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
                         </td>
                         <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="{{ url('admin/shopcate/1/edit') }}" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
+                            <font style="vertical-align: inherit;"><a href="{{ url('admin/user/1/edit') }}" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
                         </font>&nbsp;
+                        <font style="vertical-align: inherit;"><a href="{{ url('admin/user/1/info') }}" class="btn btn-success">
+                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
                         <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel(1)" class="btn btn-danger">
                             <font style="vertical-align: inherit;">删除</font></a></font>
                         </td>
+
+
+                    </tr>
                     </tr>
                 </tbody>
             </table>
@@ -116,15 +112,14 @@
 
 
         <script type="text/javascript">
+            function doDel(id)
+            {
+                var form = document.myform;
+                form.action = '{{ url("/admin/user") }}/'+id;
+                // alert(form.action);
+                form.submit();
+            }
 
-
-        function doDel(id)
-        {
-            var form  = document.myform;
-            form.action = '{{ url("admin/shopcate") }}/'+id;
-            // alert(form.action);
-            form.submit();
-        }
 
 
             /*

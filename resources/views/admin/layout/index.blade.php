@@ -366,6 +366,7 @@
                         <ul>
                             <li><a href="{{ url('admin/shopcate') }}"><i class="zmdi zmdi-view-list-alt zmdi-hc-fw"></i>浏览分类</a></li>
 
+
                             <li><a href="{{ url('admin/shopcate/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加分类</a></li>
                         </ul>
                     </li>

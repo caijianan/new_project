@@ -53,6 +53,7 @@ class AdministratorController extends Controller
      */
     public function store(Request $request)
     {
+
         // dd($request->input("auname"));
         // echo '管理员添加';
 
@@ -99,6 +100,8 @@ class AdministratorController extends Controller
         }else{
             return back()->with('error','添加失败');
         }
+
+      
     }
 
     /**
@@ -110,8 +113,8 @@ class AdministratorController extends Controller
     public function show($id)
     {
 
-
         // 
+
 
     }
 
@@ -123,8 +126,10 @@ class AdministratorController extends Controller
      */
     public function edit($id)
     {
+
         $info = Administrator::find($id);
         return view('admin.administrator.edit',compact('info'));
+ 
     }
 
     /**
@@ -136,6 +141,7 @@ class AdministratorController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $data = $request->except('_token','_method');
 
         $file            = $request->file('auface');
@@ -166,6 +172,7 @@ class AdministratorController extends Controller
         }else{
             return back()->with('error','更改失败'); 
         }
+
     }
 
     /**
@@ -175,6 +182,7 @@ class AdministratorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+
     {   
         $row = Administrator::destroy($id);
         
@@ -185,6 +193,7 @@ class AdministratorController extends Controller
             return 2;
             
         }
+
     }
 
     public function info($id)
