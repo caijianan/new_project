@@ -11,6 +11,6 @@ class h_order extends Model
 
     public function order_info()
     {
-    	return $this->hasOne('App\Http\model\order_info','oid','id');
+    	return $this->hasMany('App\Http\model\order_info','oid','id');
     }
 }
