@@ -24,7 +24,6 @@
 
                 </div> -->
                 <form action="{{ url('admin/shopcate') }}">
-                    <b>编号：</b><input type="text" name="id" style="width: 15%"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
                     <b>类名：</b><input type="text" name="st_name" style="width: 25%"> &nbsp; &nbsp;
                     <input type="submit" calss='btn' value="搜索">
                 </form>
