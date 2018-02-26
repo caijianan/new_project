@@ -13,4 +13,10 @@ class h_order extends Model
     {
     	return $this->hasMany('App\Http\model\order_info','oid','id');
     }
+    public function h_food()
+    {
+    	return $this->hasOne('App\Http\model\h_food','id','fid');
+    }
+
+
 }

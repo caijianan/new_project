@@ -28,6 +28,7 @@
             margin-bottom: 20px;
         }
         </style>
+        <script src="/layer/layer.js"></script>
     </head>
         
     <body>
@@ -552,12 +553,15 @@
                     </a>
                 </div>
             </aside>
+
             <section id="content">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger" >
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                <li>
+                                {{ $error }}
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -646,7 +650,7 @@
         
         <!-- Javascript Libraries -->
         <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/layer/layer.js"></script>
+        
         <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         
         <script src="/d/vendors/bower_components/flot/jquery.flot.js"></script>

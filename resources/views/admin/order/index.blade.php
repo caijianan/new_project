@@ -4,7 +4,6 @@
     {{ csrf_field() }}
     {{ method_field('delete') }}
 </form>
-<section id="content">
 <div class="container">
     <div class="card">
         <div class="card-header">
