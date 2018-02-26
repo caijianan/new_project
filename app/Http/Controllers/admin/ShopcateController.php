@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Model\as_type;
+
 class ShopcateController extends Controller
 {
     /**
@@ -14,9 +16,23 @@ class ShopcateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
     {
-        return view('admin.shopcate.index');
+        // $res = as_type::paginate(3);
+        // return view('admin.shopcate.index', ['res'=>$res]);
+        
+        // $res = as_type::paginate(3);
+        // return view('admin.shopcate.index', ['res'=>$res]);
+        $res = new as_type;
+        $st_name = empty($request->input('st_name'))?'':$request->input('st_name');
+        if($st_name) {
+            $res = as_type::where('st_name','like','%'.$st_name.'%');
+        }
+        $res = $res->paginate(6);
+        
+        return view('admin.shopcate.index', compact('res','st_name'));
+
     }
 
     /**
@@ -38,7 +54,17 @@ class ShopcateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $arr = $request->except('_token');
+        $id = as_type::insert($arr);
+        // dd($id);
+        if($id){
+            return redirect('admin/shopcate')->with('msg', '添加成功！');
+        }else{
+            return redirect('admin/shopcate')->with('msg', '添加失败！');
+        }
+        // dd($arr);
+
     }
 
     /**
@@ -60,7 +86,10 @@ class ShopcateController extends Controller
      */
     public function edit($id)
     {
-        echo '商品分类修改页面';
+
+        $type = as_type::where('id', $id)->first();
+        // dd($type);
+        return view('admin.shopcate.edit', ['type'=>$type]);
     }
 
     /**
@@ -72,7 +101,14 @@ class ShopcateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $list = $request->except('_method', '_token');
+        $res = as_type::where('id', $id)->update($list);
+        if($res > 0){
+            return redirect('admin/shopcate')->with('msg', '修改成功！');
+        }else{
+            return redirect('admin/shopcate')->with('msg', '修改失败！');
+        }
     }
 
     /**
@@ -83,6 +119,9 @@ class ShopcateController extends Controller
      */
     public function destroy($id)
     {
-        echo '商品分类删除';
+
+        $res = as_type::where('id', $id)->delete();
+        // dd($res);
+        return $res;
     }
 }

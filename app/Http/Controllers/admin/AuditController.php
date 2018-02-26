@@ -11,6 +11,7 @@ use App\Http\Model\Audit;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
+
 class AuditController extends Controller
 {
     /**

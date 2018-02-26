@@ -11,6 +11,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 
 
+
 class AdministratorController extends Controller
 {
     /**
@@ -47,6 +48,7 @@ class AdministratorController extends Controller
 
     /**
      * 将新创建的资源存储在存储中.
+
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -106,12 +108,14 @@ class AdministratorController extends Controller
 
     /**
      * 显示指定的资源.
+
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
+
 
         // 
 
@@ -120,6 +124,7 @@ class AdministratorController extends Controller
 
     /**
      * 显示用于编辑指定资源的表单(管理员修改).
+
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -134,6 +139,7 @@ class AdministratorController extends Controller
 
     /**
      * 在存储中更新指定的资源.
+
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -177,6 +183,7 @@ class AdministratorController extends Controller
 
     /**
      * 从存储中删除指定的资源.
+
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -194,10 +201,12 @@ class AdministratorController extends Controller
             
         }
 
+
     }
 
     public function info($id)
     {
         echo '管理员详情';
-            }
+    }
+
 }
