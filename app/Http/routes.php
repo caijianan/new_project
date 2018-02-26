@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -24,6 +25,7 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::get('user/{id}/info','admin\UserController@info');
 	// 后台管理员模块
 	Route::resource('administrator','admin\AdministratorController');
+
 	Route::get('administrator/{id}/info','admin\AdministratorController@info');
 	// 后台店铺分类模块
 	Route::resource('shopcate','admin\ShopcateController');
@@ -33,7 +35,8 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::resource('order','admin\OrderController');
 	Route::get('order/{id}/info','admin\OrderController@info');
 	// 后台活动模块
-	Route::resource('activity','admin\activityController');
+
+	Route::resource('activity','admin\ActivityController');
 	// 后台投诉模块
 	Route::resource('complain','admin\ComplainController');
 	// 后台审核模块

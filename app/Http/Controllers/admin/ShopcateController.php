@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\Http\Model\as_type;
 
 class ShopcateController extends Controller
@@ -15,6 +16,7 @@ class ShopcateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
         // $res = as_type::paginate(3);
@@ -30,6 +32,7 @@ class ShopcateController extends Controller
         $res = $res->paginate(6);
         
         return view('admin.shopcate.index', compact('res','st_name'));
+
     }
 
     /**
@@ -39,6 +42,7 @@ class ShopcateController extends Controller
      */
     public function create()
     {
+
         return view('admin.shopcate.create');
     }
 
@@ -50,6 +54,7 @@ class ShopcateController extends Controller
      */
     public function store(Request $request)
     {
+
         $arr = $request->except('_token');
         $id = as_type::insert($arr);
         // dd($id);
@@ -81,6 +86,7 @@ class ShopcateController extends Controller
      */
     public function edit($id)
     {
+
         $type = as_type::where('id', $id)->first();
         // dd($type);
         return view('admin.shopcate.edit', ['type'=>$type]);
@@ -95,6 +101,7 @@ class ShopcateController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $list = $request->except('_method', '_token');
         $res = as_type::where('id', $id)->update($list);
         if($res > 0){
@@ -112,6 +119,7 @@ class ShopcateController extends Controller
      */
     public function destroy($id)
     {
+
         $res = as_type::where('id', $id)->delete();
         // dd($res);
         return $res;

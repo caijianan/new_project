@@ -6,6 +6,7 @@
 </form>
 <section id="content">
 <div class="container">
+
     <!-- <div class="block-header">
         <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表</font></font></h2>
     </div> -->
@@ -21,6 +22,7 @@
                         <input type="text" class="form-control">
                         <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获用户</font></font></label> 
                     </div>
+
 
                 </div> -->
                 <form action="{{ url('admin/shopcate') }}">
@@ -55,6 +57,7 @@
                         <th>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户名</h4></font></font>
                         </th>
+
                     </tr>
                 </thead>
 
@@ -103,6 +106,7 @@
 
         </div>
     </div>
+
         <script src="/d/js/jquery-1.8.3.min.js"></script>
         <script src="/layer/layer/layer.js"></script>
         <script type="text/javascript">

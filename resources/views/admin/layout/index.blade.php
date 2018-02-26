@@ -365,6 +365,7 @@
 
                         <ul>
                             <li><a href="{{ url('admin/shopcate') }}"><i class="zmdi zmdi-view-list-alt zmdi-hc-fw"></i>浏览分类</a></li>
+
                             <li><a href="{{ url('admin/shopcate/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加分类</a></li>
                         </ul>
                     </li>
@@ -372,6 +373,7 @@
                         <a href=""><i class="zmdi zmdi-local-store zmdi-hc-fw"></i> 店铺管理</a>
 
                         <ul>
+
                             <li><a href="{{ url('admin/shop') }}"><i class="zmdi zmdi-store zmdi-hc-fw"></i>浏览店铺</a></li>
                             <li><a href="{{ url('admin/shop/create') }}"><i class="zmdi zmdi-local-store zmdi-hc-fw"></i>添加店铺</a></li>
                         </ul>
@@ -551,7 +553,9 @@
                     </a>
                 </div>
             </aside>
-            
+            <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="/layer/layer.js"></script>
+
             @section('content')
 
             @show
@@ -624,6 +628,7 @@
         <![endif]-->
         
         <!-- Javascript Libraries -->
+        
         <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         
@@ -668,7 +673,7 @@
         <!-- <script src="/d/js/charts.js"></script> -->
         <script src="/d/js/functions.js"></script>
         <script src="/d/js/demo.js"></script>
-        <!-- <script src="/d/js/jquery-1.8.3.min.js"></script> -->
+
             
         
     </body>

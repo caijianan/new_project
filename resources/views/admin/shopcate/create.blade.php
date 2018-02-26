@@ -45,6 +45,7 @@
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
+
                             <form action="{{ url('admin/shopcate') }}" method="post">
                                 {{ csrf_field() }}
                             <div class="row">
@@ -52,6 +53,7 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
+
                                                 <input type="text" class="form-control" placeholder="请填写分类名称" name=st_name>
                                         </div>
                                     </div><br>
