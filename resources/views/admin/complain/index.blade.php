@@ -14,7 +14,6 @@
         <div class="card-header">
         <form action="{{ url('admin/complain') }}" method="get">
             <div class="row">
-                
                 <div class="col-sm-2">
                 <div class="input-group fg-float">
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>

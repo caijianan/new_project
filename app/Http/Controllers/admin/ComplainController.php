@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Model\a_comp;
 use App\Http\Model\h_user;
 use App\Http\Model\shop;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ComplainController extends Controller
 {
@@ -63,7 +64,6 @@ class ComplainController extends Controller
      */
     public function create()
     {
-
         return view('admin.complain.create');
     }
 
@@ -78,6 +78,22 @@ class ComplainController extends Controller
 
         $data = $request->except('_token');
         $res = a_comp::insert($data);
+        
+        // 上传图片
+        // 是否存在图片
+        if ($request->hasFile('cimg')) {
+            // 图片是否有效
+            if ($request->file('cimg')->isValid()) {
+                $name = time().mt_rand(1000,9999);
+                // 获取文件后缀
+                $ext = $request->file('cimg')->getClientOriginalExtension();
+                
+                $fileName = $name.'.'.$ext;
+                // 转移图片位置
+                $request -> file('cimg') -> move('./comp_pic', $fileName);
+            }
+        }
+
         if($res) { 
             return redirect('admin/complain')->with('status', '添加成功');
         } else {
@@ -119,7 +135,6 @@ class ComplainController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $data = $request->except('_token', '_method');
         $res = a_comp::where('id', $id)->update($data);
         if($res) {

@@ -7,7 +7,7 @@
                         <div class="card-body card-padding">
                             <p class="c-black f-500 m-b-5"><h4>添加投诉</h4></p>
                             <br>
-                            <form action="{{ url('admin/complain') }}" method="post">
+                            <form action="{{ url('admin/complain') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-8">                       
@@ -17,6 +17,12 @@
                                                 <input type="text" name="sid" class="form-control" placeholder="请填写要投诉的商铺ID">
                                         </div>
                                     </div><br>
+                                     <div class="input-group">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                        <div class="fg-line">
+                                            <input type="text" name="uid" class="form-control" placeholder="请填写用户ID">
+                                        </div>
+                                    </div><br><br>
                                      <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
                                         <div class="fg-line">
@@ -37,13 +43,23 @@
                                     </div>
                                     <br>
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-                                        <div class="fg-line">
-                                                <input type="text" name="uid" class="form-control" placeholder="请填写用户ID">
+                                        &nbsp;&nbsp;&nbsp;
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <i class="zmdi zmdi-image zmdi-hc-fw"></i>
+                                            <span>上传投诉图片</span><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span class="btn btn-primary btn-file m-r-10">
+                                                <span class="fileinput-new">选择图片</span>
+                                                <span class="fileinput-exists">更改</span>
+                                                <input type="file" name="cimg" multiple>
+                                            </span>
+                                            <span class="fileinput-filename"></span>
+                                            <a href="#" class="close fileinput-exists" data-dismiss="fileinput">&times;</a>
                                         </div>
-                                    </div><br><br>
+                                    </div>
+                                    <br>
                                     <div class="input-group">
-                                        <span class="input-group-addon pull-left"><i class="zmdi zmdi-account"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span>选择投诉状态</span></span>
+                                        <span class="input-group-addon pull-left">&nbsp;<i class="zmdi zmdi-account"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span>选择投诉状态</span></span>
                                     </div><br>
                                     <div class="input-group" style="margin-left: 5%">
                                         <label class="checkbox checkbox-inline m-r-10">
