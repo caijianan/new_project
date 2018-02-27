@@ -4,15 +4,11 @@
 <section id="content">
 <div class="container">
     <div class="block-header">
-        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">管理员列表</font></font></h2>
+        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">审核商户列表</font></font></h2>
     </div>
     <div class="card">
         <div class="card-header">
-                    @if (session('msg')) 
-                    <div class="alert alert-success"> 
-                        {{ session('msg') }} 
-                    </div> 
-                    @endif
+                   
         </div>
         <br>
         <form action='{{url("admin/audit")}}' method="get">
@@ -115,7 +111,7 @@
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->lip}}</font></font>
                         </td>
                         <td>
-                        <font style="vertical-align: inherit;"><a href='{{ url("admin/administrator/$v->id/edit")}}' class="btn btn-info">
+                        <font style="vertical-align: inherit;"><a href='{{ url("admin/audit/$v->id/edit")}}' class="btn btn-info">
                             <font style="vertical-align: inherit;">修改</font></a>
                         </font>&nbsp;
                         <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{$v->id}},this)" class="btn btn-danger">
@@ -148,7 +144,7 @@
             layer.confirm('你确定要删除吗', {
                 btn: ['确定','取消'] //按钮
                 }, function(){
-                    $.post('{{ url("/admin/administrator") }}/'+id,{'_method':'delete','_token':'{{csrf_token()}}'},function(data){
+                    $.post('{{ url("/admin/audit") }}/'+id,{'_method':'delete','_token':'{{csrf_token()}}'},function(data){
                         if(data == 1){
                              layer.msg('删除成功', {icon: 1,time: 1000});
                               $(_this).parents("tr").hide();

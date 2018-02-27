@@ -3,9 +3,6 @@
 <section id="content">
                 <div class="container">
                     <div class="block-header">
-                        <h2>修改管理员</h2>
-                        
-
                         <ul class="actions">
                             <li>
                                 <a href="">
@@ -42,40 +39,46 @@
                         
                         
                         <div class="card-body card-padding">
-                            <p class="c-black f-500 m-b-5"><h4>修改管理员</h4></p>
+                            <p class="c-black f-500 m-b-5"><h4>修改审核信息</h4></p>
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
 
-                            <form action='{{ url("admin/administrator/$info->id")}}' method="post" enctype="multipart/form-data">
+                            <form action='{{ url("admin/audit/$info->id")}}' method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="put">
-
                             <div class="row">
                                 <div class="col-sm-8">                       
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
-                                                <input type="text" class="form-control" value="{{$info->auname}}" name="auname">
+                                                <input type="text" class="form-control" placeholder="请填写商铺名称" name="ap_name" value="{{$info->ap_name}}">
                                         </div>
                                     </div><br>
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
+                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
-                                                <input type="text" class="form-control" value="{{$info->aupass}}" name="aupass">
+                                                <input type="text" class="form-control" placeholder="请填写商铺地址" name="ap_addr" value="{{$info->ap_addr}}">
                                         </div>
-                                    </div>
-                                    <br>    
+                                    </div><br>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                        <div class="fg-line">
+                                                <input type="text" class="form-control" placeholder="请填写法人名称" name="ap_person" value="{{$info->ap_person}}">
+                                        </div>
+                                    </div><br>
+                                      <div class="input-group">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                        <div class="fg-line">
+                                                <input type="text" class="form-control" placeholder="请填写许可证号" name="ap_num" value="{{$info->ap_num}}">
+                                        </div>
+                                    </div><br>
                                     <div class="input-group">
                                         
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-                                        男<input type ="radio" name="ausex" value="1"
-                                         {{$info->ausex=1?'checked':''}}
-                                        >&nbsp;&nbsp;&nbsp;&nbsp;
-                                        女<input type ="radio" name="ausex" value="2"
-                                         {{$info->ausex=2?'checked':''}}
-                                        > 
-                                        
+                                        方圆三~五公里&nbsp;<input type ="radio" name="ap_range" value="1" {{$info->ap_range=1?'checked':''}}>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        方圆五~十公里&nbsp;<input type ="radio" name="ap_range" value="2" {{$info->ap_range=2?'checked':''}}>&nbsp;&nbsp;&nbsp;&nbsp; 
+                                        本县市&nbsp;<input type ="radio" name="ap_range" value="3" {{$info->ap_range=3?'checked':''}}>&nbsp;&nbsp;&nbsp;&nbsp;
                                         
                                     </div>
 
@@ -84,32 +87,27 @@
                                         <span class="input-group-addon"></span>
                                         <div class="fg-line">
                                           <!-- <button class="btn bgm-lightblue waves-effect form-control" >提交</button> -->
-                                          <input type="submit" value=" 添加管理员 " class="btn bgm-lightblue waves-effect form-control">
+                                          <input type="submit" value=" 添加审核商户 " class="btn bgm-lightblue waves-effect form-control">
                                         </div>
                                     </div><br>
                                     
                                 </div>
                                 <div class="col-sm-4">                       
                             
-                                    <p class="f-500 c-black m-b-20">上传头像:</p>
+                                    <p class="f-500 c-black m-b-20">上传营业执照:</p>
                             
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
                                     <br><br>
                                     <div>
                                     <span class="btn btn-info btn-file waves-effect">
-                                        <span class="fileinput-new"> 上 传 头 像 </span>
-                                        <span class="fileinput-exists"> 修 改 头 像 </span>
-                                        <input type="file" name="auface">
+                                        <span class="fileinput-new"> 上 传 营 业 执 照 </span>
+                                        <span class="fileinput-exists"> 修 改 营 业 执 照 </span>
+                                        <input type="file" name="ap_img">
                                     </span>
-                                    <a href="#" class="btn btn-danger fileinput-exists waves-effect" data-dismiss="fileinput"> 删 除 头 像 </a>
+                                    <a href="#" class="btn btn-danger fileinput-exists waves-effect" data-dismiss="fileinput"> 删 除 营业执照 </a>
                                     </div>
                                 </div>
-                            
-                            <br>
-                            <br>
-                            <p>支持JPG，PNG，GIF文件或WebP,如过不上传头像则使用默认头像.</p>
-                        </div>
                              
 
                             </div>
