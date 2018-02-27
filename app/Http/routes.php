@@ -43,3 +43,6 @@ Route::group(['prefix' => 'admin'],function(){
 	// 后台广告管理
 	Route::resource('advert','admin\AdvertController');
 });
+
+// 随便写的注册
+Route::resource('reg','admin\regController');

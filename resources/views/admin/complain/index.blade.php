@@ -86,7 +86,7 @@
                         <td>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->sid }}</font></font>
                         </td>
-                         <td width="100">
+                         <td style="max-width: 100px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->content }}</font></font>
                         </td>
                         <td>

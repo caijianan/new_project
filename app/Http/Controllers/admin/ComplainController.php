@@ -48,7 +48,7 @@ class ComplainController extends Controller
         
         $comp = $comp->paginate(5);
 
-        // 自己写的垃圾分页
+        // 自己写的这个分页
         $perPage = $comp->perPage();
         $total = $comp->total(); // 总条数
         $currentPage = $comp->currentPage();
@@ -77,7 +77,6 @@ class ComplainController extends Controller
     {
 
         $data = $request->except('_token');
-        $res = a_comp::insert($data);
         
         // 上传图片
         // 是否存在图片
@@ -91,13 +90,27 @@ class ComplainController extends Controller
                 $fileName = $name.'.'.$ext;
                 // 转移图片位置
                 $request -> file('cimg') -> move('./comp_pic', $fileName);
+
+                if ($request->file('cimg')->getError() > 0) {
+                    return redirect('admin/complain/create')->with('status', '上传图片失败');
+                } else {
+                    // 使用第三方图片处理类(Intervention Image)
+                    $img = Image::make('./comp_pic/'.$fileName);
+                    $img->resize(100, 100, function($constraint){
+                        $constraint->aspectRatio();
+                    });
+                    $img->save('./comp_pic/s_'.$fileName);
+                }
             }
         }
+
+        $data['cimg'] = './comp_pic/'.$fileName;
+        $res = a_comp::insert($data);
 
         if($res) { 
             return redirect('admin/complain')->with('status', '添加成功');
         } else {
-            return redirect('admin/complain/create')->with('status', '添加成功');
+            return redirect('admin/complain/create')->with('status', '添加失败');
         }
     }
 
@@ -109,7 +122,6 @@ class ComplainController extends Controller
      */
     public function show($id)
     {
-
         
     }
 
