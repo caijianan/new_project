@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if IE 9 ]><html class="ie9"><![endif]-->
     <head>
@@ -27,8 +28,9 @@
             margin-bottom: 20px;
         }
         </style>
+        <script src="/layer/layer.js"></script>
     </head>
-    
+        
     <body>
         <header id="header" class="clearfix" data-current-skin="blue">
             <ul class="header-inner">
@@ -41,9 +43,9 @@
                 </li>
 
                 <li class="logo hidden-xs">
-                    <a href="index.html">Material Admin</a>
+                    <a href="index.html">XXXXXXX</a>
                 </li>
-
+                
                 <li class="pull-right">
                     <ul class="top-menu">
                         <li id="toggle-width">
@@ -366,7 +368,6 @@
                         <ul>
                             <li><a href="{{ url('admin/shopcate') }}"><i class="zmdi zmdi-view-list-alt zmdi-hc-fw"></i>浏览分类</a></li>
 
-
                             <li><a href="{{ url('admin/shopcate/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加分类</a></li>
                         </ul>
                     </li>
@@ -556,7 +557,33 @@
             </aside>
             <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
             <script src="/layer/layer.js"></script>
+
+
+            <section id="content">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger" >
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>
+                                {{ $error }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}    
+                </div>
+                @endif
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}    
+                </div>
+                @endif
+
             @section('content')
+                    
 
             @show
         </section>
@@ -629,6 +656,8 @@
         
         <!-- Javascript Libraries -->
         
+        <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        
         <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         
         <script src="/d/vendors/bower_components/flot/jquery.flot.js"></script>
@@ -672,6 +701,7 @@
         <!-- <script src="/d/js/charts.js"></script> -->
         <script src="/d/js/functions.js"></script>
         <script src="/d/js/demo.js"></script>
+
             
         
     </body>

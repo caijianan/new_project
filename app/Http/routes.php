@@ -10,10 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+Route::resource('/','home\HomeController');
 // 后台模块
 Route::group(['prefix' => 'admin'],function(){
 	Route::get('/',function(){
@@ -44,5 +42,11 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::resource('advert','admin\AdvertController');
 });
 
-// 随便写的注册
 Route::resource('reg','admin\regController');
+
+Route::group(['prefix'=>'home'],function(){
+	// 前台商铺模块
+	Route::resource('shoplist','home\ShopController');
+	Route::resource('userinfo','home\UserinfoController');
+});
+

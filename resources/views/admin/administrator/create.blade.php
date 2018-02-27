@@ -3,16 +3,7 @@
 <section id="content">
                 <div class="container">
                     <div class="block-header">
-                        <h2></h2>
-                        @if (count($errors) > 0)
-                            
-                                <h2>
-                                    @foreach ($errors->all() as $error)
-                                        <span style="color: red">{{ $error }}</span>
-                                    @endforeach
-                                </h2>
-                        @endif
-                    
+                        <h2>添加管理员</h2>
                         <ul class="actions">
                             <li>
                                 <a href="">
@@ -59,12 +50,14 @@
                                 {{ csrf_field() }}
 
 
+
                             <div class="row">
                                 <div class="col-sm-8">                       
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
                                                 <input type="text" class="form-control" placeholder="请填写管理员名称" name="auname">
+
                                         </div>
                                     </div><br>
                                     <div class="input-group">
@@ -84,11 +77,13 @@
                                     </div>
 
                                     <br>
+
                                     <div class="input-group">
                                         <span class="input-group-addon"></span>
                                         <div class="fg-line">
                                           <!-- <button class="btn bgm-lightblue waves-effect form-control" >提交</button> -->
                                           <input type="submit" value=" 添加管理员 " class="btn bgm-lightblue waves-effect form-control">
+
                                         </div>
                                     </div><br>
                                     
@@ -115,6 +110,7 @@
                             <p>支持JPG，PNG，GIF文件或WebP,如过不上传头像则使用默认头像.</p>
                         </div>
                              
+
 
                             </div>
                             

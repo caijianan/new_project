@@ -7,15 +7,10 @@
         <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">管理员列表</font></font></h2>
     </div>
     <div class="card">
-        <div class="card-header">
-                    @if (session('msg')) 
-                    <div class="alert alert-success"> 
-                        {{ session('msg') }} 
-                    </div> 
-                    @endif
-        </div>
+        
         <br>
         <form action='{{url("admin/administrator")}}' method="get">
+
             <div class="row">
                 <div class="col-sm-2">
                 <div class="input-group fg-float">
@@ -24,6 +19,7 @@
                         
                         <input type="text" name="auname" class="form-control">
                         <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获用户</font></font></label>    
+
                     </div>
 
                 </div>
@@ -44,6 +40,7 @@
                 </div>
             </div>
         </form>
+
             <br><br><br>
         <div class="table-responsive">
             <table class="table table-hover">
@@ -69,6 +66,7 @@
                         </th>
                         <th>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>修改&nbsp;  / &nbsp;删除</h4></font></font>
+
                         </th>
                     </tr>
                 </thead>
@@ -114,6 +112,7 @@
 
 
 {!! $list->appends($yuanyin)->render()!!}
+
 </nav>
 
         </div>
@@ -151,6 +150,7 @@
                 btn: ['明白了', '知道了']
                 });
             });
+
 
         }
 
