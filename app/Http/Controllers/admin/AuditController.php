@@ -19,13 +19,20 @@ class AuditController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $ap_name = empty($request->input('ap_name')) ? '' :$request->input('ap_name');
+        $ap_range = empty($request->input('ap_range')) ? 0 : $request->input('ap_range');
+        $data = Audit::where('ap_range',$ap_range)
+                             ->where('ap_name','like',"%$ap_name%")
+                             ->paginate(1);
+        dd($data);
+        $yuanyin['ap_name'] = $ap_name;
+        $yuanyin['ap_range'] = $ap_range; 
 
         // echo 11111;
-        $data = Audit::paginate(5);
         // dd($list);
-        return view('admin.audit.index',compact('data'));
+        return view('admin.audit.index',compact('data',));
 
     }
 

@@ -22,18 +22,19 @@
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                     <div class="fg-line">
                         
-                        <input type="text" name="auname" class="form-control">
-                        <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获用户</font></font></label>    
+                        <input type="text" name="ap_name" class="form-control">
+                        <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获商铺名</font></font></label>    
                     </div>
 
                 </div>
                 </div>
                 <div class="col-sm-2">
 
-                    <select name="ausex" id="" class="form-control">
-                        <option value="">请选择性别</option>
-                        <option value="1">男</option>
-                        <option value="2">女</option>
+                    <select name="ap_range" id="" class="form-control">
+                        <option value="">请选择运营范围</option>
+                        <option value="1">方圆三~五公里</option>
+                        <option value="2">方圆五~十公里</option>
+                        <option value="3">本县市</option>  
                     </select>                    
                 </div>
                 <div class="col-sm-2">
@@ -50,23 +51,29 @@
                 <thead>
                     <tr>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>#</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>商铺ip</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户名</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>商铺名</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>头像</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>商铺地址</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>管理员性别</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>法人</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>最后登陆时间</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>许可证号</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>最近登陆IP</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>商铺照片</h4></font></font>
                         </th>
+                       <th>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>审核状态</h4></font></font>
+                        </th>
+                         <th>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>申请时间</h4></font></font>
+                        </th>      
                         <th>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>修改&nbsp;  / &nbsp;删除</h4></font></font>
                         </th>
@@ -80,19 +87,29 @@
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->id}}</font></font>
                         </td>
                         <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->auname}}</font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->ap_name}}</font></font>
                         </td>
                         <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="/admin_pic/sm_{{$v->auface}}"></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->ap_addr}}</font></font>
+                        </td>
+                        <td>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->ap_person}}</font></font>
+                        </td>
+                        <td>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->ap_num}}</font></font>
+                        </td>
+
+                        <td>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="/audit_pic/sm_{{$v->ap_img}}"></font></font>
                         </td>
                          <td>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                {{$v->ausex==1?'男':'女'}}
+                                {{$v->ausex==1?'通过':'未通过'}}
                             </font></font>
                         </td>
                         
                         <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{date('Y年m月d日 h时i分',$v->ltime)}}</font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{date('Y/m/d h:i',$v->ap_time)}}</font></font>
                         </td>
                         <td>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->lip}}</font></font>

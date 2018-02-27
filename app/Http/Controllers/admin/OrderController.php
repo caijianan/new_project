@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\model\h_order;
+use App\Http\model\order_info;
+use App\Http\model\h_food;
 
 class OrderController extends Controller
 {
@@ -16,7 +19,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin.order.index');
+        $res = h_order::all();
+        // dd($res);
+        return view('admin.order.index',['data'=>$res]);
     }
 
     /**
@@ -41,14 +46,19 @@ class OrderController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 订单详情
+     * @param  [type] $id 订单id(订单号)
+     * @return [type]     [description]
      */
     public function show($id)
     {
-        //
+        $res = h_order::where('id',1)->first();
+        $o_res = $res->order_info;
+        $arr = [];
+        foreach ($o_res as $key => $value) {
+            $arr[]  = h_food::where('id',$value->fid)->first();
+        }
+        return view('admin.order.info',['arr'=>$arr,'order'=>$res,'orinfo'=>$o_res]);
     }
 
     /**
@@ -59,7 +69,8 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        echo '订单修改页面';
+        $data = h_order::where('id',1)->first();
+        return view('admin.order.edit',['data'=>$data]);
     }
 
     /**
@@ -71,7 +82,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $res = $request->except('_token','_method');
+        $row = h_order::where('id',$id)->update($res);
+        if($row > 0){
+            return redirect('admin/order')->with('success','修 改 订 单 成 功');
+        }else{
+            return back()->with('error','修 改 订 单 失 败');
+        }
     }
 
     /**
@@ -82,10 +99,12 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        echo '删除订单';
-    }
-    public function info($id)
-    {
-        echo '订单详情';
+        $row = h_order::where('id',$id)->delete();
+        $o_row = order_info::where('oid',$id)->delete();
+        if($row > 0 && $o_row > 0){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 }
