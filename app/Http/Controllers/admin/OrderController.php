@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\model\h_order;
 use App\Http\model\order_info;
+use App\Http\model\h_food;
 
 class OrderController extends Controller
 {
@@ -53,12 +54,11 @@ class OrderController extends Controller
     {
         $res = h_order::where('id',1)->first();
         $o_res = $res->order_info;
+        $arr = [];
         foreach ($o_res as $key => $value) {
-            var_dump($value->fid);
+            $arr[]  = h_food::where('id',$value->fid)->first();
         }
-        die;
-        // dd($o_res);
-        return view('admin.order.info');
+        return view('admin.order.info',['arr'=>$arr,'order'=>$res,'orinfo'=>$o_res]);
     }
 
     /**

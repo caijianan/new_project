@@ -138,6 +138,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         // 图片处理
         Intervention\Image\ImageServiceProvider::class,
+        // 购物车
+        Syscover\ShoppingCart\ShoppingCartServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -194,6 +198,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'CartProvider' => Syscover\ShoppingCart\Facades\CartProvider::class,
+        'Cart'    => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

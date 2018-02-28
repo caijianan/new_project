@@ -12,9 +12,4 @@ class order_info extends Model
     {
     	// return $this->belongsTo('App\Http\mode\h_order');
     }
-
-    public function h_food()
-    {
-    	
-    }
 }

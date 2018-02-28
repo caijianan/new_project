@@ -4,7 +4,6 @@
     {{ csrf_field() }}
     {{ method_field('delete') }}
 </form>
-<section id="content">
 <div class="container">
     <div class="card">
         <div class="card-header">
@@ -17,7 +16,7 @@
                         <input type="text" class="form-control">
                         <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">订单号</font></font></label> 
                     </div>
-
+`
                 </div>
                 </div>
                 <div class="col-sm-1">
@@ -233,12 +232,10 @@
     });
 
 </script>
-
-@endsection
 <script>
     function doDel(id)
     {
-       layer.confirm('您确定要删除吗？', {
+      layer.confirm('您确定要删除吗？', {
           btn: ['确定','取消'] //按钮
         }, function(){
           $.post('{{ url("admin/order") }}/'+id,{'_token':'{{ csrf_token() }}','_method':'delete' },function(data){
@@ -250,6 +247,8 @@
             }
           });
         });
-
     }
 </script>
+
+@endsection
+
