@@ -122,7 +122,8 @@ class ComplainController extends Controller
      */
     public function show($id)
     {
-        
+        $data = a_comp::where('id', $id)->first();
+        return view('admin.complain.show',compact('data'));
     }
 
     /**

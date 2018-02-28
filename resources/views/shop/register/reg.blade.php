@@ -7,12 +7,12 @@
         <title>Register</title>
         
         <!-- Vendor CSS -->
-        <link href="./d/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
-        <link href="./d/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+        <link href="/d/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+        <link href="/d/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
             
         <!-- CSS -->
-        <link href="./d/css/app.min.1.css" rel="stylesheet">
-        <link href="./d/css/app.min.2.css" rel="stylesheet">
+        <link href="/d/css/app.min.1.css" rel="stylesheet">
+        <link href="/d/css/app.min.2.css" rel="stylesheet">
 
         <style>
             .code {
@@ -39,7 +39,7 @@
         
         <!-- Register -->
         <div class="lc-block toggled" id="l-register">
-        <form action="{{ url('reg') }}" method="post" name="myform">
+        <form action="{{ url('shop/reg') }}" method="post" name="myform">
         {{ csrf_field() }}
             <div class="input-group m-b-20">
                 <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
@@ -80,17 +80,17 @@
         </div>
 
         <!-- Javascript Libraries -->
-        <script src="./d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="./d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         
-        <script src="./d/vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="/d/vendors/bower_components/Waves/dist/waves.min.js"></script>
         
         <!-- Placeholder for IE9 -->
         <!--[if IE 9 ]>
             <script src="./d/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
         <![endif]-->
         
-        <script src="./d/js/functions.js"></script>
+        <script src="/d/js/functions.js"></script>
         <script>
             var code = $(".code");
             var validCode = true;
@@ -101,7 +101,7 @@
                 // 手机验证
                 $.ajax({
                    type:'get',
-                   url:'{{ url("reg/create") }}',
+                   url:'{{ url("shop/reg/create") }}',
                    data:{ '_token':'{{  csrf_token() }}', 'phone':phone },
                    success:function(data){
                       

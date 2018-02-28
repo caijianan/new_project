@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class order_info extends Model
 {
     protected $table = 'order_info';
+    public $timestamps = false;
 
-    public function h_order()
+    public function h_food()
     {
-    	// return $this->belongsTo('App\Http\mode\h_order');
+    	return $this->hasMany('App\Http\model\h_food','id','fid');
     }
+
 }

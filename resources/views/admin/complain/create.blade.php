@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="input-group">
+                                    <!-- <div class="input-group">
                                         &nbsp;&nbsp;&nbsp;
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                             <i class="zmdi zmdi-image zmdi-hc-fw"></i>
@@ -56,7 +56,7 @@
                                             <span class="fileinput-filename"></span>
                                             <a href="#" class="close fileinput-exists" data-dismiss="fileinput">&times;</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <br>
                                     <div class="input-group">
                                         <span class="input-group-addon pull-left">&nbsp;<i class="zmdi zmdi-account"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span>选择投诉状态</span></span>

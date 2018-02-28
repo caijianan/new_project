@@ -32,7 +32,7 @@
     </head>
         
     <body>
-        <header id="header" class="clearfix" data-current-skin="blue">
+        <header id="header" class="clearfix" data-current-skin="orange">
             <ul class="header-inner">
                 <li id="menu-trigger" data-trigger="#sidebar">
                     <div class="line-wrap">
@@ -43,10 +43,10 @@
                 </li>
 
                 <li class="logo hidden-xs">
-                    <a href="index.html">XXXXXXX</a>
+                    <a href="index.html">商家平台</a>
                 </li>
-                
-                <li class="pull-right">
+
+                <!-- <li class="pull-right">
                     <ul class="top-menu">
                         <li id="toggle-width">
                             <div class="toggle-switch">
@@ -303,7 +303,7 @@
                             <a href=""><i class="tm-icon zmdi zmdi-comment-alt-text"></i></a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
 
 
@@ -325,7 +325,7 @@
                         </div>
 
                         <div class="profile-info">
-                            Malinda Hollaway
+                            我的中心
 
                             <i class="zmdi zmdi-caret-down"></i>
                         </div>
@@ -333,128 +333,58 @@
 
                     <ul class="main-menu">
                         <li>
-                            <a href="/admin/info"><i class="zmdi zmdi-account"></i> 查看资料</a>
+                            <a href="{{ url('shop/userinfo') }}"><i class="zmdi zmdi-account"></i>我的资料</a>
                         </li>
                         <li>
-                            <a href=""><i class="zmdi zmdi-time-restore"></i> 退出</a>
+                            <a href=""><i class="zmdi zmdi-time-restore"></i>退出</a>
                         </li>
                     </ul>
                 </div>
 
                 <ul class="main-menu">
                     <li class="active">
-                        <a href="/admin"><i class="zmdi zmdi-home"></i> 后台首页</a>
+                        <a href="{{ url('shop') }}"><i class="zmdi zmdi-home" style="color:orange"></i>回到首页</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url('shop/order') }}"><i class="zmdi zmdi-assignment" style="color:orange"></i>我的订单</a>
                     </li>
                     <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Administrator</a>
-
+                        <a href=""><i class="zmdi zmdi-local-store zmdi-hc-fw" style="color:orange"></i> 我的店铺</a>
                         <ul>
-                            <li><a href="{{ url('admin/administrator') }}"><i class="zmdi zmdi-accounts-list-alt zmdi-hc-fw"></i>浏览管理员</a></li>
-                            <li><a href="{{ url('admin/administrator/create') }}"><i  class="zmdi zmdi-account-add zmdi-hc-fw"></i>添加管理员</a></li>
+                            <li><a href="{{ url('shop/store') }}"><i class="zmdi zmdi-store zmdi-hc-fw"></i>店铺列表</a></li>
+                            <li><a href="{{ url('shop/store/create') }}"><i class="zmdi zmdi-local-store zmdi-hc-fw"></i>申请店铺</a></li>
                         </ul>
                     </li>
-
+                   
                     <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-account zmdi-hc-fw"></i> 用户管理</a>
-
+                        <a href=""><i class="zmdi zmdi-cocktail zmdi-hc-fw" style="color:orange"></i> 我的菜品</a>
                         <ul>
-                            <li><a href="{{ url('admin/user') }}"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>浏览用户</a></li>
-                            <li><a href="{{ url('admin/user/create') }}"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>添加用户</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-view-list-alt zmdi-hc-fw"></i> 店铺分类管理</a>
-
-                        <ul>
-                            <li><a href="{{ url('admin/shopcate') }}"><i class="zmdi zmdi-view-list-alt zmdi-hc-fw"></i>浏览分类</a></li>
-
-                            <li><a href="{{ url('admin/shopcate/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加分类</a></li>
+                            <li><a href="{{ url('shop/food') }}"><i class="zmdi zmdi-menu zmdi-hc-fw"></i>菜品列表</a></li>
+                            <li><a href="{{ url('shop/food/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加菜品</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-local-store zmdi-hc-fw"></i> 店铺管理</a>
-
+                        <a href=""><i class="zmdi zmdi-cocktail zmdi-hc-fw" style="color:orange"></i> 我的分类</a>
                         <ul>
-
-                            <li><a href="{{ url('admin/shop') }}"><i class="zmdi zmdi-store zmdi-hc-fw"></i>浏览店铺</a></li>
-                            <li><a href="{{ url('admin/shop/create') }}"><i class="zmdi zmdi-local-store zmdi-hc-fw"></i>添加店铺</a></li>
+                            <li><a href="{{ url('shop/foodcate') }}"><i class="zmdi zmdi-menu zmdi-hc-fw"></i>菜品分类</a></li>
+                            <li><a href="{{ url('shop/foodcate/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加分类</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-assignment zmdi-hc-fw"></i> 订单管理</a>
+                        <a href=""><i class="zmdi zmdi-comments" style="color:orange"></i> 我的评论</a>
+                        <ul>
+                            <li><a href="{{ url('shop/scomment') }}">店铺评论</a></li>
+                            <li><a href="{{ url('shop/fcomment') }}">商品评论</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="sub-menu">
+                        <a href=""><i class="zmdi zmdi-settings"></i> 其他设置</a>
 
                         <ul>
-                            <li><a href="{{ url('admin/order') }}"><i class="zmdi zmdi-menu zmdi-hc-fw"></i>浏览订单</a></li>
-                            <li><a href="{{ url('admin/order/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加订单</a></li>
+                            <li><a href="{{ url('shop/activity') }}">修改密码</a></li>
+                            <li><a href="{{ url('shop/activity/create') }}">联系客服</a></li>
                         </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-collection-text"></i> 活动管理</a>
-
-                        <ul>
-                            <li><a href="{{ url('admin/activity') }}">浏览活动</a></li>
-                            <li><a href="{{ url('admin/activity/create') }}">添加活动</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-swap-alt"></i>投诉管理</a>
-                        <ul>
-                            <li><a href="{{ url('admin/complain') }}">查看投诉信息</a></li>
-                            <li><a href="{{ url('admin/complain/create') }}">添加投诉信息</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-trending-up"></i>审核商户</a>
-                        <ul>
-                            <li><a href="{{ url('admin/audit') }}">审核列表</a></li>
-                            <li><a href="{{ url('admin/audit/create') }}">添加审核</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-image"></i>广告管理</a>
-                        <ul>
-                            <li><a href="{{ url('admin/advert') }}">浏览广告</a></li>
-                            <li><a href="{{ url('admin/advert/create') }}">添加广告</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="generic-classes.html"><i class="zmdi zmdi-layers"></i> Generic Classes</a></li>
-                    <li class="sub-menu">
-                        <a href=""><i class="zmdi zmdi-collection-item"></i> Sample Pages</a>
-                        <ul>
-                            <li><a href="profile-about.html">Profile</a></li>
-                            <li><a href="list-view.html">List View</a></li>
-                            <li><a href="messages.html">Messages</a></li>
-                            <li><a href="pricing-table.html">Pricing Table</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="wall.html">Wall</a></li>
-                            <li><a href="invoice.html">Invoice</a></li>
-                            <li><a href="login.html">Login and Sign Up</a></li>
-                            <li><a href="lockscreen.html">Lockscreen</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="form-examples.html"><i class="zmdi zmdi-menu"></i> 3 Level Menu</a>
-
-                        <ul>
-                            <li><a href="form-elements.html">Level 2 link</a></li>
-                            <li><a href="form-components.html">Another level 2 Link</a></li>
-                            <li class="sub-menu">
-                                <a href="form-examples.html">I have children too</a>
-
-                                <ul>
-                                    <li><a href="">Level 3 link</a></li>
-                                    <li><a href="">Another Level 3 link</a></li>
-                                    <li><a href="">Third one</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="form-validations.html">One more 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="https://wrapbootstrap.com/theme/material-admin-responsive-angularjs-WB011H985"><i class="zmdi zmdi-money"></i> Buy this template</a>
-                    </li>
+                    </li> -->
                 </ul>
             </aside>
             

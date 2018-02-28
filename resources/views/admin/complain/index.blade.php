@@ -122,6 +122,8 @@
                         <td class="text-center">
                             <font style="vertical-align: inherit;"><a href='{{ url("admin/complain/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
                         </font>
+                        <font style="vertical-align: inherit;"><a href='{{ url("admin/complain/$v->id") }}' class="btn btn-success">
+                            <font style="vertical-align: inherit;">详情</font></a></font> 
                         <font style="vertical-align: inherit;"><a href="javascript:doDel({{ $v->id }})" onclick="" class="btn btn-danger">
                             <font style="vertical-align: inherit;">删除</font></a></font>
                     </tr>

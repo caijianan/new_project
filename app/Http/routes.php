@@ -42,11 +42,46 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::resource('advert','admin\AdvertController');
 });
 
-Route::resource('reg','admin\regController');
-
 Route::group(['prefix'=>'home'],function(){
 	// 前台商铺模块
 	Route::resource('shoplist','home\ShopController');
 	Route::resource('userinfo','home\UserinfoController');
+	// 用户中心 订单管理
+	Route::resource('orderinfo','home\OrderInfoController');
+
 });
 
+// 前台模块
+Route::group(['prefix'=>'home'],function(){
+	// 前台商铺模块
+	Route::resource('shoplist','home\ShopController');
+	Route::resource('userinfo','home\UserinfoController');
+	// 用户中心 订单管理
+	Route::resource('orderinfo','home\OrderInfoController');
+
+});
+
+// 商家模块
+Route::group(['prefix'=>'shop'],function(){
+	Route::get('/',function(){
+		return view('shop.layout.index');
+	});
+	// 商家注册模块
+	Route::resource('reg','shop\regController');
+	// 商家登录模块
+	Route::resource('login','shop\LoginController');
+	// 商家订单模块
+	Route::resource('order','shop\OrderController');
+	// 商家店铺模块
+	Route::resource('store','shop\StoreController');
+	// 商家菜品模块
+	Route::resource('food','shop\FoodController');
+	// 商家菜品分类模块
+	Route::resource('foodcate','shop\FoodCateController');
+	// 商铺评论模块
+	Route::resource('scomment','shop\SCommentController');
+	// 菜品评论模块
+	Route::resource('fcomment','shop\FCommentController');
+	// 商户中心模块
+	Route::resource('userinfo','shop\UserInfoController');
+});
