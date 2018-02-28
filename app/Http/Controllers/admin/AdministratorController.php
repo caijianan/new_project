@@ -78,18 +78,20 @@ class AdministratorController extends Controller
         // auface文件名
         $auface          = '';
         if ($request->hasFile('auface')) {
-        //生成一个随机文件名（不含后缀）
-        $name            = time().rand(1000,9999);
-        // 获取文件后缀
-        $ext             = $file->getClientOriginalExtension();
-        $fileName        = $name.'.'.$ext;
-        $file->move($destinationPath, $fileName);
-        // 处理用户上传的图片
-        $img             = Image::make($destinationPath.'/'.$fileName);
-        $img->resize(47,47);
-        $img->save($destinationPath.'/sm_'.$fileName);
-        $auface          .= $fileName;
-        $data['auface']  = $auface;
+            //生成一个随机文件名（不含后缀）
+            $name            = time().rand(1000,9999);
+            // 获取文件后缀
+            $ext             = $file->getClientOriginalExtension();
+            $fileName        = $name.'.'.$ext;
+            $file->move($destinationPath, $fileName);
+            // 处理用户上传的图片
+            $img             = Image::make($destinationPath.'/'.$fileName);
+            $img->resize(47,47);
+            $img->save($destinationPath.'/sm_'.$fileName);
+            $auface          .= $fileName;
+            $data['auface']  = $auface;
+        }else{
+            $data['auface']  = 'default.jpg';
         }
         $time            = time();
         // dd($time);
@@ -98,7 +100,7 @@ class AdministratorController extends Controller
         $res             = Administrator::create($data);
 
         if($res){
-            return redirect('admin/administrator')->with('msg','添加成功');
+            return redirect('admin/administrator')->with('success','添加成功');
         }else{
             return back()->with('error','添加失败');
         }
@@ -174,7 +176,7 @@ class AdministratorController extends Controller
         $res = Administrator::where('id',$id)
                             ->update($data);
         if($res){
-            return redirect('admin/administrator')->with('msg','更改生效');
+            return redirect('admin/administrator')->with('success','更改生效');
         }else{
             return back()->with('error','更改失败'); 
         }

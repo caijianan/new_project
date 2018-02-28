@@ -4,15 +4,7 @@
                 <div class="container">
                     <div class="block-header">
                         <h2></h2>
-                        @if (count($errors) > 0)
-                            
-                                <h2>
-                                    @foreach ($errors->all() as $error)
-                                        <span style="color: red">{{ $error }}</span>
-                                    @endforeach
-                                </h2>
-                        @endif
-                    
+                       
                         <ul class="actions">
                             <li>
                                 <a href="">

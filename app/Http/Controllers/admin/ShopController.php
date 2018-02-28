@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Model\shop;
+
 class ShopController extends Controller
 {
     /**
@@ -16,7 +18,9 @@ class ShopController extends Controller
      */
     public function index()
     {
-        return view('admin.shop.index');
+        $res = shop::all();
+
+        return view('admin.shop.index',['data'=>$res]);
     }
 
     /**
@@ -30,14 +34,35 @@ class ShopController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 添加商铺
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        // 添加商铺表单验证
+        $this->validate($request,[
+            's_name'    =>'required | max:8',
+            's_addr'   =>'required',
+            's_title'  =>'required | max:50',
+            's_status' =>'required',
+            's_page'    =>'required'
+        ],[
+            's_name.required'   => '请填写商铺名称',
+            's_name.max'        => '用户名长度不能超过8位',
+            's_addr.required'  => '请填写商铺地址',
+            's_title.required' => '请填写商铺简介',
+            's_title.max'      => '商铺简介不能超过50个字符',
+            's_page.required'   => '请上传商铺图片'
+        ]);
+        $res = shop::add($request);
+        if($res){
+            return redirect('admin/shop')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
+        
     }
 
     /**
@@ -59,7 +84,12 @@ class ShopController extends Controller
      */
     public function edit($id)
     {
-        echo  '商铺修改';
+        // 获取要修改用的信息
+        $res = shop::update_one($id);
+        $s_face = rtrim(',',$res->s_face);
+        $s_face = explode(',', $res->s_face);
+        array_pop($s_face);
+        return view('admin.shop.edit',['data'=>$res,'s_face'=>$s_face]);
     }
 
     /**
@@ -71,7 +101,25 @@ class ShopController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // 修改商铺表单验证
+        $this->validate($request,[
+            's_name'    =>'max:8',
+            's_addr'   =>'max:30',
+            's_title'  =>'max:50',
+            's_status' =>'required',
+        ],[
+            's_name.max'        => '用户名长度不能超过8位',
+            's_addr.max'  => '商铺地址不能超过30个字符',
+            's_title.max'      => '商铺简介不能超过50个字符',
+        ]);
+
+        $row = shop::doupdate($request,$id);
+        if($row > 0){
+            return redirect('admin/shop')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
+
     }
 
     /**
@@ -82,6 +130,11 @@ class ShopController extends Controller
      */
     public function destroy($id)
     {
-        echo '商铺删除';
+        $row = shop::del($id);
+        if($row){
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('errot','删除失败');
+        }
     }
 }

@@ -1,42 +1,9 @@
 @extends('admin.layout.index')
 @section('content')
-<section id="content">
+
                 <div class="container">
                     <div class="block-header">
-                        <h2>Form Components</h2>
-                    
-                        <ul class="actions">
-                            <li>
-                                <a href="">
-                                    <i class="zmdi zmdi-trending-up"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="zmdi zmdi-check-all"></i>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="" data-toggle="dropdown">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-                    
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <a href="">Refresh</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Manage Widgets</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Widgets Settings</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    
-                    </div>
-                
+
                     <div class="card">
                         
                         
@@ -45,34 +12,28 @@
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
-                            <form action="/admin/user/add" method="post">
+                            <form action="{{ url('admin/shop') }}" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-8">                       
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
-                                                <input type="text" class="form-control" placeholder="请填写商铺名称">
+                                                <input type="text" class="form-control" placeholder="请填写商铺名称" name="s_name">
                                         </div>
                                     </div><br>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
                                         <div class="fg-line">
-                                                <input type="password" class="form-control" placeholder="请填写密码">
+                                                <input type="text" class="form-control" placeholder="请填写商铺地址" name="s_addr">
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
-                                        <div class="fg-line">
-                                                <input type="password" class="form-control" placeholder="确认密码">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    
+
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-local-phone"></i></span>
                                         <div class="fg-line">
-                                            <input type="text" class="form-control" placeholder="请填写联系方式">
+                                            <input type="text" class="form-control" placeholder="请填写起送价格" name="s_price">
                                         </div>
                                     </div>
                                     
@@ -81,18 +42,9 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
                                         <div class="fg-line">
-                                            <input type="text" class="form-control" placeholder="请填写电子邮箱">
-                                        </div>
+                                            <input type="text" class="form-control" placeholder="请填写商铺简介" name="s_title">
+                                        </div>  
                                     </div>
-                                    
-                                    <br>
-                                    
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span>
-                                        <div class="fg-line">    
-                                            <input type="text" class="form-control" placeholder="请填写地址">
-                                        </div>
-                                    </div><br>
                                     <div class="input-group">
                                         <span class="input-group-addon"></span>
                                         <div class="fg-line">
@@ -105,12 +57,36 @@
                                     <div class="col-sm-4">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <span class="btn btn-primary btn-file m-r-10 waves-effect">
-                                            <span class="fileinput-new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选择文件</font></font></span>
-                                            <span class="fileinput-exists">Change</span>
-                                            <input type="hidden"><input type="file" name="..." multiple >
+                                            <span class="fileinput-new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选择商铺首页</font></font></span>
+                                            <span class="fileinput-exists">修改图片</span>
+                                            <input type="hidden"><input type="file" name="s_page"  >
                                         </span>
                                         <span class="fileinput-filename"></span>
                                         <a href="#" class="close fileinput-exists" data-dismiss="fileinput">×</a>
+                                    </div><br><br>
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <span class="btn btn-primary btn-file m-r-10 waves-effect">
+                                            <span class="fileinput-new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选择商铺其他图片</font></font></span>
+                                            <span class="fileinput-exists">修改图片</span>
+                                            <input type="hidden"><input type="file" name="s_face[]"  >
+                                        </span>
+                                        <span class="fileinput-filename"></span>
+                                        <a href="#" class="close fileinput-exists" data-dismiss="fileinput">×</a>
+                                    </div><br><br>
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <span class="btn btn-primary btn-file m-r-10 waves-effect">
+                                            <span class="fileinput-new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选择商铺其他图片</font></font></span>
+                                            <span class="fileinput-exists">修改图片</span>
+                                            <input type="hidden"><input type="file" name="s_face[]"  >
+                                        </span>
+                                        <span class="fileinput-filename"></span>
+                                        <a href="#" class="close fileinput-exists" data-dismiss="fileinput">×</a>
+                                    </div><br><br><br>
+                                    <div class="col-sm-6">
+                                      <label>
+                                        <input type="radio" name="s_status" id="blankRadio1" value="1" aria-label="..." checked>&nbsp;营业
+                                        <input type="radio" name="s_status" id="blankRadio1" value="2" aria-label="...">&nbsp;不营业
+                                      </label>
                                     </div>
                                 </div>
 

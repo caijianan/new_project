@@ -7,13 +7,7 @@
         <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">管理员列表</font></font></h2>
     </div>
     <div class="card">
-        <div class="card-header">
-                    @if (session('msg')) 
-                    <div class="alert alert-success"> 
-                        {{ session('msg') }} 
-                    </div> 
-                    @endif
-        </div>
+        
         <br>
         <form action='{{url("admin/administrator")}}' method="get">
 

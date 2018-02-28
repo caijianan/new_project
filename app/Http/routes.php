@@ -10,11 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::resource('/','home\HomeController');
 // 后台模块
 Route::group(['prefix' => 'admin'],function(){
 	Route::get('/',function(){
@@ -44,6 +41,7 @@ Route::group(['prefix' => 'admin'],function(){
 	// 后台广告管理
 	Route::resource('advert','admin\AdvertController');
 });
+<<<<<<< HEAD
 
 // 前台模块
 Route::group(['prefix' => 'home'],function(){
@@ -73,4 +71,12 @@ Route::group(['prefix' => 'home'],function(){
 	// Route::resource('audit','admin\AuditController');
 	// // 后台广告管理
 	// Route::resource('advert','admin\AdvertController');
+=======
+// 前台模块
+
+Route::group(['prefix'=>'home'],function(){
+	// 前台商铺模块
+	Route::resource('shoplist','home\ShopController');
+	Route::resource('userinfo','home\UserinfoController');
+>>>>>>> 360a2a0ba6a8534e12b27cdbb3e311508acd085c
 });

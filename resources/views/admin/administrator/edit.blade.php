@@ -4,11 +4,7 @@
                 <div class="container">
                     <div class="block-header">
                         <h2>修改管理员</h2>
-                        @if (session('error')) 
-                        <div class="alert alert-success"> 
-                            {{ session('error') }} 
-                        </div> 
-                        @endif
+                        
 
                         <ul class="actions">
                             <li>
