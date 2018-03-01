@@ -18,7 +18,8 @@ class ShopController extends Controller
     public function index()
     {
         $shoplist = shop::all();
-        return view('home.shop.index',['shoplist'=>$shoplist]);
+        // dd($shoplist);
+        return view('home.shop.index',compact('shoplist'));
     }
 
     /**
@@ -51,6 +52,9 @@ class ShopController extends Controller
     public function show($id)
     {
         //
+        $shop = shop::where('id',$id)->first();
+        $food = $shop->h_food;
+        return view('home.shop.shopdetail',['shop'=>$shop,'food'=>$food]);
     }
 
     /**

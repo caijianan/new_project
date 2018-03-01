@@ -11,7 +11,7 @@
 |
 */
 
-Route::resource('/','home\HomeController');
+Route::resource('/','home\shopController');
 // 后台模块
 Route::group(['prefix' => 'admin'],function(){
 	Route::get('/',function(){
@@ -47,4 +47,6 @@ Route::group(['prefix'=>'home'],function(){
 	// 前台商铺模块
 	Route::resource('shoplist','home\ShopController');
 	Route::resource('userinfo','home\UserinfoController');
-});
+	Route::resource('addr','home\AddrController');
+	Route::resource('pwd','home\PwdController');
+});                                                                                     

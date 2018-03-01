@@ -18,13 +18,8 @@ class UserinfoController extends Controller
      */
     public function index()
     {
-        $data= h_like::where('uid','1')->get();
-        // dd($data);
-        foreach($data as $k => $v){
-            $food_info[] = $v->h_shop;
-        }
-        return view('home.like.index',['food_info'=>$food_info]);
-    }
+        return view('home.like.userinfo');
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -92,4 +87,5 @@ class UserinfoController extends Controller
         $row = h_like::where('id',$id)->delete();
         return $row;
     }
+
 }
