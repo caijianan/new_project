@@ -10,13 +10,13 @@ class h_user extends Model
 
     public $timestamps = false; 
 
-    protected $fillable = ['id','phone','password'];
+    protected $fillable = ['uname','tel','passwd','sex','uface','nickname'];
     
     
-    public function h_user()
-    {
+    // public function h_user()
+    // {
 
-        return $this->hasOne('App\Model\h_user','uid','');
-    }
+    //     return $this->hasOne('App\Model\h_user','uid','');
+    // }
 
 }

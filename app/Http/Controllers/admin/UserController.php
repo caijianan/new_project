@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model\h_user;
+use Intervention\Image\ImageManagerStatic as Image;
+
 class UserController extends Controller
 {
     /**
@@ -41,16 +43,39 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         $arr = $request->except('_token');
-        $id = h_user::insertGetId($arr);
-
-        if($id > 0){
+        // dd($arr);
+        $file = $request->file('uface');
+        // dd($file);
+        $destinationPath = './user_pic';
+        $uface = '';
+        if ($request->hasFile('uface')) {
+            //生成一个随机文件名（不含后缀）
+            $name            = time().rand(1000,9999);
+            // 获取文件后缀
+            $ext             = $file->getClientOriginalExtension();
+            $fileName        = $name.'.'.$ext;
+            $file->move($destinationPath, $fileName);
+            // 处理用户上传的图片
+            $img             = Image::make($destinationPath.'/'.$fileName);
+            $img->resize(47,47);
+            $img->save($destinationPath.'/sm_'.$fileName);
+            $uface          .= $fileName;
+            $arr['uface']  = $uface;
+        }else{
+            $arr['uface']  = 'default.jpg';
+        }
+        $res = h_user::create($arr);
+        // dd($res);
+        if($res){
             return redirect('/admin/user')->with('msg','添加成功');
         }else{
             return redirect('/admin/user')->with('msg','添加失败');
         }
-        dd($id);
+        // dd($id);
+        
+        
     }
 
     /**
@@ -70,9 +95,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($uid)
     {
-        '1111111111';
+        $list = h_user::where('uid',$uid)->first();
+        // $list = h_user::find($uid);
+        return view('admin.user.edit',['list'=>$list]);
+       // return view('admin.user.edit');
      }
 
     /**
@@ -82,9 +110,36 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $uid)
     {
-        //
+
+        $list = $request->except('_method', '_token');
+        // dd($list);
+        $file = $request->file('uface');
+        // dd($file);
+        $destinationPath = './user_pic';
+        $uface = '';
+        if ($request->hasFile('uface')) {
+            //生成一个随机文件名（不含后缀）
+            $name            = time().rand(1000,9999);
+            // 获取文件后缀
+            $ext             = $file->getClientOriginalExtension();
+            $fileName        = $name.'.'.$ext;
+            $file->move($destinationPath, $fileName);
+            // 处理用户上传的图片
+            $img             = Image::make($destinationPath.'/'.$fileName);
+            $img->resize(47,47);
+            $img->save($destinationPath.'/sm_'.$fileName);
+            $uface          .= $fileName;
+            $arr['uface']  = $uface;
+        }
+        $res = h_user::where('uid', $uid)->update($arr);
+        // dd($res);
+        if($res){
+            return redirect('admin/user')->with('msg', '修改成功！');
+        }else{
+            return back()->with('msg', '修改失败！');
+        }
     }
 
     /**

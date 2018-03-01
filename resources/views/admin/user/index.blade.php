@@ -7,11 +7,11 @@
 <section id="content">
 <div class="container">
     <div class="block-header">
-        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表</font></font></h2>
+        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户管</font></font></h2>
     </div>
     <div class="card">
         <div class="card-header">
-            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">悬停行在</font></font><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tbody中的表行上启用悬停状态</font></font></small></h2>
+           
             <br>
             <div class="row">
                 <div class="col-sm-2">
@@ -24,12 +24,15 @@
 
                 </div>
                 </div>
-                <div class="col-sm-1">
-                    <select name="" id="" class="form-control">
-                        <option>10</option>
-                        <option>25</option>
-                        <option>50</option>
-                    </select>                    
+                <div class="col-sm-2">
+                   <select name="sex" id="" class="form-control">
+                        <option value="">请选择性别</option>
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>                         
+                </div>
+                <div class="col-sm-2">
+                   <button class="btn btn-info"><i class="zmdi zmdi-search"></i></button>                
                 </div>
             </div>
             <br><br><br>
@@ -49,6 +52,9 @@
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户名</h4></font></font>
                         </th>
                         <th>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>联系方式</h4></font></font>
+                        </th>
+                        <th>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户昵称</h4></font></font>
                         </th>
                         <th>
@@ -57,11 +63,14 @@
                         <th>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户密码</h4></font></font>
                         </th>
+                         <th>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户头像</h4></font></font>
+                        </th>
                         <th>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>商户/用户</h4></font></font>
                         </th>
                         <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>修改 &nbsp; / &nbsp; 详情 &nbsp; / &nbsp;删除</h4></font></font>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>修改 &nbsp; / &nbsp;删除</h4></font></font>
                         </th>
                     </tr>
                 </thead>
@@ -73,6 +82,9 @@
                         </td>
                         <td>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->uname }}</font></font>
+                        </td>
+                        <td>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->tel }}</font></font>
                         </td>
                         <td>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->nickname }}</font></font>
@@ -87,10 +99,12 @@
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ ($v->isshoper=='1')?'用户':'商户' }}</font></font>
                         </td>
                         <td>
-                            <font style="vertical-align: inherit;"><a href='{{ url("admin/user/{$v->id}/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="/user_pic/sm_{{$v->uface}}"></font></font>
+                        </td>
+                        <td>
+                            <font style="vertical-align: inherit;"><a href='{{ url("admin/user/$v->uid/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
                         </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="{{ url('admin/user/1/info') }}" class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
+                       
                        <!--  <font style="vertical-align: inherit;"><a href="javascript:doDel({{ $v->uid }})" class="btn btn-danger">
                             <font style="vertical-align: inherit;">删除</font></a></font> -->
                              <button type="submit" style="vertical-align: inherit;" onclick="doDel({{ $v->uid }}, this)" class="btn btn-danger">
@@ -103,7 +117,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <nav>
+<nav>
   <ul class="pagination">
     <li>
       <a href="#" aria-label="Previous">
@@ -126,7 +140,7 @@
         </div>
     </div>
 
-        <script src="/d/endors/bower_components/jquery/src/jquery.js"></script>
+        <script src="/d/vendors/bower_components/jquery/src/jquery.js"></script>
         <script src="/layer/layer.js"></script>
         <script type="text/javascript">
             // function doDel(uid)
@@ -138,8 +152,8 @@
             // }
             // 
             //===========================================================
-            
-            function doDel(uid, obj){
+           
+    function doDel(uid, obj){
                 // alert(11111);
                 layer.confirm('你确定要删除？', {
                       btn: ['确定','取消'] 
@@ -155,6 +169,7 @@
                     }
                 );
             }
+            
 
 
             /*

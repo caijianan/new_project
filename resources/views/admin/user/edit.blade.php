@@ -45,15 +45,17 @@
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
-                            <form action='{{ url("/admin/user") }}' method="post">
+                            <form action='{{ url("/admin/user/$list->uid") }}' method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            {{ method_field('PUT') }}
+                            <!-- {{ method_field('PUT') }} -->
+                            <input type="hidden" name="_method" value="put">
+
                             <div class="row">
                                 <div class="col-sm-8">                       
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
-                                                <input type="text" name="uname" class="form-control"  placeholder="请填写用户名" value="{{ $user->uname }}">
+                                                <input type="text" name="uname" class="form-control" value="{{ $list->uname }}">
                                         </div>
                                     </div>
                                     <br>
@@ -61,7 +63,7 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                                         <div class="fg-line">
-                                            <input type="text" name="nickname" class="form-control" placeholder="请填写昵称">
+                                            <input type="text" name="nickname" class="form-control" value="{{ $list->nickname }}">
                                         </div>
                                     </div>
                                     
@@ -69,14 +71,7 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
                                         <div class="fg-line">
-                                                <input type="password" name="passwd" class="form-control" placeholder="请填写密码">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
-                                        <div class="fg-line">
-                                                <input type="password" class="form-control" placeholder="确认密码">
+                                                <input type="password" name="passwd" class="form-control" value="{{ $list->passwd }}">
                                         </div>
                                     </div>
                                     <br>
@@ -84,21 +79,21 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-local-phone"></i></span>
                                         <div class="fg-line">
-                                            <input type="text" name="tel" class="form-control" placeholder="请填写联系方式">
+                                            <input type="text" name="tel" class="form-control" value="{{ $list->tel }}">
                                         </div>
                                     </div>
                                     
                                     <br>
 
                                      <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-sun"></i></span>
-                                        <div class="fg-line">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-male-female"></i></span>
+                                        <div class="fg-line" style="margin-top: 10px">
                                             <label class="radio radio-inline m-r-20">
-                                             <input type="radio" name="sex" value="1">
+                                             <input type="radio" name="sex" value="1" {{ $list->sex ==1 ?'checked' : '' }}>
                                             <i class="input-helper"></i> 先生
                                             </label>
                                             <label class="radio radio-inline m-r-20">
-                                             <input type="radio" name="sex" value="2">
+                                             <input type="radio" name="sex" value="2" {{ $list->sex ==2 ?'checked' : '' }}>
                                             <i class="input-helper"></i> 女士
                                             </label>
                                         </div>
@@ -110,7 +105,7 @@
                                         <span class="input-group-addon"></span>
                                         <div class="fg-line">
                                           <!-- <button class="btn bgm-lightblue waves-effect form-control" >提交</button> -->
-                                          <input type="submit" value=" 注 册 用 户 " class="btn bgm-lightblue waves-effect form-control">
+                                          <input type="submit" value=" 修 改 用 户 " class="btn bgm-lightblue waves-effect form-control">
                                         </div>
                                     </div><br>
                                     
@@ -121,7 +116,7 @@
                             <p class="f-500 c-black m-b-20">上传头像:</p>
                             
                             <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
+                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;"><img src="/user_pic/{{ $list->uface }}"></div>
                                 <br><br>
                                 <div>
                                     <span class="btn btn-info btn-file waves-effect">

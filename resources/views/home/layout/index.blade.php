@@ -40,6 +40,26 @@
     </script>
     <![endif]-->
     <title>首页</title>
+
+    <script>
+                var countdown=60; 
+                function getCode(obj) { 
+                     if (countdown == 0) { 
+                        obj.removeAttribute("disabled");    
+                        obj.value="免费获取验证码"; 
+                        countdown = 60; 
+                        return;
+                    } else { 
+                        obj.setAttribute("disabled", true); 
+                        obj.value="重新发送(" + countdown + ")"; 
+                        countdown--; 
+                    } 
+                    setTimeout(function() { 
+                    getCode(obj) }
+                    ,1000) 
+                    }  
+    </script>
+
 </head>
 <body class="day " ng-controller="bodyCtrl"  day-or-night>
     <section class="common-back" id="wrapBackground">
@@ -369,7 +389,7 @@
     
 <dh-dialog class="disnone" type='login' height="500" header="登录" show="loginShow" >
         <form action="{{ url('/login') }}" method="post" class="login-form" novalidate name="loginForm" ng-controller="loginCtrl">
-    {{csrf_field()}}
+        {{csrf_field()}}
         <div class="form-group">
             <label for="">手机号码</label>
             <div>
@@ -406,8 +426,8 @@
             <dh-checkbox model="user.rememberme" title="记住我" class="fl"></dh-checkbox>
             <a href="/account/password/reset_via_mobile/" target="_blank" class="fs12 fr link">忘记密码</a>
         </div>
-        <!-- <button class="big-btn btn-green btn mb10" ng-click="loginVaildate()" ng-disabled="loginBtnDisabled" ng-bind="loginBtn"></button> -->
-        <input type="submit" value=" 注 册 用 户 " class="btn bgm-lightblue waves-effect form-control">
+       <!--  <button class="big-btn btn-green btn mb10" ng-click="loginVaildate()" ng-disabled="loginBtnDisabled" ng-bind="loginBtn"></button> -->
+        <input  class="big-btn btn-green btn mb10" type="submit" value=" 登录 " class="btn bgm-lightblue waves-effect form-control">
         <div class="clearfix">
             <span class="fr fs12">
                 没有账号?
@@ -446,14 +466,12 @@
                 </div>
                 <div class="fl form-group captcha-item">
                     <div class="fl w50p">
-                        <input type="text" ng-model="user.imgCaptcha" maxlength="4" ng-disabled="imgCaptchaIsDisabled" ng-class="{error:user.imgCaptchaMessage}" placeholder="请输入验证码">
+                        <input type="text" ng-model="user.imgCaptcha" maxlength="4" ng-class="{error:user.imgCaptchaMessage}" placeholder="请输入验证码">
                         <span class="vaildate-error" ng-if="user.imgCaptchaMessage">
                             <span ng-bind="user.imgCaptchaMessage"></span>
                         </span>
                     </div>
-                    <label class="fr">
-                        <dh-captcha style="width:119px;height:34px;" change="captchaImgChange" src="/homes/images/yzm.gif"></dh-captcha>
-                    </label>
+                   <input style="width:110px;height:34px; padding-left:10px" type="button" id="btn" value="免费获取验证码" onclick="getCode(this)" /> 
                 </div>
             </div>
         </div>
@@ -594,7 +612,7 @@
 
     
     <script>angular.bootstrap(document, ["app"]);</script>
-
+    
 
 
 

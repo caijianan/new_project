@@ -45,7 +45,7 @@
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
-                            <form action="{{ url('/admin/user') }}" method="post">
+                            <form action="{{ url('/admin/user') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-8">                       
@@ -107,10 +107,10 @@
                                     
                                     <div class="input-group">
                                         <span class="input-group-addon"></span>
-                                        <div class="fg-line">
-                                          <!-- <button class="btn bgm-lightblue waves-effect form-control" >提交</button> -->
-                                          <input type="submit" value=" 注 册 用 户 " class="btn bgm-lightblue waves-effect form-control">
-                                        </div>
+                                        <!-- <div class="fg-line"> -->
+                                          <button class="btn btn-primary btn-block waves-effect">注册用户</button>
+                                          <!-- <input type="submit" value=" 注 册 用 户 " class="btn bgm-lightblue waves-effect form-control">
+                                        </div> -->
                                     </div><br>
                                     
                                 </div>

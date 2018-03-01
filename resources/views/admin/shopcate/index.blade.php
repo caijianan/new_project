@@ -6,35 +6,50 @@
 </form>
 <section id="content">
 <div class="container">
-    <div class="block-header">
+
+    <!-- <div class="block-header">
         <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表</font></font></h2>
-    </div>
+    </div> -->
     <div class="card">
         <div class="card-header">
-            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">悬停行在</font></font><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tbody中的表行上启用悬停状态</font></font></small></h2>
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">店铺分类管理</font></font><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分类页面</font></font></small></h2>
             <br>
             <div class="row">
-                <div class="col-sm-2">
-                <div class="input-group fg-float">
+                <div class="col-sm-6">
+               <!--  <div class="input-group fg-float">
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                     <div class="fg-line">
                         <input type="text" class="form-control">
                         <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获用户</font></font></label> 
                     </div>
 
+
+                </div> -->
+                <form action="{{ url('admin/shopcate') }}">
+                    <b>编号：</b><input type="text" name="id" style="width: 15%"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <b>类名：</b><input type="text" name="st_name" style="width: 25%"> &nbsp; &nbsp;
+                    <input type="submit" calss='btn' value="搜索">
+                </form>
                 </div>
-                </div>
-                <div class="col-sm-1">
-                    <select name="" id="" class="form-control">
+                <!--<div class="col-sm-1">
+                     <select name="" id="" class="form-control">
                         <option>10</option>
                         <option>25</option>
                         <option>50</option>
-                    </select>                    
-                </div>
-            </div>
-            <br><br><br>
+                    </select>                  
+                </div>-->   
+           </div>
+
+            
         <div class="table-responsive">
             <table class="table table-hover">
+                <h3>
+                @if (session('msg'))
+                    <script>
+                        alert("{{ session('msg') }}");
+                    </script>
+                 @endif
+                 </h3>
                 <thead>
                     <tr>
                         <th>
@@ -43,54 +58,35 @@
                         <th>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>用户名</h4></font></font>
                         </th>
-                        <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>年 龄</h4></font></font>
-                        </th>
-                        <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>性别</h4></font></font>
-                        </th>
-                        <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>注册时间</h4></font></font>
-                        </th>
-                        <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>注册IP</h4></font></font>
-                        </th>
-                        <th>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h4>&nbsp;修改 &nbsp;&nbsp;/ &nbsp;&nbsp;删除</h4></font></font>
-                        </th>
+
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历山德拉</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克里斯托弗</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@makinton</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸭子</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">127.0.0.1</font></font>
-                        </td>
-                        <td>
-                            <font style="vertical-align: inherit;"><a href="{{ url('admin/shopcate/1/edit') }}" class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-                        </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel(1)" class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
-                        </td>
-                    </tr>
+                
+                    @foreach ($res as $v)
+                       <tr>
+                            <td>
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->id }}</font></font>
+                            </td>
+                            <td>
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->st_name }}</font></font>
+                            </td>
+                            <td>
+                            <font style="vertical-align: inherit;"><a href='{{ url("admin/shopcate/{$v->id}/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
+                            </font>&nbsp;
+                            <span style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{ $v->id }}, this)" class="btn btn-danger">
+                                <font style="vertical-align: inherit;">删除</font></a>
+                            </span>
+                            </td>
+
+                        </tr>     
+                    @endforeach                    
                 </tbody>
             </table>
+            {!! $res->appends(['st_name' => $st_name])->render() !!}
             <nav>
-  <ul class="pagination">
+<!--   <ul class="pagination">
     <li>
       <a href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -106,23 +102,34 @@
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
-  </ul>
+  </ul> -->
 </nav>
 
         </div>
     </div>
 
-
-
+        <script src="/d/js/jquery-1.8.3.min.js"></script>
+        <script src="/layer/layer/layer.js"></script>
         <script type="text/javascript">
-
-
-        function doDel(id)
+        function doDel(id, obj)
         {
-            var form  = document.myform;
-            form.action = '{{ url("admin/shopcate") }}/'+id;
+            // alert(111);
+            layer.confirm('你确定要删除吗？', {
+                btn: ['确定','取消']
+            }, function(){
+                $.post('{{url("admin/shopcate/")}}/'+id, {'_token':'{{csrf_token()}}', '_method':'delete'},function(data){
+                    if(data == 1){
+                        layer.msg('删除成功！');
+                        $(obj).parents('tr').remove();
+                    }else{
+                        layer.msg('删除失败！');
+                    }
+                });
+            });
+            // var form  = document.myform;
+            // form.action = '{{ url("admin/shopcate") }}/'+id;
             // alert(form.action);
-            form.submit();
+            // form.submit();
         }
 
 

@@ -43,7 +43,7 @@
                         <ul class="member logging" ng-init="loginInfo=true">
                             <li><a href="index.html" class="index">首页</a></li>
                             <li class="userName">
-                                <a href="member_index.html" rel="nofollow" draw-user>18005151538<em></em></a>
+                                <a href="member_index.html" rel="nofollow" draw-user>1100000000000<em></em></a>
                                 <div>
                                     <p><a href="member_index.html"  rel="nofollow">账号管理</a></p>
                                     <p><a href="member_addr.html"  rel="nofollow">地址管理</a></p>
