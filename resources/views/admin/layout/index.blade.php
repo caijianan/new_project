@@ -559,7 +559,7 @@
             <script src="/layer/layer.js"></script>
 
 
-            <section id="content">
+            <section id="">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger" >
                         <ul>
