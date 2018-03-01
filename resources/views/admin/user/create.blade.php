@@ -88,7 +88,6 @@
                                     </div>
                                     
                                     <br>
-
                                      <div class="input-group">
                                         <span class="input-group-addon"><i class="zmdi zmdi-male-female"></i></span>
                                         <div class="fg-line" style="margin-top: 10px">

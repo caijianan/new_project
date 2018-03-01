@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Material Admin</title>
+        <title>仿饿了么平台管理</title>
 
         
 
@@ -27,8 +27,9 @@
             margin-bottom: 20px;
         }
         </style>
+        <script src="/layer/layer.js"></script>
     </head>
-    
+        
     <body>
         <header id="header" class="clearfix" data-current-skin="blue">
             <ul class="header-inner">
@@ -41,9 +42,9 @@
                 </li>
 
                 <li class="logo hidden-xs">
-                    <a href="index.html">Material Admin</a>
+                    <a href="index.html">XXXXXXX</a>
                 </li>
-
+                
                 <li class="pull-right">
                     <ul class="top-menu">
                         <li id="toggle-width">
@@ -551,53 +552,35 @@
                     </a>
                 </div>
             </aside>
-             <!-- Javascript Libraries -->
-        <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        
-        <script src="/d/vendors/bower_components/flot/jquery.flot.js"></script>
-        <script src="/d/vendors/bower_components/flot/jquery.flot.resize.js"></script>
-        <script src="/d/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
-        <script src="/d/vendors/sparklines/jquery.sparkline.min.js"></script>
-        <script src="/d/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-        
-        <script src="/d/vendors/bower_components/moment/min/moment.min.js"></script>
-        <script src="/d/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js "></script>
-        <script src="/d/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+            <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="/layer/layer.js"></script>
 
 
+            <section id="">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger" >
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>
+                                {{ $error }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}    
+                </div>
+                @endif
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}    
+                </div>
+                @endif
 
-
-         <script src="/d/vendors/bower_components/Waves/dist/waves.min.js"></script>
-
-        
-        <script src="/d/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-        <script src="/d/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
-        <script src="/d/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="/d/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
-        <script src="/d/vendors/bower_components/nouislider/distribute/jquery.nouislider.all.min.js"></script>
-        <script src="/d/vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-        <script src="/d/vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
-        <script src="/d/vendors/summernote/dist/summernote-updated.min.js"></script>
-        <script src="/d/vendors/bower_components/chosen/chosen.jquery.min.js"></script>
-        <script src="/d/vendors/fileinput/fileinput.min.js"></script>
-        <script src="/d/vendors/input-mask/input-mask.min.js"></script>
-        <script src="/d/vendors/farbtastic/farbtastic.min.js"></script>
-        <script src="/d/vendors/bootgrid/jquery.bootgrid.updated.min.js"></script>
-        
-        <!-- Placeholder for IE9 -->
-        <!--[if IE 9 ]>
-            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
-        <![endif]-->
-        
-        <script src="/d/js/flot-charts/curved-line-chart.js"></script>
-        <!-- <script src="/d/js/flot-charts/line-chart.js"></script> -->
-        <script src="/d/js/charts.js"></script>
-        <!-- <script src="/d/js/charts.js"></script> -->
-        <script src="/d/js/functions.js"></script>
-        <script src="/d/js/demo.js"></script>
-            
             @section('content')
+                    
 
             @show
         </section>
@@ -668,7 +651,53 @@
             </div>   
         <![endif]-->
         
-       
+        <!-- Javascript Libraries -->
+        
+        <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        
+        <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        <script src="/d/vendors/bower_components/flot/jquery.flot.js"></script>
+        <script src="/d/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+        <script src="/d/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+        <script src="/d/vendors/sparklines/jquery.sparkline.min.js"></script>
+        <script src="/d/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+        
+        <script src="/d/vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="/d/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js "></script>
+        <script src="/d/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+
+
+
+
+         <script src="/d/vendors/bower_components/Waves/dist/waves.min.js"></script>
+
+        
+        <script src="/d/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="/d/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+        <script src="/d/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="/d/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+        <script src="/d/vendors/bower_components/nouislider/distribute/jquery.nouislider.all.min.js"></script>
+        <script src="/d/vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="/d/vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
+        <script src="/d/vendors/summernote/dist/summernote-updated.min.js"></script>
+        <script src="/d/vendors/bower_components/chosen/chosen.jquery.min.js"></script>
+        <script src="/d/vendors/fileinput/fileinput.min.js"></script>
+        <script src="/d/vendors/input-mask/input-mask.min.js"></script>
+        <script src="/d/vendors/farbtastic/farbtastic.min.js"></script>
+        <script src="/d/vendors/bootgrid/jquery.bootgrid.updated.min.js"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+        
+        <script src="/d/js/flot-charts/curved-line-chart.js"></script>
+        <!-- <script src="/d/js/flot-charts/line-chart.js"></script> -->
+        <script src="/d/js/charts.js"></script>
+        <!-- <script src="/d/js/charts.js"></script> -->
+        <script src="/d/js/functions.js"></script>
+        <script src="/d/js/demo.js"></script>
             
         
     </body>

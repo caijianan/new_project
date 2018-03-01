@@ -11,7 +11,6 @@
     </div>
     <div class="card">
         <div class="card-header">
-           
             <br>
             <div class="row">
                 <div class="col-sm-2">
@@ -169,7 +168,6 @@
                     }
                 );
             }
-            
 
 
             /*

@@ -49,7 +49,6 @@
                             {{ csrf_field() }}
                             <!-- {{ method_field('PUT') }} -->
                             <input type="hidden" name="_method" value="put">
-
                             <div class="row">
                                 <div class="col-sm-8">                       
                                     <div class="input-group">
