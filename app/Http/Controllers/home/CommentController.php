@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\model\h_like;
+use App\Http\Model\hf_comment as comment;
 
-
-class UserinfoController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,7 @@ class UserinfoController extends Controller
      */
     public function index()
     {
-        return view('home.layout.userinfo');
+        //
     }
 
     /**
@@ -26,9 +25,9 @@ class UserinfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        
+        //
     }
 
     /**
@@ -50,7 +49,14 @@ class UserinfoController extends Controller
      */
     public function show($id)
     {
-        
+        $data = comment::where('sid',$id)->get();
+        $arr = [];
+        foreach($data as $v){
+            
+        }
+        dd($arr);
+        return view('home.comment.index');
+        dd($data);
     }
 
     /**
@@ -84,20 +90,6 @@ class UserinfoController extends Controller
      */
     public function destroy($id)
     {
-        $row = h_like::where('id',$id)->delete();
-        return $row;
-    }
-    public function addlike($id)
-    {
-        $data = h_like::where('sid',$id)->first();
-        if(!empty($data)){
-            echo 0;
-        }else{
-            $data = [];
-            $data['uid'] = 1;
-            $data['sid'] = $id;
-            $row = h_like::insert($data);
-            echo $row;
-        }
+        //
     }
 }

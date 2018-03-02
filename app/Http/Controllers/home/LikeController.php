@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\model\h_like;
-
-
-class UserinfoController extends Controller
+use App\Http\Model\h_like;
+class LikeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,14 @@ class UserinfoController extends Controller
      */
     public function index()
     {
-        return view('home.layout.userinfo');
+        $data= h_like::where('uid','1')->get();
+        // dd($data);
+        $food_info = [];
+        foreach($data as $k => $v){
+            $food_info[] = $v->h_shop; 
+        }
+        // dd($data);
+        return view('home.like.index',['food_info'=>$food_info,'data'=>$data]);
     }
 
     /**
@@ -26,9 +31,9 @@ class UserinfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        
+        //
     }
 
     /**
@@ -50,7 +55,7 @@ class UserinfoController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -86,18 +91,6 @@ class UserinfoController extends Controller
     {
         $row = h_like::where('id',$id)->delete();
         return $row;
-    }
-    public function addlike($id)
-    {
-        $data = h_like::where('sid',$id)->first();
-        if(!empty($data)){
-            echo 0;
-        }else{
-            $data = [];
-            $data['uid'] = 1;
-            $data['sid'] = $id;
-            $row = h_like::insert($data);
-            echo $row;
-        }
+
     }
 }

@@ -46,7 +46,22 @@ Route::group(['prefix'=>'home'],function(){
 	Route::resource('shoplist','home\ShopController');
 	// 购物车
 	Route::get('car/{id}','home\ShopController@car');
+	// 修改购物车 + 
+	Route::get('increment/{id}/{increment}','home\ShopController@increment');
+	// 修改购物车 -
+	Route::get('decrease/{id}/{decrease}','home\ShopController@decrease');
+	// 删除购物车
+	Route::get('del/{id}','home\ShopController@del');
+	// 显示购物车
+	Route::get('showcar','home\ShopController@showcar');
 	// 个人中心
 	Route::resource('userinfo','home\UserinfoController');
+	// 收藏模块
+	Route::resource('like','home\LikeController');
+	Route::get('addlike/{id}','home\UserinfoController@addlike');
+	// 订单
+	Route::resource('order','home\OrderController');
+	// 评价
+	Route::resource('comment','home\CommentController');
 
 });

@@ -51,7 +51,7 @@
             <td>
                 <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
             </font>&nbsp;
-            <font style="vertical-align: inherit;"><a href="{{ url('admin/order/1/') }}" class="btn btn-success">
+            <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id") }}' class="btn btn-success">
                 <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
             <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger">
                 <font style="vertical-align: inherit;">删除</font></a></font>

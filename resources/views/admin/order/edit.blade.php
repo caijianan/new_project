@@ -5,7 +5,7 @@
 
 		    <div class="card-body card-padding">
 		        <p class="c-black f-500 m-b-20" style="font-size: 17px">修 改 订 单</p>
-				<form action="{{ url('admin/order/1') }}" method="post">
+				<form action='{{ url("admin/order/$data->id") }}'' method="post">
 					{{ csrf_field() }}
 					{{ method_field('PUT') }}
 				
