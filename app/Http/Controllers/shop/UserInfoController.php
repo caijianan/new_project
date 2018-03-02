@@ -16,7 +16,7 @@ class UserInfoController extends Controller
      */
     public function index()
     {
-        dd('我的中心');    
+           
     }
 
     /**

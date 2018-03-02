@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Model\h_food;
+use App\Http\Model\hf_type;
+use App\Http\Model\shop;
 
 class FoodController extends Controller
 {
@@ -14,9 +17,20 @@ class FoodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd('我的菜品');
+        $food = new h_food;
+        $data = $food->get();
+
+        // $sid = $request->input['sid']?$request->input['sid']:'';
+        // $tid = $request->input['tid']?$request->input['tid']:'';
+        
+        // 获取类别名
+        // foreach($data as $v) {
+        //     $data['f_tname'.$v->id] = hf_type::where('id',$v->tid)->value('tname'   );
+        // }
+
+        return view('shop.food.index',compact('data'));
     }
 
     /**
@@ -26,7 +40,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('shop.food.create');
     }
 
     /**
