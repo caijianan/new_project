@@ -16,7 +16,6 @@
                         <input type="text" class="form-control">
                         <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获用户</font></font></label> 
                     </div>
-
                 </div>
                 </div>
                 <div class="col-sm-1">
@@ -27,7 +26,9 @@
                     </select>                    
                 </div>
             </div>
-            <br><br><br>
+            <br>
+            <a href="{{ url('shop/food/create') }}" ><button class="btn btn-info">添加投诉</button></a>
+            <br>
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>

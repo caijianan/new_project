@@ -58,7 +58,8 @@ Route::group(['prefix'=>'home'],function(){
 	Route::resource('userinfo','home\UserinfoController');
 	// 用户中心 订单管理
 	Route::resource('orderinfo','home\OrderInfoController');
-
+	// 用户注册
+	Route::resource('reg','home\regController');
 });
 
 // 商家模块

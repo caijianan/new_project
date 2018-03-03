@@ -24,6 +24,7 @@ class ComplainController extends Controller
     {
         
         $comp = new a_comp;
+        // 我想拼接条件字符串拼到url
         if($request->has('uid') && $request->has('sid')) {
             $uid = $request -> input('uid');
             $sid = $request -> input('sid');

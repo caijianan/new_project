@@ -1,36 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\shop;
+namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Model\h_food;
-use App\Http\Model\hf_type;
-use App\Http\Model\shop;
+use Flc\Dysms\Client;
+use Flc\Dysms\Request\SendSms;
 
-class FoodController extends Controller
+class regController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $food = new h_food;
-        $data = $food->get();
-
-        // $sid = $request->input['sid']?$request->input['sid']:'';
-        // $tid = $request->input['tid']?$request->input['tid']:'';
-        
-        // 获取类别名
-        foreach($data as $k=>$v) {
-            $data[$k]['f_tname'] = hf_type::where('id',$v->tid)->value('tname');
-        }
-
-        return view('shop.food.index',compact('data'));
+        return view('shop.register.reg');
     }
 
     /**
@@ -38,9 +26,31 @@ class FoodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('shop.food.create');
+        $code = mt_rand(100000, 999999);
+        $phone = $request['phone'];
+
+        //手机验证
+        $config = [
+            'accessKeyId'    => 'LTAIQDJXLzOMrh5S',
+            'accessKeySecret' => 'gUxZZNqwKspfEPwKIctle7T06bogEx',
+        ];
+        
+        $client  = new Client($config);
+        $sendSms = new SendSms;
+        $sendSms->setPhoneNumbers($phone);
+        $sendSms->setSignName('赤荫');
+        $sendSms->setTemplateCode('SMS_123673638');
+        $sendSms->setTemplateParam(['code' => $code]);
+        $sendSms->setOutId('demo');
+
+        // return response()->json(['msg' => $code]); // 返回验证码
+        if($client->execute($sendSms)->Code == 'OK') {
+            return response()->json(['msg' => '发送成功']);
+        } else {
+            return response()->json(['msg' => '发送失败']);
+        }
     }
 
     /**
@@ -51,7 +61,12 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        dd('insert page'); 
+        $code = $request->input('code'); // 获取用户输入验证码
+        if($code == session(['mycode'])) {
+            dd('验证码正确');
+        } else {
+            dd('验证码错误');
+        }
     }
 
     /**
