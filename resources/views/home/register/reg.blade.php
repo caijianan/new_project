@@ -109,7 +109,6 @@
                    url:'{{ url("home/reg/create") }}',
                    data:{ '_token':'{{  csrf_token() }}', 'phone':phone },
                    success:function(data){
-                      alert(data);
                       // 倒计时开始
                       var time = 60;
                       if (validCode) {
@@ -125,7 +124,7 @@
                             code.removeClass("code1");
                           }
                         }, 1000);
-                        $(".code").after("<span>"+data+"</span>");
+                        $(".code").after("<span>"+data.msg+"</span>");
                       }
                       // 倒计时结束
 

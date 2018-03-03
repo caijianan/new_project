@@ -18,7 +18,7 @@ class regController extends Controller
      */
     public function index()
     {
-        return view('shop.register.reg');
+        return view('home.register.reg');
     }
 
     /**
@@ -47,6 +47,7 @@ class regController extends Controller
 
         // return response()->json(['msg' => $code]); // 返回验证码
         if($client->execute($sendSms)->Code == 'OK') {
+            session(['mycode'=>$code]);
             return response()->json(['msg' => '发送成功']);
         } else {
             return response()->json(['msg' => '发送失败']);
@@ -62,10 +63,10 @@ class regController extends Controller
     public function store(Request $request)
     {
         $code = $request->input('code'); // 获取用户输入验证码
-        if($code == session(['mycode'])) {
-            dd('验证码正确');
+        if($code == session('mycode')) {
+            dd('注册成功');
         } else {
-            dd('验证码错误');
+            return back()->with('error','验证码错误');
         }
     }
 

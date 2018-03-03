@@ -20,17 +20,25 @@ class FoodController extends Controller
     public function index(Request $request)
     {
         $food = new h_food;
-        $data = $food->get();
 
-        // $sid = $request->input['sid']?$request->input['sid']:'';
-        // $tid = $request->input['tid']?$request->input['tid']:'';
-        
+        if($request->has('foodname')) {
+            $fname = $request->foodname;
+            $food->where('f_name',$fname);
+        }
+
+        if ($request->has('pagenum')) {
+            $page = $request->pagenum;
+        } else {
+            $page = 5;
+        }
+
+        $data = $food->paginate($page);
         // 获取类别名
         foreach($data as $k=>$v) {
             $data[$k]['f_tname'] = hf_type::where('id',$v->tid)->value('tname');
         }
 
-        return view('shop.food.index',compact('data'));
+        return view('shop.food.index',compact('data','fname'));
     }
 
     /**

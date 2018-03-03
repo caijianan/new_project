@@ -9,25 +9,30 @@
         <div class="card-header">
             <br>
             <div class="row">
+            <form action="{{ url('shop/food') }}">
                 <div class="col-sm-2">
                 <div class="input-group fg-float">
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control">
-                        <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜获用户</font></font></label> 
+                        <input type="text" class="form-control" name='foodname'>
+                        <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">商品名称</font></font></label> 
                     </div>
                 </div>
                 </div>
                 <div class="col-sm-1">
-                    <select name="" id="" class="form-control">
+                    <select name="pagenum" id="" class="form-control">
                         <option>5</option>
                         <option>10</option>
                         <option>20</option>
                     </select>                    
                 </div>
+                <div class="col-sm-1">
+                <button class="btn btn-default btn-icon waves-effect waves-circle waves-float"><i class="zmdi zmdi-search"></i></button>
+                </div>
+            </form>
             </div>
             <br>
-            <a href="{{ url('shop/food/create') }}" ><button class="btn btn-info">添加投诉</button></a>
+            <a href="{{ url('shop/food/create') }}" ><button class="btn btn-warning btn-icon waves-effect waves-circle waves-float"><i class="zmdi zmdi-close" style="transform:rotate(45deg);"></i></button></a>
             <br>
         <div class="table-responsive">
             <table class="table table-hover">
@@ -86,35 +91,20 @@
                             </font></font>
                         </td>
                         <td>
-                            <font style="vertical-align: inherit;"><a href='{{ url("shop/food/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
+                            <font style="vertical-align: inherit;"><a href='{{ url("shop/food/$v->id/edit") }}' class="bgm-orange btn btn-icon command-edit waves-effect waves-circle"><i class="zmdi zmdi-edit"></i></a>
                         </font>&nbsp;
-                        <font style="vertical-align: inherit;"><a href='{{ url("shop/food/$v->id") }}' class="btn btn-success">
-                            <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-                        <font style="vertical-align: inherit;"><a href='javascript:void(0)' class="btn btn-danger">
-                            <font style="vertical-align: inherit;">删除</font></a></font>
+                        <font style="vertical-align: inherit;"><a href='{{ url("shop/food/$v->id") }}' class="bgm-blue btn btn-icon command-edit waves-effect waves-circle">
+                            <i class="zmdi zmdi-help"></i> &nbsp;
+                        <font style="vertical-align: inherit;"><a href='javascript:void(0)' class="bgm-red btn btn-icon command-edit waves-effect waves-circle">
+                            <i class="zmdi zmdi-delete"></i></a></font>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
             <nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
+    
+    {!! $data->appends($fname)->render() !!}
 </nav>
 
         </div>
@@ -123,6 +113,10 @@
 
 
         <script type="text/javascript">
+
+            // change active page background-color
+            $("ul.pagination li.active").css("background-color","orange");
+
             /*
              * Notifications
              */

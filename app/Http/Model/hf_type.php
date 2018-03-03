@@ -13,6 +13,6 @@ class hf_type extends Model
 
     public function h_food()
     {
-    	return $this->hasOne('App\Http\Model\h_food', 'id', 'tid');
+    	return $this->hasMany('App\Http\Model\h_food', 'id', 'tid');
     }
 }
