@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\Http\Model\Audit;
 use Intervention\Image\ImageManagerStatic as Image;
+
 
 
 
@@ -19,6 +21,7 @@ class AuditController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
         $ap_name = empty($request->input('ap_name')) ? '' :$request->input('ap_name');
@@ -49,7 +52,9 @@ class AuditController extends Controller
      */
     public function create()
     {
+
         return view('admin.audit.create');
+
     }
 
     /**
@@ -61,6 +66,7 @@ class AuditController extends Controller
     public function store(Request $request)
     {
         //
+
         $this->validate($request,['ap_name' => 'required | max:8',
             'ap_addr' => 'required',
             'ap_person' => 'required',
@@ -132,9 +138,11 @@ class AuditController extends Controller
     public function edit($id)
     {
         //
+
         $info = Audit::find($id);
         // dd($info);
         return view('admin.audit.edit',compact('info'));
+
     }
 
     /**
@@ -146,6 +154,7 @@ class AuditController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $data = $request->except('_token','_method');
         //
         $file            = $request->file('ap_img');
@@ -175,6 +184,7 @@ class AuditController extends Controller
         }else{
             return back()->with('error','更改失败'); 
         }
+
     }
 
     /**
@@ -186,6 +196,7 @@ class AuditController extends Controller
     public function destroy($id)
     {
         //
+
         $row = Audit::destroy($id);
         
         if($row){
@@ -195,5 +206,6 @@ class AuditController extends Controller
             return 2;
             
         }
+
     }
 }

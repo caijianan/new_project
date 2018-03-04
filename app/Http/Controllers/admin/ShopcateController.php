@@ -42,7 +42,6 @@ class ShopcateController extends Controller
      */
     public function create()
     {
-
         return view('admin.shopcate.create');
     }
 
@@ -86,7 +85,6 @@ class ShopcateController extends Controller
      */
     public function edit($id)
     {
-
         $type = as_type::where('id', $id)->first();
         // dd($type);
         return view('admin.shopcate.edit', ['type'=>$type]);
@@ -101,7 +99,6 @@ class ShopcateController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $list = $request->except('_method', '_token');
         $res = as_type::where('id', $id)->update($list);
         if($res > 0){
@@ -119,7 +116,6 @@ class ShopcateController extends Controller
      */
     public function destroy($id)
     {
-
         $res = as_type::where('id', $id)->delete();
         // dd($res);
         return $res;

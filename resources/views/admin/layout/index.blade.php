@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <!--[if IE 9 ]><html class="ie9"><![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Material Admin</title>
+        <title>仿饿了么平台管理</title>
 
         
 
@@ -367,7 +366,6 @@
 
                         <ul>
                             <li><a href="{{ url('admin/shopcate') }}"><i class="zmdi zmdi-view-list-alt zmdi-hc-fw"></i>浏览分类</a></li>
-
                             <li><a href="{{ url('admin/shopcate/create') }}"><i class="zmdi zmdi-plus zmdi-hc-fw"></i>添加分类</a></li>
                         </ul>
                     </li>
@@ -375,7 +373,6 @@
                         <a href=""><i class="zmdi zmdi-local-store zmdi-hc-fw"></i> 店铺管理</a>
 
                         <ul>
-
                             <li><a href="{{ url('admin/shop') }}"><i class="zmdi zmdi-store zmdi-hc-fw"></i>浏览店铺</a></li>
                             <li><a href="{{ url('admin/shop/create') }}"><i class="zmdi zmdi-local-store zmdi-hc-fw"></i>添加店铺</a></li>
                         </ul>
@@ -559,7 +556,7 @@
             <script src="/layer/layer.js"></script>
 
 
-            <section id="content">
+            <section id="">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger" >
                         <ul>
@@ -701,7 +698,6 @@
         <!-- <script src="/d/js/charts.js"></script> -->
         <script src="/d/js/functions.js"></script>
         <script src="/d/js/demo.js"></script>
-
             
         
     </body>

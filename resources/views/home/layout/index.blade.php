@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh">
  <head> 
@@ -12,12 +11,6 @@
   <meta name="description" content="ele.me为你提供上海市登科保洁(长寿路店)附近的海量美食信息，
         你可以直接在上面下单订餐，叫外卖还能赚积分，更有惊喜好礼等你拿哦！" /> 
   <meta name="mobile-agent" content="format=xhtml;url=http://m.ele.me/place/-615736186413943440" /> 
-
-
-  
-  
-
-
   <link href="/h/css/forward_201503262210.css" type="text/css" rel="stylesheet" /> 
   <!--[if (gte IE 7)&( lte IE 9)]>
 <link href="/h/css/forward_iehack_201503262210.css" type="text/css" rel="stylesheet" />
@@ -85,7 +78,6 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
   _gaq.push(['_addOrganic', 'baidu', 'kw']);
   _gaq.push(['_addOrganic', 'baidu', 'wd']);
   _gaq.push(["_addOrganic", "soso", "w"]);
-
   _gaq.push(['_trackPageview']);
 </script> 
   <script type="text/javascript" src="/h/js/head_201503262210.js"></script> 
@@ -206,14 +198,22 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
        </div> 
       </div> 
       <div class="topbar-user-nav tnav-link"> 
-       <a rel="nofollow" href="{{url('home/userinfo')}}">你好</a> / 
-       <a rel="nofollow" href="login.html">登录</a> / 
-       <a rel="nofollow" href="register.html">注册</a> 
+                @if(session('userinfo'))
+                                    
+                <a rel="nofollow" href="{{url('home/userinfo')}}">{{session('userinfo')->uname}}</a> / 
+                <a rel="nofollow" href="{{url('home/exit')}}">注销</a> 
+
+                @else
+                <a rel="nofollow" href="{{url('home/login')}}">登录</a> / 
+                <a rel="nofollow" href="{{url('home/reg')}}">注册</a> 
+
+                @endif
       </div> 
      </nav> 
     </div> 
    </header> 
    @section('content') 
+
 
    @show
    <footer class="site-footer"> 
@@ -227,3 +227,4 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
   
  </body>
 </html>
+

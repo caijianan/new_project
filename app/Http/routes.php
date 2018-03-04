@@ -11,7 +11,7 @@
 |
 */
 
-Route::resource('/','home\shopController');
+Route::resource('/','home\ShopController');
 // 后台模块
 Route::group(['prefix' => 'admin'],function(){
 	Route::get('/',function(){
@@ -32,7 +32,6 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::resource('order','admin\OrderController');
 	Route::get('order/{id}/info','admin\OrderController@info');
 	// 后台活动模块
-
 	Route::resource('activity','admin\ActivityController');
 	// 后台投诉模块
 	Route::resource('complain','admin\ComplainController');
@@ -41,12 +40,48 @@ Route::group(['prefix' => 'admin'],function(){
 	// 后台广告管理
 	Route::resource('advert','admin\AdvertController');
 });
-// 前台模块
+
 
 Route::group(['prefix'=>'home'],function(){
 	// 前台商铺模块
 	Route::resource('shoplist','home\ShopController');
+	//前台个人中心
 	Route::resource('userinfo','home\UserinfoController');
 	Route::resource('addr','home\AddrController');
 	Route::resource('pwd','home\PwdController');
+	//前台登陆
+	Route::resource('login','home\LoginController');
+	//前台注册
+	Route::resource('reg','home\RegController');
+	//前台注销
+	Route::get('exit','home\LoginController@exit');
+	//前台订单
+	Route::resource('uorder','home\UorderController');
 });                                                                                     
+
+// 商家模块
+Route::group(['prefix'=>'shop'],function(){
+	Route::get('/',function(){
+		return view('shop.layout.index');
+	});
+	// 商家注册模块
+	Route::resource('reg','shop\regController');
+	// 商家登录模块
+	Route::resource('login','shop\LoginController');
+	// 商家订单模块
+	Route::resource('order','shop\OrderController');
+	// 商家店铺模块
+	Route::resource('store','shop\StoreController');
+	// 商家菜品模块
+	Route::resource('food','shop\FoodController');
+	// 商家菜品分类模块
+	Route::resource('foodcate','shop\FoodCateController');
+	// 商铺评论模块
+	Route::resource('scomment','shop\SCommentController');
+	// 菜品评论模块
+	Route::resource('fcomment','shop\FCommentController');
+	// 商户中心模块
+	Route::resource('userinfo','shop\UserInfoController');
+});
+Route::get('kit/captcha/{tmp}', 'home\LoginController@captcha');
+

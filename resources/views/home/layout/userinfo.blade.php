@@ -12,7 +12,7 @@
        <li> <a href="{{url('home/userinfo')}}"> <i class="icon-user"></i> 个人中心 </a> </li> 
        <li class="divider"></li> 
        <li class="nav-header">饿单中心</li> 
-       <li > <a href="member_order.html"> <i class="icon-calendar icon-white"></i> 订单列表 </a> </li>  
+       <li > <a href="{{url('home/uorder')}}"> <i class="icon-calendar icon-white"></i> 订单列表 </a> </li>  
        <li class="divider"></li> 
        <li class="nav-header">我的收藏</li> 
        <li> <a href="member_collect_shop.html"> <i class="icon-heart"></i> 我收藏的餐厅 </a> </li> 

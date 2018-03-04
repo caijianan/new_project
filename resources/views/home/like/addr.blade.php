@@ -67,6 +67,7 @@
                 btn: ['确定','取消'] //按钮
                 }, function(){
                     $.post('{{ url("/home/addr") }}/'+id,{'_method':'delete','_token':'{{csrf_token()}}'},function(data){
+                      
                         if(data == 1){
                              layer.msg('删除成功', {icon: 1,time: 1000});
                               $(_this).parents("tr").hide();

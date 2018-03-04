@@ -14,7 +14,6 @@
         <div class="card-header">
         <form action="{{ url('admin/complain') }}" method="get">
             <div class="row">
-                
                 <div class="col-sm-2">
                 <div class="input-group fg-float">
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
@@ -87,7 +86,7 @@
                         <td>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->sid }}</font></font>
                         </td>
-                         <td width="100">
+                         <td style="max-width: 100px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $v->content }}</font></font>
                         </td>
                         <td>
@@ -123,6 +122,8 @@
                         <td class="text-center">
                             <font style="vertical-align: inherit;"><a href='{{ url("admin/complain/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
                         </font>
+                        <font style="vertical-align: inherit;"><a href='{{ url("admin/complain/$v->id") }}' class="btn btn-success">
+                            <font style="vertical-align: inherit;">详情</font></a></font> 
                         <font style="vertical-align: inherit;"><a href="javascript:doDel({{ $v->id }})" onclick="" class="btn btn-danger">
                             <font style="vertical-align: inherit;">删除</font></a></font>
                     </tr>

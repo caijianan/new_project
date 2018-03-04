@@ -8,8 +8,6 @@
 
                     <div class="block-header">
                         
-                
-                        
                     </div>
                     
                     <!-- Add button -->
@@ -101,7 +99,6 @@
                                 </div>
                                 @endforeach
                             </div>
-
                         </div>
                     </div>
                 </div>  

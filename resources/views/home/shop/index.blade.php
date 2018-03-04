@@ -1,10 +1,6 @@
 @extends('home.layout.index')
 @section('content')
 <div class="container"> 
-    <nav class="breadcrumb" data-geohash="wtw3equp">
-      登科保洁(长寿路店) 
-     <a class="breadcrumb-switch" href="city.html">[切换地址]</a> 
-    </nav> 
     <div id="promotion_banner" class="promotion-banner"> 
      <div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; width: 950px; height: 80px; margin: 0px; overflow: hidden;"><ul id="promotion_carousel" class="carousel-wrapper" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; height: 880px; width: 950px; z-index: auto;"> 
        
