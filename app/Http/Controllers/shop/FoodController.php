@@ -21,11 +21,16 @@ class FoodController extends Controller
     {
         $food = new h_food;
 
+        $foodname = empty($request->input('foodname'))?'':$request->input('foodname');
+        // 搜索菜品名称
         if($request->has('foodname')) {
             $fname = $request->foodname;
-            $food->where('f_name',$fname);
+            $food->where('f_name','like',"%$fname%");
+        } else {
+            $food = new h_food;
         }
 
+        // 限定每页显示条数
         if ($request->has('pagenum')) {
             $page = $request->pagenum;
         } else {
@@ -38,7 +43,7 @@ class FoodController extends Controller
             $data[$k]['f_tname'] = hf_type::where('id',$v->tid)->value('tname');
         }
 
-        return view('shop.food.index',compact('data','fname'));
+        return view('shop.food.index',compact('data','foodname','page'));
     }
 
     /**

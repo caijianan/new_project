@@ -22,7 +22,7 @@
                 <div class="col-sm-1">
                     <select name="pagenum" id="" class="form-control">
                         <option>5</option>
-                        <option>10</option>
+                        <option >10</option>
                         <option>20</option>
                     </select>                    
                 </div>
@@ -92,9 +92,9 @@
                         </td>
                         <td>
                             <font style="vertical-align: inherit;"><a href='{{ url("shop/food/$v->id/edit") }}' class="bgm-orange btn btn-icon command-edit waves-effect waves-circle"><i class="zmdi zmdi-edit"></i></a>
-                        </font>&nbsp;
+                        </font>&nbsp;&nbsp;&nbsp;&nbsp;
                         <font style="vertical-align: inherit;"><a href='{{ url("shop/food/$v->id") }}' class="bgm-blue btn btn-icon command-edit waves-effect waves-circle">
-                            <i class="zmdi zmdi-help"></i> &nbsp;
+                            <i class="zmdi zmdi-help"></i></a></font>&nbsp;&nbsp;&nbsp;&nbsp;
                         <font style="vertical-align: inherit;"><a href='javascript:void(0)' class="bgm-red btn btn-icon command-edit waves-effect waves-circle">
                             <i class="zmdi zmdi-delete"></i></a></font>
                         </td>
@@ -104,7 +104,7 @@
             </table>
             <nav>
     
-    {!! $data->appends($fname)->render() !!}
+    {!! $data->appends($foodname)->render() !!}
 </nav>
 
         </div>
@@ -115,7 +115,7 @@
         <script type="text/javascript">
 
             // change active page background-color
-            $("ul.pagination li.active").css("background-color","orange");
+            $("ul.pagination li.active span").css("background-color","orange");
 
             /*
              * Notifications
