@@ -118,7 +118,8 @@ class ShopController extends Controller
 
     public function showcar()
     {
-        $addr = addr::where('uid','1')->get();
+        $uid = session('userinfo')['id'];
+        $addr = addr::where('uid',$uid)->get();
         return view('home.car.index',['addr'=>$addr]);
     }
 

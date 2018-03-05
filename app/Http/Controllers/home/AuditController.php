@@ -78,7 +78,8 @@ class AuditController extends Controller
             $data['ap_img'] = $ap_img;
             // dd($data);
         }
-        $uid =  session('userinfo')->id;
+        $uid =  session('userinfo')['id'];
+        // dd(session('userinfo'));
         $data['ap_status'] = 1;
         $data['ap_time'] = time();
         $data['uid'] = $uid;

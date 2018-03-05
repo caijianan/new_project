@@ -65,9 +65,11 @@ class LoginController extends Controller
 
     }
 
-    public function exit(){
+    public function exita(){
         session()->forget('userinfo');
-        return redirect('home/shoplist')->with('success','注销成功');
+        return redirect('home/shoplist')->with('success','注销成功');     
     }
+    // public function exit(){
+    // }
+}
 
- }  

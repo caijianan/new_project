@@ -17,8 +17,9 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $res = h_order::where('uid',1)->get();
+    {   
+        $id = session('userinfo')['id'];
+        $res = h_order::where('uid',$id)->get();
         $o_res = $res->morder_info;
         $arr = [];
         foreach ($o_res as $key => $value) {
@@ -53,7 +54,7 @@ class OrderController extends Controller
         $h_order['id'] = rand(1000,9999);
         // 下单时间
         $h_order['o_ctime'] = time();
-        $h_order['uid'] = 1;
+        $h_order['uid'] = session('userinfo')['id'];
         // 订单状态
         $h_order['o_status'] = 1;
         $row = h_order::insert($h_order);
@@ -69,12 +70,13 @@ class OrderController extends Controller
         foreach ($fid as $k => $v) {
             $data['fid'] = $v;
             $id = order_info::insertGetId($data);
-            $row = order_info::where('oiid',$id)->update(['f_price'=>$f_price[$k],'oi_num'=>$oi_num[$k]]);
+            $row = order_info::where('id',$id)->update(['f_price'=>$f_price[$k],'oi_num'=>$oi_num[$k]]);
         }
         if(!empty($id)){
             $request->session()->forget('cart');
             return view('home.car.order');
         }
+        // dd($oi_num);
         
     }
 

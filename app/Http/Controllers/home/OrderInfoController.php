@@ -18,7 +18,8 @@ class OrderInfoController extends Controller
      */
     public function index()
     {
-        $data = h_order::where('uid','=',1)->get();
+        $id = session('userinfo')['id'];
+        $data = h_order::where('uid','=',$id)->get();
         // $shopName = h_order::find()->
         
         foreach ($data as $k => $v) {

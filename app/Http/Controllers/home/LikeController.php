@@ -16,7 +16,8 @@ class LikeController extends Controller
      */
     public function index()
     {
-        $data= h_like::where('uid','1')->get();
+        $uid = session('userinfo')['id'];
+        $data= h_like::where('uid',$uid)->get();
         // dd($data);
         $food_info = [];
         foreach($data as $k => $v){

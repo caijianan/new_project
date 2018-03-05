@@ -16,6 +16,7 @@
             <tr> 
              <th class="col-name">美食篮子</th> 
              <th class="col-price">单价</th> 
+             <th class="col-price">评价</th> 
              <th class="col-quantity">数量</th> 
              <th class="col-sub-total">小计</th> 
             </tr> 
@@ -24,7 +25,8 @@
            	@foreach($data as $k => $v)
             <tr 12266119358749105=""> 
              <td class="col-name"> <span>{{$finfo[$k]->f_name}}</span> </td> 
-             <td class="col-price">{{$v->f_price}}</td> 
+             <td class="col-price">{{$v->f_price}}</td>
+             <td class="col-price"><a href='{{url("home/comment/show/$v->fid")}}'>点击评论</a></td>
              <td class="col-quantity">{{$v->oi_num}}</td> 
              <td class="col-sub-total">￥{{$v->f_price * $v->oi_num}}</td> 
             </tr>

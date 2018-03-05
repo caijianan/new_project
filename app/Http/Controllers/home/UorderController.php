@@ -19,7 +19,7 @@ class UorderController extends Controller
      */
     public function index()
     {
-        $uid = session('userinfo')->id;
+        $uid = session('userinfo')['id'];
         
         $data = h_order::where('uid',$uid)
                        ->get();
@@ -28,7 +28,6 @@ class UorderController extends Controller
         foreach ($data as $k => $v) {
             $sinfo[] = $v->shop;
             $ainfo[] = $v->h_addr;
-                 
         }
         return view('home.like.order',compact('data','sinfo','ainfo'));
     }
@@ -71,7 +70,7 @@ class UorderController extends Controller
                              ->first();
             $add += $v->f_price * $v->oi_num;
         }
-        return view('home.like.orderInfo',compact('data','finfo','add'));
+        return view('home.like.orderInfo',compact('data','finfo','add','status'));
     }
 
     /**

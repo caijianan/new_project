@@ -117,7 +117,7 @@
      <div id="module_address" class="cart-module caddress-module group"> 
       <h3 class="cmodule-title"><i class="icon-cmodule address"></i>送达地址：</h3> 
       <div class="cmodule-content"> 
-       <span  id="xianshi"> 请选择地址 </span> 
+       <span  id="xianshi"> 已选择常用地址 </span> 
        <a href=" javascript:void(0)" onclick="doupdate()"> <span id="addr_edit" class="cmodule-edit">[修改]</span></a>
       </div> 
      </div> 
@@ -137,7 +137,7 @@
           <a class="del cancel_new_btn">&times;</a> 
          </div> </li>
          @foreach($addr as $v)
-        <li class=" clist-item " data-id="1939846" id="huoqu"> <input id="addr_1939846" class="clist-radio row_radio" type="radio" name="aid[]" value="{{ $v->id }}"  {{ $v->id == 1 ? 'checked' : '' }}/> <label for="addr_1939846" class="clist-label row_label"> <span class="name row_name">{{ $v->connect }}</span> <span class="addr row_addr" id="huoqu{{ $v->id }}">{{ $v->connect }} {{ $v->address }}</span> <span class="tel row_tel">{{ $v->tel }}</span> <span class="bk row_bak_tel"></span> </label> 
+        <li class=" clist-item " data-id="1939846" id="huoqu"> <input id="addr_1939846" class="clist-radio row_radio" type="radio" name="aid[]" value="{{ $v->id }}"  {{ $v->default == 2 ? 'checked' : '' }}/> <label for="addr_1939846" class="clist-label row_label"> <span class="name row_name"></span> <span class="addr row_addr" id="huoqu{{ $v->id }}">{{ $v->connect }} {{ $v->address }}</span> <span class="tel row_tel">{{ $v->tel }}</span> <span class="bk row_bak_tel"></span> </label> 
          <div class="caddr-edit-field edit_field hide"> 
           <input class="name row_name_edit" type="text" placeholder="姓名" value="黄金" /> 
           <input class="addr row_addr_edit" type="text" placeholder="外卖送到的地址" value="中山北路1655弄 29支弄宝钢公寓 11号304" /> 
@@ -148,7 +148,7 @@
          @endforeach 
        </ul> 
       </div> 
-      <p class="cmodal-footer"> <a class="ui-btn btn-confirm confirm_btn" onclick="huoqu({{ $v->id }})">保存</a> <a class="ui-btn cancel_btn">取消</a> </p> 
+      <p class="cmodal-footer"> <a class="ui-btn btn-confirm confirm_btn">保存</a> <a class="ui-btn cancel_btn">取消</a> </p> 
      </div> 
     </div> 
     <div id="module_payment" class="cart-module cpayment-module group"> 

@@ -55,7 +55,7 @@ Route::group(['prefix'=>'home'],function(){
 	//前台注册
 	Route::resource('reg','home\RegController');
 	//前台注销
-	Route::get('exit','home\LoginController@exit');
+	Route::get('exit','home\LoginController@exita');
 	//前台订单
 	Route::resource('uorder','home\UorderController');
 	//前台用户信息修改

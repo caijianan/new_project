@@ -33,8 +33,8 @@
             <tbody> 
              <tr> 
               <td class="col1"><span class="item-name">饿单号:</span>{{$v->id}}</td> 
-              <td class="col2"><span class="item-name">下单时间:</span><span class="om_time">{{date('Y/m/d h:i:s',$v->octime)}}</span></td> 
-              <td class="col3"><span class="item-name">餐厅名:</span>{{ $sinfo[$k]->s_name }}</td> 
+              <td class="col2"><span class="item-name">下单时间:</span><span class="om_time">{{date('Y/m/d h:i:s',$v->o_ctime)}}</span></td> 
+              <td class="col3"><span class="item-name">餐厅名:</span>{{ $sinfo[$k]['s_name'] }}</td> 
              </tr> 
              <tr> 
               <td class="col1"><span class="item-name">饿单地址:</span>{{$ainfo[$k]->address}}</td> 

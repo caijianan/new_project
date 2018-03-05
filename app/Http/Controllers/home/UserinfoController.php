@@ -21,7 +21,7 @@ class UserinfoController extends Controller
      */
     public function index()
     {
-        $id = session('userinfo')->id;
+        $id = session('userinfo')['id'];
         $info = h_user::where('id',$id)
                       ->first();
         return view('home.like.userinfo',compact('info'));

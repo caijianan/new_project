@@ -18,7 +18,7 @@ class PwdController extends Controller
     public function index()
     {
         //
-        $id = session('userinfo')->id;
+        $id = session('userinfo')['id'];
         return view('home.like.pwd',compact('id'));
     }
 

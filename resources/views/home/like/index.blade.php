@@ -1,5 +1,5 @@
 @extends('home.layout.userinfo')
-@section('content')
+@section('userinfo')
 
 <div class="main-content">
     <div class="content-header">

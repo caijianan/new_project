@@ -99,14 +99,15 @@ class CommentController extends Controller
     }
     public function addcmt(Request $request)
     {
+        $uid = session('userinfo')['id'];
         $res = $request->except('_token');
         $shop = h_food::where('id',$res['fid'])->first()->shop->id;
         $res['f_ctime'] = time();
-        $res['uid'] = 1;
+        $res['uid'] = $uid;
         $res['sid'] = $shop;
         $row = hf_comment::insert($res);
         if($row > 0){
-            return back();
+            return redirect('home/uorder');
         }
     }
 }
