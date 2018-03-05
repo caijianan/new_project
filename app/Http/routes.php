@@ -63,5 +63,9 @@ Route::group(['prefix'=>'home'],function(){
 	Route::resource('order','home\OrderController');
 	// 评价
 	Route::resource('comment','home\CommentController');
+	// 显示评价模板
+	Route::get('comment/show/{fid}','home\CommentController@cshow');
+	// 添加评论
+	Route::post('comment/addcmt','home\CommentController@addcmt');
 
 });

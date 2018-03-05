@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model\hf_comment as comment;
+use App\Http\Model\h_food;
+use App\Http\Model\hf_comment;
 
 class CommentController extends Controller
 {
@@ -27,7 +29,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -38,7 +40,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -50,13 +52,12 @@ class CommentController extends Controller
     public function show($id)
     {
         $data = comment::where('sid',$id)->get();
-        $arr = [];
-        foreach($data as $v){
-            
+        $food = [];
+        foreach ($data as $k => $v) {
+           $food[] = $v->h_food;
         }
-        dd($arr);
-        return view('home.comment.index');
-        dd($data);
+        return view('home.comment.index',['data'=>$data,'food'=>$food]);
+
     }
 
     /**
@@ -91,5 +92,21 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function cshow($fid)
+    {
+        return view('home.comment.create',['fid'=>$fid]);
+    }
+    public function addcmt(Request $request)
+    {
+        $res = $request->except('_token');
+        $shop = h_food::where('id',$res['fid'])->first()->shop->id;
+        $res['f_ctime'] = time();
+        $res['uid'] = 1;
+        $res['sid'] = $shop;
+        $row = hf_comment::insert($res);
+        if($row > 0){
+            return back();
+        }
     }
 }
