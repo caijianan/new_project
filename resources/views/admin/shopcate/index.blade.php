@@ -2,7 +2,7 @@
 @section('content')
 <form action="" method="post" name="myform">
     {{ csrf_field() }}
-    {{ method_field('DELETE') }}
+    {{ method_field('delete') }}
 </form>
 <section id="content">
 <div class="container">

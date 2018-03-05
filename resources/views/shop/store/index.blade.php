@@ -1,10 +1,10 @@
-@extends('admin.layout.index')
+@extends('shop.layout.index')
 @section('content')
 <form action="" method="post" name="myform">
     {{ csrf_field() }}
     {{ method_field('delete') }}
 </form>
-        <section id="content">
+<section id="content">
                 <div class="container">
 
                     <div class="block-header">
@@ -19,7 +19,7 @@
                     
                     <div class="card">
                         <div class="lv-header-alt clearfix m-b-5">
-                            <h2 class="lvh-label hidden-xs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">19,453条记录</font></font></h2>
+                            <h2 class="lvh-label hidden-xs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">商铺列表</font></font></h2>
                             
                             <div class="lvh-search">
                                 <input type="text" placeholder="Start typing..." class="lvhs-input">
@@ -96,7 +96,7 @@
                                         </div>
                 
                                         <div class="c-footer">
-                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href='{{ url("admin/shop/$v->id/edit") }}' class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger waves-effect">删除</a></font></font></button>
+                                            <button class="waves-effect"><i class="zmdi zmdi-person-add"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <a href='{{ url("shop/store/$v->id/edit") }}' class="btn btn-info waves-effect">修改</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger waves-effect">删除</a></font></font></button>
                                         </div>
                                     </div>
                                 </div>
@@ -112,12 +112,12 @@
                 function doDel(id)
                 {
                     var form = document.myform;
-                    form.action = '{{ url("/admin/shop") }}/'+id;
+                    form.action = '{{ url("/shop/store") }}/'+id;
                     form.submit();
                 }
                 function refresh()
                 {
-                    window.location.href="{{ url('admin/shop/create') }}";
+                    window.location.href="{{ url('shop/store/create') }}";
                 }
             </script>
 

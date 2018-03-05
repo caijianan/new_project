@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\shop;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\Http\model\h_order;
 use App\Http\model\order_info;
 use App\Http\model\h_food;
 
-class OrderController extends Controller
+
+class ShopPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +21,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $res = h_order::all();
-        // dd($res);
-        return view('admin.order.index',['data'=>$res]);
+        // $res = h_order::all();
+        // // dd($res);
+        // return view('shop.shoppage.index',['data'=>$res]);
+
+        $res = h_order::paginate(8);
+        return view('shop.shoppage.index', ['res'=>$res]);
     }
+
+   
+    
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +39,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        echo '添加订单页面';
+        //
     }
 
     /**
@@ -46,19 +54,14 @@ class OrderController extends Controller
     }
 
     /**
-     * 订单详情
-     * @param  [type] $id 订单id(订单号)
-     * @return [type]     [description]
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $res = h_order::where('id',$id)->first();
-        $o_res = $res->order_info;
-        $arr = [];
-        foreach ($o_res as $key => $value) {
-            $arr[]  = h_food::where('id',$value->fid)->first();
-        }
-        return view('admin.order.info',['arr'=>$arr,'order'=>$res,'orinfo'=>$o_res]);
+        //
     }
 
     /**
@@ -67,10 +70,13 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        $data = h_order::where('id',$id)->first();
-        return view('admin.order.edit',['data'=>$data]);
+        $data = as_type::where('id', $id)->update($list);
+        // dd($res);
+        return $data;
+
+        
     }
 
     /**
@@ -82,13 +88,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $res = $request->except('_token','_method');
-        $row = h_order::where('id',$id)->update($res);
-        if($row > 0){
-            return redirect('admin/order')->with('success','修 改 订 单 成 功');
-        }else{
-            return back()->with('error','修 改 订 单 失 败');
-        }
+        // $res = $request->o_status;
+        // $status = h_order::where('id',$id)->update(['o_status'=>$res]);
+        // if($status) {
+        //     return 1;
+        // } else {
+        //     return 0;
+        // }
     }
 
     /**
@@ -99,12 +105,24 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        $row = h_order::where('id',$id)->delete();
-        $o_row = order_info::where('oid',$id)->delete();
-        if($row > 0 && $o_row > 0){
-            return 1;
-        }else{
-            return 0;
+        //
+    }
+
+     public function info($id)
+    {
+        $res = h_order::where('id',$id)->first();
+        $o_res = $res->order_info;
+        $arr = [];
+        foreach ($o_res as $key => $value) {
+            $arr[]  = h_food::where('id',$value->fid)->first();
         }
+        return view('shop.shoppage.info',['arr'=>$arr,'order'=>$res,'orinfo'=>$o_res]);
+    }
+
+    public function dingdan(Request $request,$id)
+    {
+        $res = $request->input('o_status');
+        $status = h_order::where('id',$id)->update(['o_status'=>$res]);
+        return $status;
     }
 }

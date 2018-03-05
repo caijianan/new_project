@@ -1,4 +1,4 @@
-@extends('admin.layout.index')
+@extends('shop.layout.index')
 @section('content')
 <form action="" method="post" name="myform">
     {{ csrf_field() }}
@@ -8,10 +8,10 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <br>
+            <!-- <br> -->
             <div class="row">
-                <div class="col-sm-2">
-                <div class="input-group fg-float">
+                <!-- <div class="col-sm-2"> -->
+                <!-- <div class="input-group fg-float">
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                     <div class="fg-line">
                         <input type="text" class="form-control">
@@ -26,9 +26,12 @@
                         <option>25</option>
                         <option>50</option>
                     </select>                    
+                </div> -->
+                <div class="lv-header-alt clearfix m-b-5">
+                            <h2 class="lvh-label hidden-xs"><font style="vertical-align: inherit;"><p class="c-black f-500 m-b-5"><h4>待处理订单</h4></font></h2>
                 </div>
-            </div>
-            <br><br><br>
+            <!-- </div> -->
+            <!-- <br> -->
 
 <table class="table table-inner table-vmiddle">
     <thead>
@@ -38,32 +41,46 @@
             <th>支 付 方 式</th>
             <th>订 单 状 态</th>
             <th>总 价</th>
-            <th>修改 &nbsp;&nbsp; / &nbsp;&nbsp; 详情 &nbsp;&nbsp; / &nbsp;&nbsp;删除</th>
+            <th>操 作</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($data as $v)
+        @foreach($res as $k=>$v)
+        @if ($v->o_status === 1)
         <tr id="remove">
             <td class="f-500 c-cyan">{{ $v->id }}</td>
             <td>{{ date('Y-m-d H:i:s',$v->o_ctime) }}</td>
             <td>{{ $v->o_pay == 1 ? '线 上 支 付' : '线 下 支 付' }}</td>
-            <td>{{ $v->o_status == 1 ? '完 &nbsp;&nbsp;&nbsp;成' : '未 完 成' }}</td>
+            <!-- <td>{{ $v->o_status == 1 ? '完 &nbsp;&nbsp;&nbsp;成' : '未 完 成' }}</td> -->
+            <td id="status{{ $v->id }}">
+                @if ($v->o_status === 1)
+                     待处理
+                @elseif ($v->o_status === 2)
+                     已接单
+                @else
+                     已拒单
+                @endif
+            </td>
             <td class="f-500 c-cyan">¥&nbsp;{{ $v->o_sum }}</td>
             <td>
-                <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-            </font>&nbsp;
-            <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id/") }}' class="btn btn-success">
-                <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-            <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger">
-                <font style="vertical-align: inherit;">删除</font></a></font>
+                     <font style="vertical-align: inherit;"><button onclick="jiedan({{ $v->id }},this)" class="btn btn btn-success">接单</button> 
+                    </font>&nbsp;
+                    <font style="vertical-align: inherit;"><button onclick="judan({{ $v->id }},this)" class="btn btn btn-danger">拒单</button> 
+                    </font>&nbsp;
+               
+                 <font style="vertical-align: inherit;"><a href='{{ url("shop/shoppage/$v->id/info") }}' class="btn btn-info"> 
+                <font style="vertical-align: inherit;">详情</font></a></font>
+            
             </td>
         </tr>
+          @endif
         @endforeach
     </tbody>
 </table>
-
+        <center>{!! $res->render() !!}</center>
 </div>
-<br>
+
+<!-- <br>
 <center>
 <nav>
   <ul class="pagination">
@@ -84,7 +101,7 @@
     </li>
   </ul>
 </nav>
-</center>
+</center> -->
 <div id="recent-items-chart" class="flot-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" width="761" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 761px; height: 150px;"></canvas><canvas class="flot-overlay" width="761" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 761px; height: 150px;"></canvas></div>
 </div>
 
@@ -93,11 +110,78 @@
     </div>
 
 
-
-
-
-
 <script type="text/javascript">
+    function jiedan(id,_this)
+    {
+       layer.confirm('您确定要接单吗？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+          $.get('{{ url("shop/shoppage/dingdan") }}/'+id,{'o_status':'2'},function(data){
+            // console.log(data);
+            if(data > 0){
+                layer.msg('成功', {icon: 1,time: 1000});
+                $(_this).parents('tr').hide();
+            }else{
+                layer.msg('接单失败',{icon:2,time:1000});
+            }
+          });
+        });
+       $('#layui-layer1').css('top','150px');
+    }
+
+    function judan(id,_this)
+    {
+    // alert(id);
+       layer.confirm('您确定要拒单吗？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+           $.get('{{ url("shop/shoppage/dingdan") }}/'+id,{'o_status':'3'},function(data){
+            if(data > 0){
+                layer.msg('成功', {icon: 1,time: 1000});
+                $(_this).parents('tr').hide();
+            }else{
+                layer.msg('接单失败',{icon:2,time:1000});
+            }
+          });
+        });
+       $('#layui-layer1').css('top','150px');
+    }
+
+// ================接单==========
+    // function jd(id)
+    //     {
+    //         $('#jiedan'+id).attr('disabled',true);  
+    //         $('#judan'+id).attr('disabled',true);  
+    //         // alert('111111');
+    //         // alert(status);
+    //         // alert('{{ url("shop/shoppage/dingdan") }}/'+id);
+    //         $.get('{{ url("shop/shoppage/dingdan") }}/'+id,{'o_status':'2'},function(data){
+    //             if(data > 0){
+    //                 // $(this).css({disabled:"disabled"});
+                    
+    //                 $("#status"+id).html('已接单');
+
+    //             }
+    //         });
+    //     }
+
+//=================拒单===========       
+        // function jud(id)
+        // {
+        //     $('#judan'+id).attr('disabled',true);  
+        //     $('#jiedan'+id).attr('disabled',true);
+        //     // alert('111111');
+        //     // alert(status);
+        //     // alert('{{ url("shop/shoppage/dingdan") }}/'+id);
+        //     $.get('{{ url("shop/shoppage/dingdan") }}/'+id,{'o_status':'3'},function(data){
+        //         if(data > 0){
+        //             // $(this).css({disabled:"disabled"});
+                    
+        //             $("#status"+id).html('已拒单');
+        //         }
+        //     });
+        // }
+// ==============================
 
 
     /*
@@ -236,21 +320,5 @@
 
 @endsection
 <script>
-    function doDel(id)
-    {
-    // alert(id);
-       layer.confirm('您确定要删除吗？', {
-          btn: ['确定','取消'] //按钮
-        }, function(){
-          $.post('{{ url("admin/order") }}/'+id,{'_token':'{{ csrf_token() }}','_method':'delete' },function(data){
-            if(data > 0){
-                layer.msg('删 除 成 功');
-                $('#remove').remove();
-            }else{
-                layer.msg('删 除 失 败');
-            }
-          });
-        });
-
-    }
+    
 </script>

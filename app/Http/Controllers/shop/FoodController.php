@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\shop;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.homepage.index');
+        dd('我的菜品');
     }
 
     /**

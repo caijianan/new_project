@@ -42,34 +42,37 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::resource('advert','admin\AdvertController');
 });
 
-// // 前台模块
-// Route::group(['prefix' => 'home'],function(){
-// 	Route::get('/',function(){
-// 		return view('home.layout.index');
-// 	});
-// 	// 前台用户模块
-// 	Route::resource('account','home\HuserController');
-// 	Route::get('h_user/{id}/info','home\HuserController@info');
-// 	// // 后台管理员模块
-	// Route::resource('administrator','admin\AdministratorController');
-
-	// Route::get('administrator/{id}/info','admin\AdministratorController@info');
-	// // 后台店铺分类模块
-	// Route::resource('shopcate','admin\ShopcateController');
-	// // 后台商铺模块
-	// Route::resource('shop','admin\ShopController');
-	// // 后台订单模块
-	// Route::resource('order','admin\OrderController');
-	// Route::get('order/{id}/info','admin\OrderController@info');
-	// // 后台活动模块
-
-	// Route::resource('activity','admin\ActivityController');
-	// // 后台投诉模块
-	// Route::resource('complain','admin\ComplainController');
-	// // 后台审核模块
-	// Route::resource('audit','admin\AuditController');
-	// // 后台广告管理
-	// Route::resource('advert','admin\AdvertController');
 
 // 前台模块
-// });
+
+// 商家模块
+Route::group(['prefix'=>'shop'],function(){
+	// Route::get('/',function(){
+	// 	return view('shop.layout.index');
+	// });
+	// 默认商家首页
+	Route::resource('/','shop\ShopPageController');
+	Route::get('shoppage/{id}/info','shop\ShopPageController@info');
+	Route::get('shoppage/dingdan/{id}','shop\ShopPageController@dingdan');
+	// 商家注册模块
+	Route::resource('reg','shop\regController');
+	// 商家登录模块
+	Route::resource('login','shop\LoginController');
+	// 商家订单模块
+	Route::resource('order','shop\OrderController');
+	Route::get('order/{id}/info','shop\OrderController@info');
+	// 商家店铺模块
+	Route::resource('store','shop\StoreController');
+	// 商家菜品模块
+	Route::resource('food','shop\FoodController');
+	// 商家菜品分类模块
+	Route::resource('foodcate','shop\FoodCateController');
+	// 商铺评论模块
+	Route::resource('scomment','shop\SCommentController');
+	// 菜品评论模块
+	Route::resource('fcomment','shop\FCommentController');
+	// 商户中心模块
+	Route::resource('userinfo','shop\UserInfoController');
+});
+
+

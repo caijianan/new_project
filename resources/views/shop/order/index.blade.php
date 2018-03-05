@@ -1,4 +1,4 @@
-@extends('admin.layout.index')
+@extends('shop.layout.index')
 @section('content')
 <form action="" method="post" name="myform">
     {{ csrf_field() }}
@@ -8,9 +8,9 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <br>
+           <!--  <br> -->
             <div class="row">
-                <div class="col-sm-2">
+                <!-- <div class="col-sm-2">
                 <div class="input-group fg-float">
                     <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                     <div class="fg-line">
@@ -26,9 +26,17 @@
                         <option>25</option>
                         <option>50</option>
                     </select>                    
+                </div> -->
+                <div class="lv-header-alt clearfix m-b-5">
+                            <h2 class="lvh-label hidden-xs"><font style="vertical-align: inherit;"><p class="c-black f-500 m-b-5"><h4>全部订单</h4></font></h2>
+                </form>
                 </div>
+                <form action="{{ url('shop/order') }}" style="padding-left: 40px;">
+                    <b>类名：</b><input type="text" name="id" style="width: 12%;"> &nbsp; &nbsp;
+                    <input type="submit" calss='btn' value="搜索">
+                </form>
             </div>
-            <br><br><br>
+            
 
 <table class="table table-inner table-vmiddle">
     <thead>
@@ -38,34 +46,44 @@
             <th>支 付 方 式</th>
             <th>订 单 状 态</th>
             <th>总 价</th>
-            <th>修改 &nbsp;&nbsp; / &nbsp;&nbsp; 详情 &nbsp;&nbsp; / &nbsp;&nbsp;删除</th>
+            <th>操 作</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($data as $v)
+        @foreach($res as $k=>$v)
         <tr id="remove">
             <td class="f-500 c-cyan">{{ $v->id }}</td>
             <td>{{ date('Y-m-d H:i:s',$v->o_ctime) }}</td>
             <td>{{ $v->o_pay == 1 ? '线 上 支 付' : '线 下 支 付' }}</td>
-            <td>{{ $v->o_status == 1 ? '完 &nbsp;&nbsp;&nbsp;成' : '未 完 成' }}</td>
+            <td id="status{{ $v->id }}">
+                @if ($v->o_status === 1)
+                     待处理
+                @elseif ($v->o_status === 2)
+                     已接单
+                @else
+                     已拒单
+                @endif
+            </td>
             <td class="f-500 c-cyan">¥&nbsp;{{ $v->o_sum }}</td>
             <td>
-                <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
-            </font>&nbsp;
-            <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id/") }}' class="btn btn-success">
+            <!--     <font style="vertical-align: inherit;"><a href='{{ url("shop/order/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">接单</font></a>
+            </font>&nbsp; -->
+            <font style="vertical-align: inherit;"><a href='{{ url("shop/order/$v->id/") }}' class="btn btn-success">
                 <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-            <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger">
-                <font style="vertical-align: inherit;">删除</font></a></font>
+            <!-- <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger">
+                <font style="vertical-align: inherit;">删除</font></a></font> -->
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-
+<center>
+{!! $res->appends(['id' => $id])->render() !!}
+</center>
 </div>
 <br>
-<center>
-<nav>
+<!-- <center> -->
+<!-- <nav>
   <ul class="pagination">
     <li>
       <a href="#" aria-label="Previous">
@@ -83,8 +101,8 @@
       </a>
     </li>
   </ul>
-</nav>
-</center>
+</nav> -->
+<!-- </center> -->
 <div id="recent-items-chart" class="flot-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" width="761" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 761px; height: 150px;"></canvas><canvas class="flot-overlay" width="761" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 761px; height: 150px;"></canvas></div>
 </div>
 
@@ -242,7 +260,7 @@
        layer.confirm('您确定要删除吗？', {
           btn: ['确定','取消'] //按钮
         }, function(){
-          $.post('{{ url("admin/order") }}/'+id,{'_token':'{{ csrf_token() }}','_method':'delete' },function(data){
+          $.post('{{ url("shop/order") }}/'+id,{'_token':'{{ csrf_token() }}','_method':'delete' },function(data){
             if(data > 0){
                 layer.msg('删 除 成 功');
                 $('#remove').remove();

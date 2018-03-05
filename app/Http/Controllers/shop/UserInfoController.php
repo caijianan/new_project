@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\shop;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Http\Model\h_user;
-
-class HuserController extends Controller
+class UserInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,7 @@ class HuserController extends Controller
      */
     public function index()
     {
-        $res = h_user::get();
-        return view('home.Huser.index',['res'=>$res]);
+        dd('我的中心');    
     }
 
     /**

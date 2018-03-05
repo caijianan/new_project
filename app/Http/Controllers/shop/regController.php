@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\shop;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Model\shop;
 
-class ShopController extends Controller
+class regController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $shoplist = shop::all();
-        return view('home.shop.index',['shoplist'=>$shoplist]);
+        dd('商家注册');
     }
 
     /**

@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\shop;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\model\h_like;
 
-
-class UserinfoController extends Controller
+class SCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +16,7 @@ class UserinfoController extends Controller
      */
     public function index()
     {
-        $data= h_like::where('uid','1')->get();
-        // dd($data);
-        foreach($data as $k => $v){
-            $food_info[] = $v->h_shop;
-        }
-        return view('home.like.index',['food_info'=>$food_info]);
+        dd('商家评论');
     }
 
     /**
@@ -89,7 +82,6 @@ class UserinfoController extends Controller
      */
     public function destroy($id)
     {
-        $row = h_like::where('id',$id)->delete();
-        return $row;
+        //
     }
 }

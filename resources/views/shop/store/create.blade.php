@@ -1,6 +1,6 @@
-@extends('admin.layout.index')
+@extends('shop.layout.index')
 @section('content')
-                 <section id="content">
+<section id="content">
                 <div class="container">
                     <div class="block-header">
 
@@ -12,7 +12,7 @@
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
-                            <form action="{{ url('admin/shop') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ url('shop/store') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-8">                       

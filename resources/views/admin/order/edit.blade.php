@@ -1,5 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
+	 <section id="content">
 	<div class="container">
 		<div class="card">
 
