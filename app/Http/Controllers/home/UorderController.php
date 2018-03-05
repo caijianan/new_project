@@ -20,7 +20,7 @@ class UorderController extends Controller
     public function index()
     {
         $uid = session('userinfo')->id;
-        // dd($uid);
+        
         $data = h_order::where('uid',$uid)
                        ->get();
         $sinfo = [];

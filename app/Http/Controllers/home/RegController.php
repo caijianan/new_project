@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
-use App\Http\Model\h_user;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Flc\Dysms\Client;
 use Flc\Dysms\Request\SendSms;
-use Session;
+use App\Http\Model\h_user;
+
 
 class regController extends Controller
 {
@@ -19,7 +20,6 @@ class regController extends Controller
      */
     public function index()
     {
-        //
         return view('home.user.reg');
     }
 
@@ -28,18 +28,17 @@ class regController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-
-        //阿里云发信息
         $code = mt_rand(100000, 999999);
         $phone = $request['phone'];
 
         //手机验证
         $config = [
-            'accessKeyId'    => 'LTAIhCYfe7Fm7AcD',
-            'accessKeySecret' => 'lqc56htVScbJ9KJYUPr6aqqS3tcOT8',
+            'accessKeyId'    => 'LTAIQDJXLzOMrh5S',
+            'accessKeySecret' => 'gUxZZNqwKspfEPwKIctle7T06bogEx',
         ];
+        
         $client  = new Client($config);
         $sendSms = new SendSms;
         $sendSms->setPhoneNumbers($phone);
@@ -50,10 +49,13 @@ class regController extends Controller
 
         // return response()->json(['msg' => $code]); // 返回验证码
         if($client->execute($sendSms)->Code == 'OK') {
+            session(['mycode'=>$code]);
             return response()->json(['msg' => '发送成功']);
         } else {
             return response()->json(['msg' => '发送失败']);
         }
+
+       
     }
 
     /**
@@ -64,8 +66,42 @@ class regController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd(1111);
+        $code = $request->input('code'); // 获取用户输入验证码
+        $data = $request->except('_token');
+        $put =  [];
+        if($code == session('mycode')) {
+            $res = h_user::where('uname',$data['username'])
+                         ->get();
+            if(count($res) >= 1){
+                return back()->with('error','用户名已存在');
+            }else{
+                $put['uname'] = $data['username'];
+                $tel = h_user::where('tel',$data['phone'])
+                             ->get();
+                if(count($tel) >= 1){
+                    return back()->with('error','电话号码已注册');
+                }else{
+                    $put['tel'] = $data['phone'];
+                    if($data['password'] !== $data['cpassword']){
+                        return back()->with('error','两次密码不一致');
+                    }else{
+                        $put['passwd'] = $data['password']; 
+                        $put['isshoper'] = 1;
+                        $put['uface'] = 'default.jpg';
+                        $info = h_user::insert($put);
+                        if($info){
+                            $userinfo = h_user::where('tel',$put['tel'])->first();
+                            session(['userinfo'=> $userinfo]);
+                            return redirect('home/shoplist')->with('success','注册成功');
+                        }else{
+                            return back()->with('error','系统繁忙，请稍后再试');
+                        }
+                    }
+                }
+             }
+        } else {
+            return back()->with('error','验证码错误');
+        }
     }
 
     /**

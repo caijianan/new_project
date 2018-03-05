@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin'],function(){
 	Route::resource('complain','admin\ComplainController');
 	// 后台审核模块
 	Route::resource('audit','admin\AuditController');
+	Route::get('achange/{id}','admin\AuditController@tongguo');
 	// 后台广告管理
 	Route::resource('advert','admin\AdvertController');
 });
@@ -48,7 +49,7 @@ Route::group(['prefix'=>'home'],function(){
 	//前台个人中心
 	Route::resource('userinfo','home\UserinfoController');
 	Route::resource('addr','home\AddrController');
-	Route::resource('pwd','home\PwdController');
+	
 	//前台登陆
 	Route::resource('login','home\LoginController');
 	//前台注册
@@ -57,6 +58,10 @@ Route::group(['prefix'=>'home'],function(){
 	Route::get('exit','home\LoginController@exit');
 	//前台订单
 	Route::resource('uorder','home\UorderController');
+	//前台用户信息修改
+	Route::resource('pwd','home\PwdController');
+	//前台注册商户
+	Route::resource('audit','home\AuditController');
 });                                                                                     
 
 // 商家模块

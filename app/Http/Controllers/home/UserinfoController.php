@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\model\h_like;
+use App\Http\model\h_user;
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 
 class UserinfoController extends Controller
@@ -18,7 +20,10 @@ class UserinfoController extends Controller
      */
     public function index()
     {
-        return view('home.like.userinfo');
+        $id = session('userinfo')->id;
+        $info = h_user::where('id',$id)
+                      ->first();
+        return view('home.like.userinfo',compact('info'));
     } 
 
     /**
@@ -61,7 +66,10 @@ class UserinfoController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        // dd(111111);
+        $id1 = $id;
+        return view('home.like.edit',compact('id1'));
     }
 
     /**
@@ -74,6 +82,39 @@ class UserinfoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data =$request->except('_method','_token');
+
+        $file            = $request->file('uface');
+        // 文件存放路径
+        $destinationPath = './user_pic';
+        // auface文件名
+       // dd( $data );
+        $uuface          = '';
+        if ($request->hasFile('uface')) {
+            //生成一个随机文件名（不含后缀）
+            $name            = time().rand(1000,9999);
+            // 获取文件后缀
+            $ext             = $file->getClientOriginalExtension();
+            $fileName        = $name.'.'.$ext;
+            $file->move($destinationPath, $fileName);
+            // 处理用户上传的图片
+            $img             = Image::make($destinationPath.'/'.$fileName);
+            $img->resize(47,47);
+            $img->save($destinationPath.'/sm_'.$fileName);
+            $uuface          .= $fileName;
+            $data['uface']  = $uuface;
+            // dd($data);
+        }else{
+            $data['uface']  = 'default.jpg';
+        }
+        $res = h_user::where('id',$id)
+                     ->update($data);
+        if($res){
+            return redirect('home/login')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
+
     }
 
     /**
@@ -84,8 +125,7 @@ class UserinfoController extends Controller
      */
     public function destroy($id)
     {
-        $row = h_like::where('id',$id)->delete();
-        return $row;
+
     }
 
 }

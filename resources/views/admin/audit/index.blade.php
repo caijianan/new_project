@@ -114,6 +114,9 @@
                         <font style="vertical-align: inherit;"><a href='{{ url("admin/audit/$v->id/edit")}}' class="btn btn-info">
                             <font style="vertical-align: inherit;">修改</font></a>
                         </font>&nbsp;
+                        <font style="vertical-align: inherit;"><a href='{{ url("admin/achange/$v->id")}}' class="btn btn-info">
+                            <font style="vertical-align: inherit;">通过</font></a>
+                        </font>&nbsp;
                         <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{$v->id}},this)" class="btn btn-danger">
                             <font style="vertical-align: inherit;">删除</font></a>
                         </font>

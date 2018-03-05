@@ -39,22 +39,27 @@
         
         <!-- Register -->
         <div class="lc-block toggled" id="l-register">
-        <form action="{{ url('/home/reg') }}" method="post" name="myform">
+        <form action="{{ url('home/reg') }}" method="post" name="myform">
         {{ csrf_field() }}
             <div class="input-group m-b-20">
                 <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
                 <div class="fg-line">
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="用户名">
                 </div>
             </div>
             
             <div class="input-group m-b-20">
                 <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
                 <div class="fg-line">
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
                 </div>
             </div>
-            
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+                <div class="fg-line">
+                    <input type="cpassword" name="cpassword" class="form-control" placeholder="再次输入密码">
+                </div>
+            </div>
             <div class="input-group m-b-20">
                 <span class="input-group-addon"><i class="zmdi zmdi-phone"></i></span>
                 <div class="fg-line">
@@ -103,7 +108,6 @@
                    type:'get',
                    url:'{{ url("home/reg/create") }}',
                    data:{ '_token':'{{  csrf_token() }}', 'phone':phone },
-
                    success:function(data){
                       // 倒计时开始
                       var time = 60;
@@ -120,19 +124,11 @@
                             code.removeClass("code1");
                           }
                         }, 1000);
-                        $(".code").after("<span>"+data+"</span>");
+                        $(".code").after("<span>"+data.msg+"</span>");
                       }
                       // 倒计时结束
-                    },
 
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    // 状态码
-                    console.log(XMLHttpRequest.status);
-                    // 状态
-                    console.log(XMLHttpRequest.readyState);
-                    // 错误信息   
-                    console.log(textStatus);
-                }
+                    }
                 });
             });
         </script>

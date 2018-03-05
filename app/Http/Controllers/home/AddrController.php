@@ -19,7 +19,10 @@ class AddrController extends Controller
     public function index()
     {
         //
-        $data = h_addr::where('uid',1)
+        // dd(session('userinfo'));
+        $uid = session('userinfo')->id;
+
+        $data = h_addr::where('uid',$uid)
                       ->get();
         return view('home.like.addr',compact('data'));
     }
@@ -43,8 +46,9 @@ class AddrController extends Controller
      */
     public function store(Request $request)
     {
+        $uid = session('userinfo')->id;
         $data = $request->except('_token');
-        $all = h_addr::where('uid',1)
+        $all = h_addr::where('uid',$uid)
                      ->get();
         if(count($all) >= 8){
             return back()->with('error','只能添加八个地址');
@@ -71,7 +75,7 @@ class AddrController extends Controller
                 return back()->with('error','请正确填写电话号码');
             }
         }
-        $data['uid'] =  1;
+        $data['uid'] =  $uid;
         $data['default'] = 1;
         $res = h_addr::create($data);
         if($res){
@@ -117,7 +121,7 @@ class AddrController extends Controller
     {
         $data = $request->except('_method','_token');
         $all = h_addr::where('default',2)
-                     ->where('uid',1)
+                     ->where('uid',$id)
                      ->get();
         if(count($all) >= 1 && $data['defalutT'] != '常用地址'){
             $data['default'] = 1;

@@ -1,39 +1,39 @@
 @extends('home.layout.userinfo')
 @section('userinfo')
-    <div class="main-content"> 
+<div class="main-content"> 
         <div class="content-header"> 
-         <h2>修改密码</h2> 
+         <h2>修改个人信息</h2> 
         </div> 
         <div class="content-inner profile-changepwd"> 
-         <form class="form-horizontal" method="post"  action="{{url('home/pwd/'.$id)}}"> 
+         <form class="form-horizontal" method="post"  action="{{url('home/userinfo/'.$id1)}}" enctype="multipart/form-data"> 
           <input type="hidden" name="_method" value="PUT">
           <input type="hidden" name="_token" value="{{ csrf_token()}}">
           
            <div class="control-group clear-fix"> 
            
             
-            <label class="control-label" for=""><span class="required">*</span>原密码</label> 
+            <label class="control-label" for=""><span class="required">*</span>用户名</label> 
             <div class="controls"> 
-             <input name="opassword" id="sf_guard_user_old_pwd" type="password"> 
-             <p class="help-block">(请输入现在正在使用的密码)</p> 
-            </div>
-            <!--end input--> 
-           </div>
-           <!--end clearfix--> 
-           <div class="control-group"> 
-            <label class="control-label" for=""><span class="required">*</span>新密码</label> 
-            <div class="controls"> 
-             <input name="passwd" id="sf_guard_user_new_pwd" type="password"> 
-             <p class="help-block">（请输入新密码）</p> 
+             <input name="uname" id="sf_guard_user_old_pwd" type="text"> 
+             <p class="help-block">(请输入现在正在使用的用户名)</p> 
             </div>
             <!--end input--> 
            </div>
            <!--end clearfix--> 
            <div class="control-group clear-fix"> 
-            <label class="control-label" for=""><span class="required">*</span>重复新密码</label> 
+            <label class="control-label" for=""><span class="required">*</span>用户头像</label> 
             <div class="controls"> 
-             <input name="rpassword" id="sf_guard_user_repeat_pwd" type="password"> 
-             <p class="help-block">(请再输入一次新密码)</p> 
+             <input name="uface" id="sf_guard_user_repeat_pwd" type="file"> 
+             <p class="help-block">(请选择头像)</p> 
+            </div>
+            <!--end input--> 
+           </div>
+           <div class="control-group clear-fix"> 
+            <label class="control-label" for=""><span class="required">*</span>用户性别</label> 
+            <div class="controls"> 
+             男<input name="sex" type="radio" value="1">
+             女 <input type="radio" name="sex" value="2">	 
+             <p class="help-block">(请选择性别)</p> 
             </div>
             <!--end input--> 
            </div>
@@ -60,4 +60,5 @@
 
         </div> 
        </div>
+
 @endsection

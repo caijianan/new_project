@@ -1,5 +1,8 @@
 @extends('home.layout.index')
 @section('content')
+<style type="text/css">
+  .shop-list{display: inline-block;} .shop-list li.li{float: left;margin: 10px 40px 0px 0px;border: 1px solid #ccc;}
+</style>
 <div class="container"> 
     <div id="promotion_banner" class="promotion-banner"> 
      <div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; width: 950px; height: 80px; margin: 0px; overflow: hidden;"><ul id="promotion_carousel" class="carousel-wrapper" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; height: 880px; width: 950px; z-index: auto;"> 
@@ -100,13 +103,9 @@
         </div> 
        </div> 
        <div class="span12"> 
-        <table class="restaurant-list-table"> 
-         <tbody> 
-          <tr> 
-          </tr> 
-          <tr> 
+          <ul class="shop-list">
           @foreach( $shoplist as $v)
-           <td> 
+           <li class="li"> 
             <div class="restaurant-block  " id="restaurant-110720" rel="110720" data-restaurantid="110720"> 
              <div class="favor-book"> 
               <span class="favor-icon hidden"></span>
@@ -160,11 +159,9 @@
               </div> 
              </div> 
             </div>
-            </td> 
+            </li>
             @endforeach
-          </tr> 
-         </tbody> 
-        </table> 
+          </ul>
        </div> 
       </div> 
      </div> 

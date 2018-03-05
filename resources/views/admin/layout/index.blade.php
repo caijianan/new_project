@@ -404,7 +404,6 @@
                         <a href=""><i class="zmdi zmdi-trending-up"></i>审核商户</a>
                         <ul>
                             <li><a href="{{ url('admin/audit') }}">审核列表</a></li>
-                            <li><a href="{{ url('admin/audit/create') }}">添加审核</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
