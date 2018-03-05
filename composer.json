@@ -11,6 +11,10 @@
         "zgldh/qiniu-laravel-storage": "^0.9.0",
         "flc/dysms": "^1.0",
         "gregwar/captcha": "1.*"
+        "tanwen/cart": "^1.02",
+        "syscover/shoppingcart": "^2.0",
+        "syscover/shopping-cart": "^2.0",
+        "gloudemans/shoppingcart": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

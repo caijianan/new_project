@@ -52,8 +52,12 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $res = h_order::where('id',1)->first();
-        $o_res = $res->order_info;
+
+
+        $res = h_order::where('id',$id)->first();
+        
+        $o_res = $res->order_info; 
+        // dd($o_res); 
         $arr = [];
         foreach ($o_res as $key => $value) {
             $arr[]  = h_food::where('id',$value->fid)->first();
@@ -69,7 +73,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        $data = h_order::where('id',1)->first();
+        $data = h_order::where('id',$id)->first();
         return view('admin.order.edit',['data'=>$data]);
     }
 
@@ -83,6 +87,7 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         $res = $request->except('_token','_method');
+
         $row = h_order::where('id',$id)->update($res);
         if($row > 0){
             return redirect('admin/order')->with('success','修 改 订 单 成 功');

@@ -27,6 +27,8 @@
             margin-bottom: 20px;
         }
         </style>
+
+        <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="/layer/layer.js"></script>
     </head>
         
@@ -555,7 +557,9 @@
             <script src="/layer/layer.js"></script>
 
 
-            <section id="">
+
+
+            <section id="content">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger" >
                         <ul>
@@ -652,7 +656,7 @@
         
         <!-- Javascript Libraries -->
         
-        <script src="/d/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
         
         <script src="/d/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         

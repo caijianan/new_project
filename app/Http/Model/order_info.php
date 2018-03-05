@@ -12,5 +12,6 @@ class order_info extends Model
     public function h_food()
     {
     	return $this->hasMany('App\Http\model\h_food','id','fid');
+
     }
 }

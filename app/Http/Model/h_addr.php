@@ -15,4 +15,5 @@ class h_addr extends Model
 
 		protected $fillable = ['uid','rtel','tel','address','default'];
 
+
 }

@@ -54,7 +54,7 @@
                                         <tr>
                                             <td width="50%">
                                                 <h5 class="text-uppercase f-400">{{ $v->f_name }}</h5>
-                                                <p class="text-muted">{{ $v->f_content }}</p>
+
                                             </td>
                                             
                                             <td>¥ {{ $v->f_price }}</td>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\model\h_user;
 use Intervention\Image\ImageManagerStatic as Image;
 
+use App\Http\model\h_like;
 
 
 class UserinfoController extends Controller
@@ -34,6 +35,7 @@ class UserinfoController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -55,7 +57,7 @@ class UserinfoController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -126,6 +128,20 @@ class UserinfoController extends Controller
     public function destroy($id)
     {
 
+        $row = h_like::where('id',$id)->delete();
+        return $row;
     }
-
+    public function addlike($id)
+    {
+        $data = h_like::where('sid',$id)->first();
+        if(!empty($data)){
+            echo 0;
+        }else{
+            $data = [];
+            $data['uid'] = 1;
+            $data['sid'] = $id;
+            $row = h_like::insert($data);
+            echo $row;
+        }
+    }
 }

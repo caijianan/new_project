@@ -11,7 +11,9 @@
 |
 */
 
+
 Route::resource('/','home\ShopController');
+
 // 后台模块
 Route::group(['prefix' => 'admin'],function(){
 	Route::get('/',function(){
@@ -41,15 +43,13 @@ Route::group(['prefix' => 'admin'],function(){
 	// 后台广告管理
 	Route::resource('advert','admin\AdvertController');
 });
-
-
+// 前台模块
 Route::group(['prefix'=>'home'],function(){
 	// 前台商铺模块
 	Route::resource('shoplist','home\ShopController');
 	//前台个人中心
 	Route::resource('userinfo','home\UserinfoController');
 	Route::resource('addr','home\AddrController');
-	
 	//前台登陆
 	Route::resource('login','home\LoginController');
 	//前台注册
@@ -62,7 +62,32 @@ Route::group(['prefix'=>'home'],function(){
 	Route::resource('pwd','home\PwdController');
 	//前台注册商户
 	Route::resource('audit','home\AuditController');
-});                                                                                     
+	// 购物车
+	Route::get('car/{id}','home\ShopController@car');
+	// 修改购物车 + 
+	Route::get('increment/{id}/{increment}','home\ShopController@increment');
+	// 修改购物车 -
+	Route::get('decrease/{id}/{decrease}','home\ShopController@decrease');
+	// 删除购物车
+	Route::get('del/{id}','home\ShopController@del');
+	// 显示购物车
+	Route::get('showcar','home\ShopController@showcar');
+	// 个人中心
+	Route::resource('userinfo','home\UserinfoController');
+	// 收藏模块
+	Route::resource('like','home\LikeController');
+	Route::get('addlike/{id}','home\UserinfoController@addlike');
+	// 订单
+	Route::resource('order','home\OrderController');
+	// 评价
+	Route::resource('comment','home\CommentController');
+	// 显示评价模板
+	Route::get('comment/show/{fid}','home\CommentController@cshow');
+	// 添加评论
+	Route::post('comment/addcmt','home\CommentController@addcmt');
+
+});
+                                                                                   
 
 // 商家模块
 Route::group(['prefix'=>'shop'],function(){
@@ -88,5 +113,6 @@ Route::group(['prefix'=>'shop'],function(){
 	// 商户中心模块
 	Route::resource('userinfo','shop\UserInfoController');
 });
+//验证码
 Route::get('kit/captcha/{tmp}', 'home\LoginController@captcha');
 

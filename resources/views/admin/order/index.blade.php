@@ -16,7 +16,7 @@
                         <input type="text" class="form-control">
                         <label class="fg-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">订单号</font></font></label> 
                     </div>
-
+`
                 </div>
                 </div>
                 <div class="col-sm-1">
@@ -51,7 +51,7 @@
             <td>
                 <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">修改</font></a>
             </font>&nbsp;
-            <font style="vertical-align: inherit;"><a href="{{ url('admin/order/1/') }}" class="btn btn-success">
+            <font style="vertical-align: inherit;"><a href='{{ url("admin/order/$v->id") }}' class="btn btn-success">
                 <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
             <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger">
                 <font style="vertical-align: inherit;">删除</font></a></font>
@@ -227,12 +227,10 @@
     });
 
 </script>
-
-@endsection
 <script>
     function doDel(id)
     {
-       layer.confirm('您确定要删除吗？', {
+      layer.confirm('您确定要删除吗？', {
           btn: ['确定','取消'] //按钮
         }, function(){
           $.post('{{ url("admin/order") }}/'+id,{'_token':'{{ csrf_token() }}','_method':'delete' },function(data){
@@ -244,6 +242,8 @@
             }
           });
         });
-
     }
 </script>
+
+@endsection
+

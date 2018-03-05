@@ -6,11 +6,11 @@
     
       
   </script> 
-  <title>个人中心</title> 
+  <title>好吃点</title> 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
   <meta name="description" content="ele.me为你提供上海市登科保洁(长寿路店)附近的海量美食信息，
         你可以直接在上面下单订餐，叫外卖还能赚积分，更有惊喜好礼等你拿哦！" /> 
-  <meta name="mobile-agent" content="format=xhtml;url=http://m.ele.me/place/-615736186413943440" /> 
+  <meta name="mobile-agent" content="format=xhtml;url=http://m.ele.me/place/-615736186413943440" />
   <link href="/h/css/forward_201503262210.css" type="text/css" rel="stylesheet" /> 
   <!--[if (gte IE 7)&( lte IE 9)]>
 <link href="/h/css/forward_iehack_201503262210.css" type="text/css" rel="stylesheet" />
@@ -20,6 +20,7 @@
   <script src="/h/js/cdn_detect.js"></script> 
   <script src="/h/js/jquery-1.8.3.min.js"></script>
    <script src="/layer/layer.js"></script>
+
   <script>
 if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="CDNDown=1; domain=ele.me; expires="+d.toUTCString()+"; path=/";if(!window.localStorage.getItem("CDNBackup")){window.localStorage.setItem("CDNBackup",1);location.reload(true)}}
 </script> 
@@ -78,6 +79,7 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
   _gaq.push(['_addOrganic', 'baidu', 'kw']);
   _gaq.push(['_addOrganic', 'baidu', 'wd']);
   _gaq.push(["_addOrganic", "soso", "w"]);
+
   _gaq.push(['_trackPageview']);
 </script> 
   <script type="text/javascript" src="/h/js/head_201503262210.js"></script> 
@@ -185,7 +187,6 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
      </div> 
      <nav class="topbar-nav" role="navigation"> 
       <ul class="topbar-site-nav"> 
-       <li><a class="tnav-link" rel="nofollow" href="member_order.html">我的饿单</a></li> 
        <li><a class="tnav-link" rel="nofollow" href="gift.html">礼品中心</a></li> 
        <li><a class="tnav-link" rel="nofollow" href="http://t.dianping.com/home?latitude=31.239567&amp;longitude=121.437477&amp;distance=500&amp;utm_source=eleme1&amp;utm_medium=eleme&amp;utm_term=pc&amp;utm_content=1&amp;utm_campaign=f" target="_blank">附近团购</a></li> 
        <li><a class="tnav-link" rel="nofollow" href="support.html">联系客服</a></li> 
@@ -208,13 +209,12 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
                 <a rel="nofollow" href="{{url('home/reg')}}">注册</a> 
 
                 @endif
+
       </div> 
      </nav> 
     </div> 
    </header> 
    @section('content') 
-
-
    @show
    <footer class="site-footer"> 
     <p class="sfooter-link-list"> <a class="sfooter-link" href="http://kaidian.ele.me">我要开店</a> <a class="sfooter-link" href="contact.html">联系我们</a> <a class="sfooter-link" href="agreement.html">服务条款和协议</a> <a class="sfooter-link" href="sitemaps.html">站点地图</a> <a class="sfooter-link" href="http://jobs.ele.me">加入我们</a> </p> 
@@ -226,5 +226,5 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
  
   
  </body>
-</html>
 
+</html>

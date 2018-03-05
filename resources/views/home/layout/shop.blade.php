@@ -5,12 +5,6 @@
   <title>店铺 - 无留言-shop_comment_no.html</title> 
   <meta name="description" content="绝味鸭脖中华路店" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-
-
-  
-  
-
-
   <script>
     if(navigator.userAgent.indexOf("MSIE")!=-1 && !window.localStorage){}
   </script> 
@@ -20,7 +14,8 @@
   <script>
     if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie='CDNDown=1; domain=v5.ele.me; expires='+d.toUTCString()+'; path=/';if(!window.localStorage.getItem('CDNBackup')){window.localStorage.setItem('CDNBackup',1);location.reload(true)}}
   </script> 
-  <script class="usemin" src="h/js/modernizr.custom.min.f49cdc05.js"></script> 
+
+  <script class="usemin" src="/h/js/modernizr.custom.min.f49cdc05.js"></script> 
   <script>
       var startTime = new Date().getTime();
       var ELEME = window.ELEME || {};
@@ -195,7 +190,8 @@
    <a id="back_top" class="btn-back-top ui_invisible" role="button" title="回顶部"><i class="icon-backtop"></i></a> 
    <div class="btn-app-qrcode"> 
     <i class="icon-qrcode"></i> 
-    <img class="img-qrcode" src="h/images/app-qrcode.20cdda49.png" alt="扫描二维码免费下载手机App" /> 
+
+    <img class="img-qrcode" src="/h/images/app-qrcode.20cdda49.png" alt="扫描二维码免费下载手机App" /> 
    </div> 
    <a class="btn-site-feedback" href="http://kaidian.ele.me" target="_blank">我要开店</a> 
    <a class="btn-site-feedback" href="help.html" target="_blank">热门问题</a> 
@@ -203,7 +199,7 @@
    <div style="display:none;">
     <a href="http://www.live800.com">在线聊天</a>
    </div> 
-   <script language="javascript" src="h/js/textButton.js?jid=1820947377&amp;companyID=402791&amp;configID=123801&amp;codeType=custom"></script> 
+   <script language="javascript" src="/h/js/textButton.js?jid=1820947377&amp;companyID=402791&amp;configID=123801&amp;codeType=custom"></script> 
    <!-- 在线客服图标:在线客服 结束--> 
   </div> 
   <footer class="site-footer group" role="contentinfo"> 
@@ -212,8 +208,8 @@
     <p class="sfooter-line"> 增值电信业务许可证：<a class="sfooter-link sfooter-link-zero" target="_blank" rel="nofollow" href="http://www.shca.gov.cn">沪B2-20150033</a> <a class="sfooter-link" target="_blank" rel="nofollow" href="http://www.miibeian.gov.cn">沪ICP备 09007032</a> <a class="sfooter-link" target="_blank" rel="nofollow" href="http://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20120305173227823">上海工商行政管理</a> Copyright &copy;2008-2015 ele.me, All Rights Reserved. </p> 
    </div> 
   </footer> 
-  <script class="usemin" src="h/js/vendor.7aa05b99.js"></script> 
-  <script class="usemin" src="h/js/global.8d3089f1.js"></script> 
+  <script class="usemin" src="/h/js/vendor.7aa05b99.js"></script> 
+  <script class="usemin" src="/h/js/global.8d3089f1.js"></script> 
   <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -329,6 +325,6 @@
       document.cookie = 'track_fingerprint_1=' + fingerprint + '; Expires=Wed, 31 Dec 2098 16:00:00 GMT; Domain=' + domain + '; Path=/';
     }();
     </script> 
-  <script class="usemin" src="/h/js/rstComment.85f43302.js"></script>   
+  <script class="usemin" src="/h/js/rstComment.85f43302.js"></script>
  </body>
 </html>

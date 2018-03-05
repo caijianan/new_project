@@ -4,6 +4,7 @@
   .shop-list{display: inline-block;} .shop-list li.li{float: left;margin: 10px 40px 0px 0px;border: 1px solid #ccc;}
 </style>
 <div class="container"> 
+
     <div id="promotion_banner" class="promotion-banner"> 
      <div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; width: 950px; height: 80px; margin: 0px; overflow: hidden;"><ul id="promotion_carousel" class="carousel-wrapper" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; height: 880px; width: 950px; z-index: auto;"> 
        
@@ -162,6 +163,7 @@
             </li>
             @endforeach
           </ul>
+
        </div> 
       </div> 
      </div> 
