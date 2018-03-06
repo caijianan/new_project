@@ -51,6 +51,7 @@
     </thead>
     <tbody>
         @foreach($res as $k=>$v)
+        @if ($v->o_status !== 1 )
         <tr id="remove">
             <td class="f-500 c-cyan">{{ $v->id }}</td>
             <td>{{ date('Y-m-d H:i:s',$v->o_ctime) }}</td>
@@ -66,14 +67,12 @@
             </td>
             <td class="f-500 c-cyan">¥&nbsp;{{ $v->o_sum }}</td>
             <td>
-            <!--     <font style="vertical-align: inherit;"><a href='{{ url("shop/order/$v->id/edit") }}' class="btn btn-info"><font style="vertical-align: inherit;">接单</font></a>
-            </font>&nbsp; -->
-            <font style="vertical-align: inherit;"><a href='{{ url("shop/order/$v->id/") }}' class="btn btn-success">
+                <font style="vertical-align: inherit;"><a href='{{ url("shop/order/$v->id/") }}' class="btn btn-success">
                 <font style="vertical-align: inherit;">详情</font></a></font> &nbsp;
-            <!-- <font style="vertical-align: inherit;"><a href="javascript:void(0)" onclick="doDel({{ $v->id }})" class="btn btn-danger">
-                <font style="vertical-align: inherit;">删除</font></a></font> -->
+            
             </td>
         </tr>
+          @endif
         @endforeach
     </tbody>
 </table>
