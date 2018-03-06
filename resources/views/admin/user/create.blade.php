@@ -56,15 +56,6 @@
                                         </div>
                                     </div>
                                     <br>
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-                                        <div class="fg-line">
-                                            <input type="text" name="nickname" class="form-control" placeholder="请填写昵称">
-                                        </div>
-                                    </div>
-                                    
-                                    <br>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
                                         <div class="fg-line">

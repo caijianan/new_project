@@ -16,13 +16,32 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $list = h_user::all();
+        // $list = h_user::all();
         // var_dump($res);
         // dd($res);
-        
-        return view('admin.user.index',['list'=>$list]);
+        $uname = empty($request->input('uname'))?'':$request->input('uname');
+        $sex = empty($request->input('sex'))?0:$request->input('sex');
+        if($sex == 0){
+            $where = '>';
+        }else{
+            $where = '=';
+        }
+        $list = h_user::where('sex',$where,$sex)
+                             ->where('uname','like',"%$uname%")
+                             ->get();
+        $tiao=count($list);
+         //dd($tiao);
+        $list = h_user::where('sex',$where,$sex)
+                             ->where('uname','like',"%$uname%")
+                             ->paginate(5);                     
+        $sou['uname'] = $uname;
+        $sou['sex']  = $sex;
+        // dd($sou);
+       
+        // return view('admin.user.index',['list'=>$list]);
+        return view('admin.user.index',compact('list','sou','tiao'));
     }
 
     /**
@@ -94,9 +113,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($uid)
+    public function edit($id)
     {
-        $list = h_user::where('uid',$uid)->first();
+        $list = h_user::where('id',$id)->first();
         // $list = h_user::find($uid);
         return view('admin.user.edit',['list'=>$list]);
        // return view('admin.user.edit');
@@ -109,13 +128,22 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $uid)
+    public function update(Request $request, $id)
     {
 
         $list = $request->except('_method', '_token');
         // dd($list);
         $file = $request->file('uface');
         // dd($file);
+        if($file== null){
+             $res = h_user::where('id', $id)->update($list);
+            // dd($res);
+            if($res){
+                return redirect('admin/user')->with('msg', '修改成功！');
+            }else{
+                return back()->with('msg', '修改失败！');
+            }
+        }
         $destinationPath = './user_pic';
         $uface = '';
         if ($request->hasFile('uface')) {
@@ -132,7 +160,7 @@ class UserController extends Controller
             $uface          .= $fileName;
             $arr['uface']  = $uface;
         }
-        $res = h_user::where('uid', $uid)->update($arr);
+        $res = h_user::where('id', $id)->update($arr);
         // dd($res);
         if($res){
             return redirect('admin/user')->with('msg', '修改成功！');
@@ -147,7 +175,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($uid)
+    public function destroy($id)
     {
          //===============================删除开始==========================================   
             // dd($uid);
@@ -160,7 +188,7 @@ class UserController extends Controller
         // dd($res);
         // ================================删除结束==========================================
         // dd($uid);
-        $res = h_user::where('uid',$uid)->delete();
+        $res = h_user::where('id',$id)->delete();
         // dd($res);
         if($res == 1){
             return $res;

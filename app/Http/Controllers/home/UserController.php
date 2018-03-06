@@ -15,10 +15,6 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home/user/member');  //用/也可以
-    }
-
+  
     
 }

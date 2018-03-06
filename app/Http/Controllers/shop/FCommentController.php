@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\shop;
 
 use Illuminate\Http\Request;
-
+use App\Http\Model\hf_comment;
+use App\Http\Model\h_user;
+use App\Http\Model\h_food;
+use App\Http\Model\shop;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class FCommentController extends Controller
 {
@@ -14,9 +18,39 @@ class FCommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd('食品评论');
+
+        $f_satis = $request->input('f_satis');
+        $where = [];
+        // dd($f_satis);
+        if($request->has('f_satis')){
+             if(!empty($f_satis) && $f_satis > 5){
+                $where['f_satis'] = $f_satis;
+                $cmt = hf_comment::where('f_satis','>',$f_satis)->paginate(5);
+
+            }
+            if(!empty($f_satis) && $f_satis < 5){
+               $where['f_satis'] = $f_satis;
+
+                $cmt = hf_comment::where('f_satis','<',$f_satis)->paginate(5);
+                // dd($cmt);
+            }
+        }
+       // var_dump($f_satis);
+        if(empty($f_satis)){
+            $cmt = hf_comment::where('sid',1)->paginate(5);
+        }
+        $count = count($cmt);
+        $uarr = [];
+        foreach($cmt as $k=>$v){
+            $uarr[] = $v->h_user;
+        }
+        $farr = [];
+        foreach($cmt as $k=>$v){
+            $farr[] = $v->h_food;
+        }
+        return view('shop.fcomment.index',['cmt'=>$cmt,'uarr'=>$uarr,'farr'=>$farr,'where'=>$where]);
     }
 
     /**
@@ -48,7 +82,18 @@ class FCommentController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = hf_comment::where('id', $id)->get();
+        $uname = [];
+        foreach ($data as $key=>$value) {
+            $uname[] = h_user::where('id',$value->uid)->value('uname');
+        }
+        // dd($uname);
+        $f_name = [];
+        foreach ($data as $key=>$value) {
+            $f_name[] = h_food::where('id',$value->fid)->value('f_name');
+        }
+        return view('shop.fcomment.show',compact('data','uname','f_name'));     
+        
     }
 
     /**
@@ -59,7 +104,7 @@ class FCommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -71,7 +116,7 @@ class FCommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

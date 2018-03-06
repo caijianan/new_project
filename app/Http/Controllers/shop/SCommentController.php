@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\shop;
 
 use Illuminate\Http\Request;
-
+use App\Http\Model\h_user;
+use App\Http\Model\shop;
 use App\Http\Requests;
+use App\Http\Model\hs_comment;
 use App\Http\Controllers\Controller;
 
 class SCommentController extends Controller
@@ -16,7 +18,17 @@ class SCommentController extends Controller
      */
     public function index()
     {
-        dd('商家评论');
+        $list = hs_comment::where('id', 1) -> get();
+        $uname = [];
+        foreach ($list as $key=>$value) {
+            $uname[$value->uid] = h_user::where('id',$value->uid)->value('uname');
+        }
+        // dd($f_name);
+        // dd($uname);
+        // dd($list['uname']);
+        return view('shop.scomment.index',compact('uname','list'));
+        
+        // return view('shop.scomment.index');
     }
 
     /**
@@ -48,7 +60,7 @@ class SCommentController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

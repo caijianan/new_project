@@ -45,7 +45,7 @@
                             <small>请按规定填写相关信息.</small>
                             
                             <br><br>
-                            <form action='{{ url("/admin/user/$list->uid") }}' method="post" enctype="multipart/form-data">
+                            <form action='{{ url("/admin/user/$list->id") }}' method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <!-- {{ method_field('PUT') }} -->
                             <input type="hidden" name="_method" value="put">
@@ -57,15 +57,6 @@
                                                 <input type="text" name="uname" class="form-control" value="{{ $list->uname }}">
                                         </div>
                                     </div>
-                                    <br>
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-                                        <div class="fg-line">
-                                            <input type="text" name="nickname" class="form-control" value="{{ $list->nickname }}">
-                                        </div>
-                                    </div>
-                                    
                                     <br>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>

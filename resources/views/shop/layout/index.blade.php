@@ -373,7 +373,6 @@
                     <li class="sub-menu">
                         <a href=""><i class="zmdi zmdi-comments" style="color:orange"></i> 我的评论</a>
                         <ul>
-                            <li><a href="{{ url('shop/scomment') }}">店铺评论</a></li>
                             <li><a href="{{ url('shop/fcomment') }}">商品评论</a></li>
                         </ul>
                     </li>

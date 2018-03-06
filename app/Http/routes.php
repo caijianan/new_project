@@ -1,4 +1,4 @@
-<?php
+                                                                                                                                                                                                                            <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -66,13 +66,5 @@ Route::group(['prefix'=>'shop'],function(){
 	Route::resource('userinfo','shop\UserInfoController');
 });
 
-//用户模块
-Route::group(['prefix'=>'/'],function(){
-	route::get('/',function(){
-		return view('home.layout.index');
-	});
-	//前台用户登录模块
-	Route::resource('login','home\LoginController');
-	//前台用户个人中心
-	Route::resource('user','home\UserController');
-});
+
+
