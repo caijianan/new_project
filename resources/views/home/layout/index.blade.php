@@ -163,7 +163,7 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
   <div class="full-content-wrapper"> 
    <header id="topbar" role="banner"> 
     <div class="container clearfix"> 
-     <a id="logo" href="index.html" title="饿了么" alt="饿了么" role="logo"> <i class="default-logo"></i> </a> 
+     <a id="logo" href="{{url('home/shoplist')}}" title="饿了么" alt="饿了么" role="logo"> <i class="default-logo"></i> </a> 
      <div class="mobile-wrap"> 
       <a id="topbar_mobile" class="topbar-mobile" href="/mobile" target="_blank" onclick="_gaq.push(['_trackEvent', 'topbar', 'click_mobile']);"><i class="icon-mobile"></i>手机客户端</a> 
       <div id="popup_mobile" class="popup-mobile"> 
@@ -223,7 +223,20 @@ if(!window.CDNReady){var d=new Date;d.setHours(d.getHours()+6);document.cookie="
   </div> 
   <script type="text/javascript" src="/h/js/foot_201503262210.js"></script> 
   <script src="/h/js/geoplace_201503262210.js"></script> 
- 
+   <script type="text/javascript">
+                @if(session('error'))
+                    layer.alert("{{ session('error') }}", {
+                    icon: 2,
+                })  
+                @endif
+                @if(session('success'))
+                    layer.alert("{{ session('success') }}", {
+                    icon: 1,
+                })   
+                @endif
+   
+
+          </script>
   
  </body>
 

@@ -14,8 +14,10 @@
 
 Route::resource('/','home\ShopController');
 
+Route::resource('admin/login','admin\LoginController');
+
 // 后台模块
-Route::group(['prefix' => 'admin'],function(){
+Route::group(['prefix' => 'admin','middleware' =>'adminlogin'],function(){
 	Route::get('/',function(){
 		return view('admin.layout.index');
 	});
@@ -43,17 +45,17 @@ Route::group(['prefix' => 'admin'],function(){
 	// 后台广告管理
 	Route::resource('advert','admin\AdvertController');
 });
-// 前台模块
-Route::group(['prefix'=>'home'],function(){
 	// 前台商铺模块
-	Route::resource('shoplist','home\ShopController');
+Route::resource('home/shoplist','home\ShopController');
+	//前台登陆
+Route::resource('home/login','home\LoginController');
+	//前台注册
+Route::resource('home/reg','home\RegController');
+// 前台模块
+Route::group(['prefix'=>'home','middleware' => 'homelogin'],function(){
 	//前台个人中心
 	Route::resource('userinfo','home\UserinfoController');
 	Route::resource('addr','home\AddrController');
-	//前台登陆
-	Route::resource('login','home\LoginController');
-	//前台注册
-	Route::resource('reg','home\RegController');
 	//前台注销
 	Route::get('exit','home\LoginController@exita');
 	//前台订单
